@@ -1,5 +1,5 @@
 # BubbleBoiBot
-This bot is a remake of a bot created by alekxeyuk that adds an easier command line interfact, the ability to easily run eighteen bots at the same time and adds an easier spam configuration.
+This bot is a remake of a bot created by alekxeyuk that adds an easier command line interface, the ability to easily run eighteen bots at the same time and adds an easier spam configuration.
 # How to install the bot:
 1. Download Python 3.7.4 here: https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe
 
