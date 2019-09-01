@@ -31,4 +31,27 @@ Line 56: `arguments = {"keywords": "dick", "limit":10, "print_urls":False, 'no_d
 `'type': 'x'` What type of picture will the bot search for on Google Images. I'd reccomend `'type': 'clipart'`. Default is photo.
 `'format': 'x'` I'd suggest leaving this as jpg.
 
-Line
+Line 89: `await sio.emit('userData' , {"name": "BubblyBoiBot", "code":"", "avatar": [-1, -1, -1, -1], "join": SETTINGS['join'], "language": SETTINGS['language'], "createPrivate": False})` `"name": "x"` This can be used to change the name of the bot when it joins the server. `"code:""` You can leave this blank. `"avatar": [-1, -1, -1, -1]` This can be used to set your avatar in the server. Leave it all as -1 to have no avater (may raise suspicion). You can leave the rest.
+
+Lines 114, 115 and 116: `await sio.emit("chat", u"CHANGE JOIN MESSAGE HERE")` These are the messages that will sent to the server on join. Leave it at three messages to avoid being kicked for spam. You can write whatever you want withtin the second `""`.
+
+Line 144: `await sio.emit("chat", u"CHANGE SPAM MESSAGE HERE")` This is the message that will be spammed to the se
+rver. You can write whatever you want within the second `""`.
+
+# How to turn off spamming (BubblyBoitBot.py):
+Go to Lines 114, 115, 116, 140, 141, 142, 144 and 145 and put a `#` in front of each line to cancel it out.
+
+# How to stop the bot from giving the word before drawing:
+Go to Line 202 and put a `#` in front of it to cancel it out.
+
+# Common Errors:
+```
+connection established.
+disconnected from server.
+disconnected from server.
+```
+This error means either; You are running too many bots one port or the server the bot tried to connect to was full. Solution: If the problem is caused by running more than six bots on one port, close any excessive bots on that port. There isn't exactly a solution to cause B other than, "Try again later".
+
+`Error: NoneType has no size attribute` This error means either; The image searched for by the bot doesn't work or you messed the code up somewhere. Solution: If caused by search, change the keyword you used. Remember to make `'exact_size': 'w', 'h'` the same size as the image you wanted from Google Images. If caused by messing up the code, try extracting the bot from the ZIP file again to completely redo any changes to the BubblyBoiBot.py file, or try `Ctrl+Z`ing out of it.
+
+# Thank You, PotassiumSnek#6853 (That's my discord).
