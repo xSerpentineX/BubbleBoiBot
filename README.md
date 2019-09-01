@@ -14,6 +14,12 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 pip install websockets aiohttp python-socketio requests git+https://www.github.com/hbldh/hitherdither Pillow google_images_download numpy
 ```
 7. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `loopAll.bat` file.
+
+
+# Thank you for installing the bot! We'd be even more thankful if you joined our discord server from the URL inside the file. You can use the discord server for support with installation and discussion with brand new friends.
+(We also have many great discord bots!)
+
+
 # How to customize the bot (loopAll.config):
 In the `loopAll.config` file (Inside the exec folder), you will find the following options: `hidden`, `delay`, `devSkip` and `startTimes`. `hidden` is set to false by default. Setting it to true will cause the bot windows to become hidden to the user outside of the task manager. Leaving it as false will set the bot windows to open minimized. `delay` sets how long the delay is between each bot starting. The default value is 1. `devSkip` simply stops any bots from running when using the `loopAll.bat` file. It is set to false by default and is only really used when testing the simple interface of the `loopAll.bat` program. Finally, `startTimes` sets how many bots will open on each of the three Skribbl.io ports (port5001, port5002, port5003) when running `loopAll.bat`. The default is 6. From testing, it appears the maximum is also six bots per port (Meaning at optimal time and without any errors, you can run up to eighteen bots on one computer).
 
