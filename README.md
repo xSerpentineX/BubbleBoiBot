@@ -1,4 +1,10 @@
-# Disclaimer: VirusTotal states, "57/58 scanners, including Avast, AVG, McAfee, Norton, claim that this is malware free. The only scanner that claims virus is obsecure, and claims it is adware (despite not giving the user ads, rather spamming servers.". So yes, people do like to fear monger :)
+# Disclaimer No.1: VirusTotal states, "57/58 scanners, including Avast, AVG, McAfee, Norton, claim that this is malware free. The only scanner that claims virus is obsecure, and claims it is adware, more than likely due to spamming.
+
+
+# Disclaimer No.2: There is a differance between a potentially unwanted program (PUP) and malware.
+
+
+# Disclaimer No.3: Quiet.exe is used in the .config file in the exec folder. Choice.exe is Windows, used for .bat
 
 
 # BubbleBoiBot
