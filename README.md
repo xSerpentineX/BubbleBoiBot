@@ -1,3 +1,6 @@
+# Disclaimer: VirusTotal states, "57/58 scanners, including Avast, AVG, McAfee, Norton, claim that this is malware free. The only scanner that claims virus is obsecure, and claims it is adware (despite not giving the user ads, rather spamming servers.". So yes, people do like to fear monger :)
+
+
 # BubbleBoiBot
 This bot is a remake of a bot created by alekxeyuk that adds an easier command line interface, the ability to easily run eighteen bots at the same time and adds an easier spam configuration.
 # How to install the bot:
