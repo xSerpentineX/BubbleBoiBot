@@ -94,7 +94,7 @@ async def on_connect():
     await sio.emit('userData' , {"name": "BubblyBoiBot", "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['join'], "language": SETTINGS['language'], "createPrivate": False})
     # Name: What the username will be in the server.
     # Code: No Idea what this does to be honest.
-    # Avatar: Sets value of each avatar piece (eyes, etc). Leave at -1 for blank.
+    # Avatar: Set to -1 for blank, set to num1-4 for random.
     # Ignore the rest, it's coming from line 16.
 
 
