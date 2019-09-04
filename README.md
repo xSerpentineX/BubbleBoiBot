@@ -9,6 +9,16 @@ Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `lo
 
 # BubbleBoiBot
 This bot is a remake of a bot created by alekxeyuk that adds an easier command line interface, the ability to easily run eighteen bots at the same time and adds an easier spam configuration.
+
+
+# Features:
+- 18 Bots per computer, easily managed via a .bat file.
+- Customizable features in both `BubblyBoiBot.py` and `loopAll.config`.
+- Auto-Spam that will halt on other people's chat to make it less suspecious, but still works efficiently.
+- Auto-Drawing that uses an image search to search custom keywords.
+- Auto-Reconnect so you can leave the bot running without worrying about kicks.
+
+
 # How to install the bot:
 1. Download Python 3.7.4 here: https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe
 
