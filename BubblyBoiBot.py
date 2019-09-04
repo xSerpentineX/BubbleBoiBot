@@ -10,6 +10,7 @@ from io import BytesIO
 from random import choice, randint, shuffle
 from PIL import Image, ImageDraw, ImageFont
 import google_images_download
+import random as r
 
 clear = True
 
@@ -86,7 +87,11 @@ async def on_connect():
     On connection to the lobby we must introduce ourselves
     """
     print('connection established')
-    await sio.emit('userData' , {"name": "BubblyBoiBot", "code":"", "avatar": [-1, -1, -1, -1], "join": SETTINGS['join'], "language": SETTINGS['language'], "createPrivate": False})
+    num1 = r.randint(1, 5)
+    num2 = r.randint(1, 5)
+    num3 = r.randint(1, 5)
+    num4 = r.randint(1, 5)
+    await sio.emit('userData' , {"name": "BubblyBoiBot", "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['join'], "language": SETTINGS['language'], "createPrivate": False})
     # Name: What the username will be in the server.
     # Code: No Idea what this does to be honest.
     # Avatar: Sets value of each avatar piece (eyes, etc). Leave at -1 for blank.
