@@ -17,6 +17,7 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 - Auto-Spam that will halt on other people's chat to make it less suspecious, but still works efficiently.
 - Auto-Drawing that uses an image search to search custom keywords.
 - Auto-Reconnect so you can leave the bot running without worrying about kicks.
+- Random Avatar selector to stop suspiscion.
 
 
 # How to install the bot:
