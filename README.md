@@ -46,7 +46,7 @@ pip install websockets aiohttp python-socketio requests Pillow google_images_dow
 In the `loopAll.config` file (Inside the exec folder), you will find the following options: `hidden`, `delay`, `devSkip` and `startTimes`. `hidden` is set to false by default. Setting it to true will cause the bot windows to become hidden to the user outside of the task manager. Leaving it as false will set the bot windows to open minimized. `delay` sets how long the delay is between each bot starting. The default value is 1. `devSkip` simply stops any bots from running when using the `loopAll.bat` file. It is set to false by default and is only really used when testing the simple interface of the `loopAll.bat` program. Finally, `startTimes` sets how many bots will open on each of the three Skribbl.io ports (port5001, port5002, port5003) when running `loopAll.bat`. The default is 6. From testing, it appears the maximum is also six bots per port (Meaning at optimal time and without any errors, you can run up to eighteen bots on one computer).
 
 # How to customize the bot:
-# Remember you must save the file as UTF-8! ASCII may not work.
+# Remember you must save the file as UTF-8!
 Open the `settings.json` file with your text editor and customize the bot with the following options:
 
 `BotName: "BubblyBoiBot"` You can change the bot name when connection to a server here.
