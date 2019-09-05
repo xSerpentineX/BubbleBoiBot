@@ -1,0 +1,13 @@
+{
+	"BotName": "BubblyBoiBot", // Bot name
+	"Port": 5001, // Managed by commandline
+	"Join": "PBNAay2Sia", // Private game to join
+	"Language": "English", // Server language to join
+	"Shuffle": true, // Draw image randomly
+	"RandomImage": true, // Select random image from images folder
+	"ImageToDraw": "", // If randomImage false select image to draw
+	"OnlyUser": false, // Enable search for a user
+	"OnlyUserName": "bot1010101", // Username to search for
+	"X": 3, // Image optimization variables do not change
+	"Y": 4 // Image optimization variables do not change
+}
