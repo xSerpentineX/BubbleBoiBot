@@ -10,8 +10,8 @@
 	// Image Settings (YOU MUST USE .jpg!)
 	
 	"Shuffle": true, // Draw the image randomly. Don't get this confused with RandomImage.
-	"RandomImage": false, // Set this option to true to select a random image from the images folder.
-	"ImageToDraw": "", // If the RandomImage option is set to false, enter the image name here, including the file extension.
+	"RandomImage": true, // Set this option to true to select a random image from the images folder.
+	"ImageToDraw": "BubbleBoiBotLogo.png", // If the RandomImage option is set to false, enter the image name here, including the file extension.
 	
 	
 	// Search Settings
