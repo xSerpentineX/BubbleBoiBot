@@ -19,7 +19,7 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 - Automated Reconnect on kick.
 - Automatic Searching for users (Joins a game, checks for a user, if user is not there, joins another game).
 - .bat support for easier running and management.
-- An active discord community.
+- An active discord community of 50+ members.
 
 
 # How to install the bot:
@@ -66,7 +66,8 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"OnlyUserName": "yourusernamehere"` Specify which username to search for.
 
-Do not change any settings under the "DO NOT CHANGE" category.
+`"RandomAvatar": true` If set to false the avatar will be transparent. If set to true, your avatar will be random.
+
 All files in the `images` folder must be images.
 Image names are case and symbol sensitive and you must include the file extension.
 
