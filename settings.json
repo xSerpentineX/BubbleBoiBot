@@ -5,7 +5,7 @@
 	"Port": 5001, // This is the port managed by the command line. LoopAll.bat runs on all three ports. You only need to change this when joining private games.
 	"Join": "", // Enter the private game code (The string of characters after the '?' in the private game link) here. This is also where you would test each port seperately.
 	"Language": "English", // Select what servers you wish to join (i.e Join the English servers).
-	"RandomAvatar": true, // If set to false the avatar will be transparent.
+	"RandomAvatar": true, // If set to false the avatar will be transparent. If set to true, your avatar will be random.
 	
 	// Image Settings (YOU MUST USE .jpg!)
 	
