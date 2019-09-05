@@ -67,8 +67,8 @@ Open the `settings.json` file with your text editor and customize the bot with t
 `"OnlyUserName": "yourusernamehere"` Specify which username to search for.
 
 Do not change any settings under the "DO NOT CHANGE" category.
-# All files in the `images` folder must be images.
-# Image names are case and symbol sensitive and you must include the file extension.
+All files in the `images` folder must be images.
+Image names are case and symbol sensitive and you must include the file extension.
 
 
 # How to turn off auto-spam:
