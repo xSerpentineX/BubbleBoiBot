@@ -56,6 +56,8 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"Language": "English"` Select what servers you wish to join (i.e Join the English servers).
 
+`"RandomAvatar": true` If set to false the avatar will be transparent. If set to true, your avatar will be random.
+
 `"Shuffle": true` Draw the image randomly as opposed to moving up or down the image. Don't get this confused with "RandomImage".
 
 `"RandomImage": false` Select a random image from the `images` folder.
@@ -65,8 +67,6 @@ Open the `settings.json` file with your text editor and customize the bot with t
 `"OnlyUser": false` Enable the automatic searching feature.
 
 `"OnlyUserName": "yourusernamehere"` Specify which username to search for.
-
-`"RandomAvatar": true` If set to false the avatar will be transparent. If set to true, your avatar will be random.
 
 All files in the `images` folder must be images.
 Image names are case and symbol sensitive and you must include the file extension.
