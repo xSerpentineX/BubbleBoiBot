@@ -7,12 +7,11 @@ import asyncio
 import socketio
 import requests
 import commentjson
+import random as r
 import hitherdither
 from io import BytesIO
 from random import choice, randint, shuffle
 from PIL import Image, ImageDraw, ImageFont
-import google_images_download
-import random as r
 
 clear = True
 
@@ -31,7 +30,6 @@ if len(sys.argv) == 2:
     
 GAME_DATA = {'died': False}
 sio = socketio.AsyncClient(logger=False, reconnection=True)  # U can turn logger True, if u need to catch events that are not described in current version of program
-response = google_images_download.googleimagesdownload()     # For this program to work u need modified google_images_download module
 
 # Read spam.txt file
 f = open("spam.txt")
@@ -56,16 +54,6 @@ palette = hitherdither.palette.Palette(
 )
 
 async def dither(word):
-    """
-    Here we are creating list of arguments for googleimagesdownload module,
-    then we get response that is a list of links to images,
-    then we trying to get working link for working image,
-    then we load it into memory and dither it using cluster_dot_dithering algorithm
-    """
-    #img = Image.new('RGB', (800, 600), (255, 255, 255))
-    #d = ImageDraw.Draw(img)
-    #d.text((10, 10), f'TesT TesT', fill=(0, 0, 0), font=ImageFont.truetype("v_Compacta_Blk_BT_v1.5.ttf", 85))
-    
     if (SETTINGS["RandomImage"]):
         path ='images/'
         files = os.listdir(path)
@@ -73,6 +61,7 @@ async def dither(word):
         image2Draw = files[index]
     else:
         image2Draw = SETTINGS["ImageToDraw"]
+
     print("Drawing: " + image2Draw)
     img = Image.open("images/" + image2Draw)
     img = img.resize((int(200), int(150)))                                                              # Here you can change end size of image, but don't forget to also change pixel draw size in parent function
@@ -96,15 +85,18 @@ async def on_connect():
     On connection to the lobby we must introduce ourselves
     """
     print('connection established')
-    num1 = r.randint(1, 5)
-    num2 = r.randint(1, 5)
-    num3 = r.randint(1, 5)
-    num4 = r.randint(1, 5)
+    if (SETTINGS["RandomAvatar"]):
+        num1 = r.randint(1, 5)
+        num2 = r.randint(1, 5)
+        num3 = r.randint(1, 5)
+        num4 = r.randint(1, 5)
+    else:
+        num1 = -1
+        num2 = -1
+        num3 = -1
+        num4 = -1
+
     await sio.emit('userData' , {"name": SETTINGS['BotName'], "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['Join'], "language": SETTINGS['Language'], "createPrivate": False})
-    # Name: What the username will be in the server.
-    # Code: No Idea what this does to be honest.
-    # Avatar: Set to -1 for blank, set to num1-4 for random.
-    # Ignore the rest, it's coming from line 16.
 
 
 @sio.on('lobbyConnected')
@@ -162,7 +154,7 @@ async def on_chat(data):
         print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
         if clear == True:
             clear = False
-            time.sleep(2)
+            time.sleep(1.4)
             await sendSpamMessage()
             clear = True
     else:
