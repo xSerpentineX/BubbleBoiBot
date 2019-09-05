@@ -308,4 +308,7 @@ if __name__ == '__main__':
     loop.run_until_complete(start_server())
     loop.close()
 
-# Thank you for using our bot.                      
+# Thank you for using our bot.    
+# Original bot created by alekxeyuk.
+# Spam intergration and eighteen bot running created by PotassiumSnek#6853.
+# .bat support, exec and .config created by ! [( TheGamerX )]#7912.
