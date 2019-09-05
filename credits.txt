@@ -1,11 +1,6 @@
-Credits
+# Thank you for using our bot.
 
-Original Bot made by alekxeyuk (Copyright (c) 2019 alekxeyuk).
-
-Spam Intergration + 18 Bot (6/port) use made by PotassiumSnek#6853 (Discord).
-
-.bat, .config support and exec made by ! [( TheGamerX )]#7912 (Discord).
-
-Official BubblyBoiBot server created by PotassiumSnek#6853 (Discord).
-
-Official BubblyBoiBot server managed by PotassiumSnek#6853, ! [( TheGamerX )]#7912 and Kittler#4652
+# Original bot created by alekxeyuk.
+# Spam intergration and eighteen bot running created by PotassiumSnek#6853.
+# .bat support, exec and .config created by ! [( TheGamerX )]#7912.
+# Discord community server managed by PotassiumSnek#6853, ! [( TheGamerX )]#7912 and Kittler#4652
