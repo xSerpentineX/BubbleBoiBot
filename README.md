@@ -77,7 +77,7 @@ Open `spam.txt` and leave line one completely blank.
 
 
 # How to stop the bot from giving the word before drawing:
-Go to Line 219 and put a `#` in front of it to cancel it out.
+Go to Line 221 and put a `#` in front of it to cancel it out.
 
 
 # Common Errors:
