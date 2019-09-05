@@ -290,13 +290,6 @@ async def on_lobbyPlayerDrawing(data):
             if line[0][1] != 0:                                         # We loop through image
                 await sio.emit('drawCommands', line)                    # Draw line
 
-async def keep_alive():
-    """
-    U can use it if you want to spam smthin in the chat
-    """
-    while not GAME_DATA['died']: 
-        time.sleep(2)
-        await sio.emit('chat', f'{hi}')
 
 async def start_server():
     await sio.connect(f"wss://skribbl.io:{SETTINGS['port']}/")
