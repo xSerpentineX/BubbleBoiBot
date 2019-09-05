@@ -88,7 +88,7 @@ disconnected from server.
 ```
 This error means either; You are running too many bots one port or the server the bot tried to connect to was full. Solution: If the problem is caused by running more than six bots on one port, close any excessive bots on that port. There isn't exactly a solution to cause B other than, "Try again later".
 
-`ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` Unknown cause. If you figure out the cause, contact us through our discord please. We will credit you. Solution: Try using a different image.
+`ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` YOU MUST NOT USE TRANSPARENT FILES.
 
 `Error: NoneType has no size attribute` This error means either; The image searched for by the bot doesn't work or you messed the code up somewhere. Solution: If caused by search, change the keyword you used. Remember to make `'exact_size': 'w', 'h'` the same size as the image you wanted from Google Images. If caused by messing up the code, try extracting the bot from the ZIP file again to completely redo any changes to the BubblyBoiBot.py file, or try `Ctrl+Z`ing out of it.
 
