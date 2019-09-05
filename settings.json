@@ -1,13 +1,27 @@
 {
+	// Join Settings
+	
 	"BotName": "BubblyBoiBot", // Change this to change the name of the bot when connecting to a server.
 	"Port": 5001, // This is the port managed by the command line. LoopAll.bat runs on all three ports. You only need to change this when joining private games.
 	"Join": "", // Enter the private game code (The string of characters after the '?' in the private game link) here. This is also where you would test each port seperately.
 	"Language": "English", // Select what servers you wish to join (i.e Join the English servers).
+	
+	
+	// Image Settings
+	
 	"Shuffle": true, // Draw the image randomly. Don't get this confused with RandomImage.
 	"RandomImage": false, // Set this option to true to select a random image from the images folder.
 	"ImageToDraw": "BubbleBoiBotLogo.png", // If the RandomImage option is set to false, enter the image name here, including the file extension.
+	
+	
+	// Search Settings
+	
 	"OnlyUser": false, // Set this option to true for the bot to join a server, leave and reconnect continously until it finds a specific username in the server.
 	"OnlyUserName": "yourusernamehere", // If the option, "OnlyUser" is set to true, please specify the user here. CaSe SpECiFic. $YMB()L $P£CIFIC.
+	
+	
+	// SETTINGS YOU MUST NOT CHANGE
+	
 	"X": 3, // DO NOT CHANGE.
 	"Y": 4 // DO NOT CHANGE.
 }
