@@ -31,13 +31,13 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 
 5. In the windows shell, enter the following command:
 ```
-pip install websockets aiohttp python-socketio requests Pillow google_images_download numpy
+pip install websockets aiohttp python-socketio requests Pillow google_images_download numpy commentjson
 ```
 6. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `loopAll.bat` file.
 
 
-# Thank you for installing the bot! We'd be even more thankful if you joined our discord server from the URL inside the file. You can use the discord server for support with installation and discussion with brand new friends.
-(We also have many great discord bots!)
+**Thank you for installing the bot! We'd be even more thankful if you joined our discord server from the URL inside the file. You can use the discord server for support with installation and discussion with brand new friends.**
+(We also have many great discord bots in our server!)
 
 
 # How to customize the bot (loopAll.config):
