@@ -7,7 +7,7 @@
 	"Language": "English", // Select what servers you wish to join (i.e Join the English servers).
 	"RandomAvatar": true, // If set to false the avatar will be transparent. If set to true, your avatar will be random.
 	
-	// Image Settings (YOU MUST USE .jpg!)
+	// Image Settings (YOU MUST USE TRANSPARENT FILES)
 	
 	"Shuffle": true, // Draw the image randomly. Don't get this confused with RandomImage.
 	"RandomImage": true, // Set this option to true to select a random image from the images folder.
