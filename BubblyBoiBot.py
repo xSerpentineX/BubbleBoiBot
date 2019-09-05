@@ -100,7 +100,7 @@ async def on_connect():
     num2 = r.randint(1, 5)
     num3 = r.randint(1, 5)
     num4 = r.randint(1, 5)
-    await sio.emit('userData' , {"name": SETTINGS["BotName"], "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['Join'], "language": SETTINGS['Language'], "createPrivate": False})
+    await sio.emit('userData' , {"name": SETTINGS['BotName'], "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['Join'], "language": SETTINGS['Language'], "createPrivate": False})
     # Name: What the username will be in the server.
     # Code: No Idea what this does to be honest.
     # Avatar: Set to -1 for blank, set to num1-4 for random.
@@ -125,6 +125,7 @@ async def on_lobbyConnected(data):
             doLeave = True
 
     if not doLeave and SETTINGS['OnlyUser']:
+        print("Info: Leaving because " + SETTINGS["OnlyUserName"] + " not found")
         os._exit(1)
 
     GAME_DATA.update({'players' : {player['id'] : {'name': player['name'], 'score': player['score'], 'guessedWord': player['guessedWord']} for player in data['players']}})
