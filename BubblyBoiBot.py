@@ -37,7 +37,7 @@ text2spam = f.readline()
 f.close()
 
 # Check text2spam Variable
-if len(text2spam.replace("%random", str(random.randint(0, 99)))) > 100:
+if len(text2spam.replace("%random", str(r.randint(0, 99)))) > 100:
     print("Warning: Text file is longer than 100 characters")
     print()
 
@@ -92,7 +92,7 @@ def GenRandomLine(length=8, chars=string.ascii_letters):
     return ''.join([choice(chars) for i in range(length)])
 
 async def sendSpamMessage():
-    await sio.emit("chat", text2spam.replace("%random", str(random.randint(0, 99))))
+    await sio.emit("chat", text2spam.replace("%random", str(r.randint(0, 99))))
 
 @sio.on('connect')
 async def on_connect():
