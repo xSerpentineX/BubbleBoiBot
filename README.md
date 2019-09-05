@@ -27,13 +27,13 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 
 3. On this GitHub page, click the green, "Clone or download." Buton and then click, "Download as ZIP." Then, extract the ZIP file somewhere on your computer. You will need to come to this file to run the bot, so save it somewhere rememerable.
 
-4. Install GIT here: https://git-scm.com/download/win                                                                                      When installing GIT, just click, "Next" until you reach the, "Install" button and click it.
-5. Do `windows + s` and type in the search, "Windows power shell". Right click it and then click, "Run as administrator."
-6. In the windows shell, enter the following command:
+4. Do `windows + s` and type in the search, "Windows power shell". Right click it and then click, "Run as administrator."
+
+5. In the windows shell, enter the following command:
 ```
-pip install websockets aiohttp python-socketio requests git+https://www.github.com/hbldh/hitherdither Pillow google_images_download numpy
+pip install websockets aiohttp python-socketio requests Pillow google_images_download numpy
 ```
-7. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `loopAll.bat` file.
+6. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `loopAll.bat` file.
 
 
 # Thank you for installing the bot! We'd be even more thankful if you joined our discord server from the URL inside the file. You can use the discord server for support with installation and discussion with brand new friends.
