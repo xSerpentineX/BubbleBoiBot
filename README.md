@@ -14,7 +14,7 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 # Features:
 - 18 Bots per computer, easily managed via a .bat file.
 - Customizable features in both `BubblyBoiBot.py` and `loopAll.config`.
-- Auto-Spam that will halt on other people's chat to make it less suspecious, but still works efficiently.
+- Auto-Spam that will halt on other people's chat to make it less suspicious, but still works efficiently.
 - Auto-Drawing that uses an image search to search custom keywords.
 - Auto-Reconnect so you can leave the bot running without worrying about kicks.
 - Random Avatar selector to stop suspiscion.
