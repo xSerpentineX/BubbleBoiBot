@@ -18,7 +18,7 @@ SETTINGS = {'port': '5001', 'join': '', 'language': 'English', 'x': 3, 'y': 4, '
 # Port: Skribbl.io has three ports; 5001, 5002 and 5003. Each port can have six bots on one machine, meaning 18 bots per machine at an optimal time.
 # Join: Join can be used if you wish to use private games. Put the code after the "?" in the link. A game randomly has either 5001, 5002 or 5003, so each port must be tested.
 # Language: What servers you want to be on. English is default.
-#x,y: Ignore this.
+# x,y: Ignore this.
 # Shuffle: Ignore this.
 
 if len(sys.argv) == 2:
@@ -28,8 +28,18 @@ if len(sys.argv) == 2:
     SETTINGS['port'] = sys.argv[1]
     
 GAME_DATA = {'died': False}
-sio = socketio.AsyncClient(logger=False, reconnection=True) # U can turn logger True, if u need to catch events that are not described in current version of program
+sio = socketio.AsyncClient(logger=False, reconnection=True)  # U can turn logger True, if u need to catch events that are not described in current version of program
 response = google_images_download.googleimagesdownload()     # For this program to work u need modified google_images_download module
+
+# Read spam.txt file
+f = open("spam.txt")
+text2spam = f.readline()
+f.close()
+
+# Check text2spam Variable
+if len(text2spam.replace("%random", str(random.randint(0, 99)))) > 100:
+    print("Warning: Text file is longer than 100 characters")
+    print()
 
 """
 Game palette
@@ -81,6 +91,9 @@ def GenRandomLine(length=8, chars=string.ascii_letters):
     """
     return ''.join([choice(chars) for i in range(length)])
 
+async def sendSpamMessage():
+    await sio.emit("chat", text2spam.replace("%random", str(random.randint(0, 99))))
+
 @sio.on('connect')
 async def on_connect():
     """
@@ -116,9 +129,8 @@ async def on_lobbyConnected(data):
     Here u can send your welcoming message to the chat, a max of 100 characters per line, u can however use anything, emojis or even special characters
     """
     # These are the messages sent when the bot first joins a server.
-    await sio.emit("chat", u"CHANGE JOIN MESSAGE HERE")
-    await sio.emit("chat", u"CHANGE JOIN MESSAGE HERE")
-    await sio.emit("chat", u"CHANGE JOIN MESSAGE HERE")
+    for x in range(0, 2):
+        await sendSpamMessage()
 
 @sio.on('lobbyState')
 def on_lobbyState(data):
@@ -146,7 +158,7 @@ async def on_chat(data):
             clear = False
             time.sleep(1.4)
             # This is the message that will be spammed.
-            await sio.emit("chat", u"CHANGE SPAM MESSAGE HERE")
+            await sendSpamMessage()
             clear = True
     else:
         print(f"{data['id']} wrote > {data['message']}")
