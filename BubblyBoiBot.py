@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 import time
@@ -5,6 +6,7 @@ import string
 import asyncio
 import socketio
 import requests
+import commentjson
 import hitherdither
 from io import BytesIO
 from random import choice, randint, shuffle
@@ -14,18 +16,18 @@ import random as r
 
 clear = True
 
-SETTINGS = {'port': '5001', 'join': '', 'language': 'English', 'x': 3, 'y': 4, 'shuffle': True}
-# Port: Skribbl.io has three ports; 5001, 5002 and 5003. Each port can have six bots on one machine, meaning 18 bots per machine at an optimal time.
-# Join: Join can be used if you wish to use private games. Put the code after the "?" in the link. A game randomly has either 5001, 5002 or 5003, so each port must be tested.
-# Language: What servers you want to be on. English is default.
-# x,y: Ignore this.
-# Shuffle: Ignore this.
+try:
+    with open('settings.json') as settings_file:
+        SETTINGS = commentjson.load(settings_file)
+except Exception as e:
+    print("Error: Loading json file.")
+    print(e)
 
 if len(sys.argv) == 2:
     """
     U can set port using command line
     """
-    SETTINGS['port'] = sys.argv[1]
+    SETTINGS['Port'] = sys.argv[1]
     
 GAME_DATA = {'died': False}
 sio = socketio.AsyncClient(logger=False, reconnection=True)  # U can turn logger True, if u need to catch events that are not described in current version of program
@@ -36,7 +38,7 @@ f = open("spam.txt")
 text2spam = f.readline()
 f.close()
 
-# Check text2spam Variable
+# Check Spam Text
 if len(text2spam.replace("%random", str(r.randint(0, 99)))) > 100:
     print("Warning: Text file is longer than 100 characters")
     print()
@@ -64,26 +66,20 @@ async def dither(word):
     #d = ImageDraw.Draw(img)
     #d.text((10, 10), f'TesT TesT', fill=(0, 0, 0), font=ImageFont.truetype("v_Compacta_Blk_BT_v1.5.ttf", 85))
     
-    arguments = {"keywords": "dick", "limit":10, "print_urls":False, 'no_download':True, 'safe_search':True, 'exact_size':'355,294', 'type': 'photo', 'format': 'jpg'}
-    # keywords: Change this to whatever picture you want. This is the word it searches in google images.
-    # limit: Ignore.
-    # print_urls: Ignore.
-    # no_download: Do you wish to download the image into the downloads folder? (Not the computer download folder, the bot's download folder).
-    # Safe_Search: Will it use safe_search (for some reason, dick doesn't matter).
-    # Exact Size: Put the size of the image you found on google here. Pain in the arse since Google removed its search by image filter.
-    # Type: What type of image. Also a pain in the arse since Google removed its cartoon and other types from the type filters.
-    # Format: Ignore.
-    
-    for link in response.download(arguments):  
-        try:
-            with Image.open(BytesIO(requests.get(link, timeout = 5).content)) as img:
-                img = img.resize((int(200), int(150)))                                                              # Here you can change end size of image, but don't forget to also change pixel draw size in parent function
-                print(img.size)
-                img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       # Here you can change dither algo, yliluoma is much much better in quality but it is very very slow
-                #img_dithered = hitherdither.ordered.yliluoma.yliluomas_1_ordered_dithering(img, palette, order=8)
-                return img_dithered
-        except:
-            print("broke")
+    if (SETTINGS["RandomImage"]):
+        path ='images/'
+        files = os.listdir(path)
+        index = r.randrange(0, len(files))
+        image2Draw = files[index]
+    else:
+        image2Draw = SETTINGS["ImageToDraw"]
+    print("Drawing: " + image2Draw)
+    img = Image.open("images/" + image2Draw)
+    img = img.resize((int(200), int(150)))                                                              # Here you can change end size of image, but don't forget to also change pixel draw size in parent function
+    print(img.size)
+    img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       # Here you can change dither algo, yliluoma is much much better in quality but it is very very slow
+    #img_dithered = hitherdither.ordered.yliluoma.yliluomas_1_ordered_dithering(img, palette, order=8)
+    return img_dithered
 
 def GenRandomLine(length=8, chars=string.ascii_letters):
     """
@@ -104,7 +100,7 @@ async def on_connect():
     num2 = r.randint(1, 5)
     num3 = r.randint(1, 5)
     num4 = r.randint(1, 5)
-    await sio.emit('userData' , {"name": "BubblyBoiBot", "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['join'], "language": SETTINGS['language'], "createPrivate": False})
+    await sio.emit('userData' , {"name": SETTINGS["BotName"], "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['Join'], "language": SETTINGS['Language'], "createPrivate": False})
     # Name: What the username will be in the server.
     # Code: No Idea what this does to be honest.
     # Avatar: Set to -1 for blank, set to num1-4 for random.
@@ -120,15 +116,24 @@ async def on_lobbyConnected(data):
     print("Lobby Connected")
     print(f"round {data['round']} / {data['roundMax']}")
     print(f"there {len(data['players'])} players : ")
+
+    doLeave = False
     for player in data['players']:
         print(f"{player['id']} = {player['name']} > {player['score']}")
+
+        if player['name'] == SETTINGS["OnlyUserName"] and SETTINGS['OnlyUser']:
+            doLeave = True
+
+    if not doLeave and SETTINGS['OnlyUser']:
+        os._exit(1)
+
     GAME_DATA.update({'players' : {player['id'] : {'name': player['name'], 'score': player['score'], 'guessedWord': player['guessedWord']} for player in data['players']}})
     GAME_DATA.update({'myID': data['myID']})
     GAME_DATA.update({'round' : data['round']})
     """
     Here u can send your welcoming message to the chat, a max of 100 characters per line, u can however use anything, emojis or even special characters
     """
-    # These are the messages sent when the bot first joins a server.
+
     for x in range(0, 2):
         await sendSpamMessage()
 
@@ -156,8 +161,7 @@ async def on_chat(data):
         print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
         if clear == True:
             clear = False
-            time.sleep(1.4)
-            # This is the message that will be spammed.
+            time.sleep(2)
             await sendSpamMessage()
             clear = True
     else:
@@ -177,6 +181,11 @@ async def on_lobbyPlayerDisconnected(data):
     When someone leaves the lobby, we want to know this, so this is what this function does
     """
     print(f"player left -> {GAME_DATA['players'][data]['name']}")
+    # If our OnlyUser player left we leave too
+    if GAME_DATA['players'][data]['name'] == SETTINGS["OnlyUserName"]:
+        await sio.eio.disconnect(True)
+        time.sleep(2)
+        await start_server()
 
 @sio.on('lobbyPlayerGuessedWord')
 def on_lobbyPlayerGuessedWord(data):
@@ -272,10 +281,10 @@ def image_optimize(img, x_size, y_size):
     Depending on the size of the operations, we choose what will be more efficient to draw
     """
     if x > y:
-        shuffle(draw_data_y) if SETTINGS['shuffle'] else False
+        shuffle(draw_data_y) if SETTINGS['Shuffle'] else False
         return draw_data_y
     else:
-        shuffle(draw_data_x) if SETTINGS['shuffle'] else False
+        shuffle(draw_data_x) if SETTINGS['Shuffle'] else False
         return draw_data_x
 
 @sio.on('lobbyPlayerDrawing')
@@ -286,13 +295,13 @@ async def on_lobbyPlayerDrawing(data):
     if data == GAME_DATA["myID"]:
         print("My Time Has Come")
         img = await dither(GAME_DATA['word'])                           # Image Dither
-        for line in image_optimize(img, SETTINGS['x'], SETTINGS['y']):  # Optimization for fast draw here, 3 and 5 are sizes of pixels for x drawing and y drawing, changing them u can make image bigger or smaller
+        for line in image_optimize(img, SETTINGS['X'], SETTINGS['Y']):  # Optimization for fast draw here, 3 and 5 are sizes of pixels for x drawing and y drawing, changing them u can make image bigger or smaller
             if line[0][1] != 0:                                         # We loop through image
                 await sio.emit('drawCommands', line)                    # Draw line
 
 
 async def start_server():
-    await sio.connect(f"wss://skribbl.io:{SETTINGS['port']}/")
+    await sio.connect(f"wss://skribbl.io:{SETTINGS['Port']}/")
     await sio.wait()
     print('Et tu, Brute?')
 
