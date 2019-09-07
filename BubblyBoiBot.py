@@ -97,7 +97,10 @@ async def on_connect():
         num4 = -1
 
     await sio.emit('userData' , {"name": SETTINGS['BotName'], "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['Join'], "language": SETTINGS['Language'], "createPrivate": False})
-
+    del num1
+    del num2
+    del num3
+    del num4
 
 @sio.on('lobbyConnected')
 async def on_lobbyConnected(data):
