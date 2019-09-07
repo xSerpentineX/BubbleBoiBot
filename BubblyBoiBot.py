@@ -15,13 +15,16 @@ from PIL import Image, ImageDraw, ImageFont
 
 clear = True
 
-def errexit(errcode, sleep):
-	time.sleep(sleep)
-	os._exit(errcode)
 
+def errexit(errcode, sleep):
+    time.sleep(sleep)
+    os._exit(errcode)
+
+    
 async def sendSpamMessage():
     await sio.emit("chat", text2spam.replace("%random", str(r.randint(0, 99))))
 
+    
 try:
     with open('settings.json') as settings_file:
         SETTINGS = commentjson.load(settings_file)
@@ -31,9 +34,8 @@ except Exception as e:
     errexit(1,5)
     
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
-    print("Error: Algorithm " + SETTINGS["Algorithm"] + " was not found")
+    print(f"Error: Algorithm \"{SETTINGS['Algorithm']}\" was not found. See settings.json and change \"Algorithm\" to \"cluster\" or \"yliluoma\".")
     errexit(1,5)
-
 
 if len(sys.argv) == 2:
     """
@@ -79,7 +81,6 @@ async def dither(word):
     img = Image.open("images/" + image2Draw)
     img = img.resize((int(200), int(150)))                                                              
     print(img.size)
-
     if SETTINGS["Algorithm"].lower() == 'cluster':
         img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       
         return img_dithered
@@ -92,6 +93,7 @@ def GenRandomLine(length=8, chars=string.ascii_letters):
     Generate random line
     """
     return ''.join([choice(chars) for i in range(length)])
+
 
 @sio.on('connect')
 async def on_connect():
