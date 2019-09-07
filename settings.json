@@ -7,11 +7,19 @@
 	"Language": "English", // Select what servers you wish to join (i.e Join the English servers).
 	"RandomAvatar": true, // If set to false the avatar will be transparent. If set to true, your avatar will be random.
 	
+
 	// Image Settings (YOU MUSTN'T TRANSPARENT FILES)
 	
 	"Shuffle": true, // Draw the image randomly. Don't get this confused with RandomImage.
 	"RandomImage": true, // Set this option to true to select a random image from the images folder.
 	"ImageToDraw": "BubbleBoiBotLogo.png", // If the RandomImage option is set to false, enter the image name here, including the file extension.
+
+
+	// Drawing Settings
+
+	"Algorithm": "cluster", // Set this to either "cluster" or "yliluoma". Failing to do so will show a simple warning when starting the bot, then the bot will close.
+	// cluster: Faster drawing speed, lower quality drawings.
+	// yliluoma: Slower drawing speed, higher quality drawings.
 	
 	
 	// Search Settings
