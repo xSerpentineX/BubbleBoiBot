@@ -15,19 +15,25 @@ from PIL import Image, ImageDraw, ImageFont
 
 clear = True
 
+def errexit(errcode, sleep):
+	time.sleep(sleep)
+	os._exit(errcode)
+
+async def sendSpamMessage():
+    await sio.emit("chat", text2spam.replace("%random", str(r.randint(0, 99))))
+
 try:
     with open('settings.json') as settings_file:
         SETTINGS = commentjson.load(settings_file)
-        algorithm = SETTINGS["Algorithm"]
-        if algorithm == 'cluster' or algorithm == 'Cluster' or algorithm == 'CLUSTER' or algorithm == 'yliluoma' or algorithm == 'Yliluoma' or algorithm == 'YLILUOMA':
-            pass
-        else:
-            print("Error: Algorithm is not equal to yliluoma or cluster in settings.json")
-            time.sleep(5)
-            os._exit(1)
 except Exception as e:
     print("Error: Loading json file.")
     print(e)
+    errexit(1,5)
+    
+if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
+    print("Error: Algorithm " + SETTINGS["Algorithm"] + " was not found")
+    errexit(1,5)
+
 
 if len(sys.argv) == 2:
     """
@@ -73,11 +79,11 @@ async def dither(word):
     img = Image.open("images/" + image2Draw)
     img = img.resize((int(200), int(150)))                                                              
     print(img.size)
-    algorithm = SETTINGS["Algorithm"]
-    if algorithm == 'cluster' or algorithm == 'Cluster' or algorithm == 'CLUSTER':
+
+    if SETTINGS["Algorithm"].lower() == 'cluster':
         img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       
         return img_dithered
-    elif algorithm == 'yliluoma' or algorithm == 'Yliluoma' or algorithm == 'YLILUOMA':
+    elif SETTINGS["Algorithm"].lower() == 'yliluoma':
         img_dithered = hitherdither.ordered.yliluoma.yliluomas_1_ordered_dithering(img, palette, order=8)
         return img_dithered
 
@@ -86,9 +92,6 @@ def GenRandomLine(length=8, chars=string.ascii_letters):
     Generate random line
     """
     return ''.join([choice(chars) for i in range(length)])
-
-async def sendSpamMessage():
-    await sio.emit("chat", text2spam.replace("%random", str(r.randint(0, 99))))
 
 @sio.on('connect')
 async def on_connect():
