@@ -18,6 +18,13 @@ clear = True
 try:
     with open('settings.json') as settings_file:
         SETTINGS = commentjson.load(settings_file)
+        algorithm = SETTINGS["Algorithm"]
+        if algorithm == 'cluster' or algorithm == 'Cluster' or algorithm == 'CLUSTER' or algorithm == 'yliluoma' or algorithm == 'Yliluoma' or algorithm == 'YLILUOMA':
+            pass
+        else:
+            print("Warning: Algorithm is not equal to yliluoma or cluster in settings.json")
+            time.sleep(5)
+            os._exit(1)
 except Exception as e:
     print("Error: Loading json file.")
     print(e)
@@ -64,11 +71,15 @@ async def dither(word):
 
     print("Drawing: " + image2Draw)
     img = Image.open("images/" + image2Draw)
-    img = img.resize((int(200), int(150)))                                                              # Here you can change end size of image, but don't forget to also change pixel draw size in parent function
+    img = img.resize((int(200), int(150)))                                                              
     print(img.size)
-    img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       # Here you can change dither algo, yliluoma is much much better in quality but it is very very slow
-    #img_dithered = hitherdither.ordered.yliluoma.yliluomas_1_ordered_dithering(img, palette, order=8)
-    return img_dithered
+    algorithm = SETTINGS["Algorithm"]
+    if algorithm == 'cluster' or algorithm == 'Cluster' or algorithm == 'CLUSTER':
+        img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       
+        return img_dithered
+    elif algorithm == 'yliluoma' or algorithm == 'Yliluoma' or algorithm == 'YLILUOMA':
+        img_dithered = hitherdither.ordered.yliluoma.yliluomas_1_ordered_dithering(img, palette, order=8)
+        return img_dithered
 
 def GenRandomLine(length=8, chars=string.ascii_letters):
     """
