@@ -118,6 +118,7 @@ async def on_lobbyConnected(data):
 
     if not doLeave and SETTINGS['OnlyUser']:
         print("Info: Leaving because " + SETTINGS["OnlyUserName"] + " not found")
+        await sio.disconnect()
         os._exit(1)
 
     GAME_DATA.update({'players' : {player['id'] : {'name': player['name'], 'score': player['score'], 'guessedWord': player['guessedWord']} for player in data['players']}})
