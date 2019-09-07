@@ -64,6 +64,8 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"ImageToDraw": ""` If "RandomImage" is false, specify the image here. Image must be in the `images` folder.
 
+`"Algorithm": "cluster" or "yliluoma"`: Set the drawing algorithm to either cluster or yliluoma.
+
 `"OnlyUser": false` Enable the automatic searching feature.
 
 `"OnlyUserName": "yourusernamehere"` Specify which username to search for.
@@ -77,7 +79,7 @@ Open `spam.txt` and leave line one completely blank.
 
 
 # How to stop the bot from giving the word before drawing:
-Go to Line 221 and put a `#` in front of it to cancel it out.
+Go to Line 236 and put a `#` in front of it to cancel it out.
 
 
 # Common Errors:
