@@ -80,7 +80,7 @@ async def dither(word):
 
     print("Drawing: " + image2Draw)
     img = Image.open("images/" + image2Draw)
-    img = img.resize((int(200), int(150)))                                                              
+    img = img.resize((int(275), int(150)))                                                              
     print(img.size)
     if SETTINGS["Algorithm"].lower() == 'cluster':
         img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       
