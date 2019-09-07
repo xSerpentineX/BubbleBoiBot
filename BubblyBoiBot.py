@@ -80,7 +80,7 @@ async def dither(word):
 
     print("Drawing: " + image2Draw)
     img = Image.open("images/" + image2Draw)
-    img = img.resize((int(275), int(150)))                                                              
+    img = img.resize((int(200), int(150)))                                                              
     print(img.size)
     if SETTINGS["Algorithm"].lower() == 'cluster':
         img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       
@@ -150,8 +150,9 @@ async def on_lobbyConnected(data):
     Here u can send your welcoming message to the chat, a max of 100 characters per line, u can however use anything, emojis or even special characters
     """
 
-    for x in range(0, 2):
-        await sendSpamMessage()
+    await sio.emit('chat', 'Want a bot that can run eighteen times per PC with one click of a .bat file?')
+    await sio.emit('chat', 'Want a bot that can auto-spam, auto-draw images from files, auto-recconect and search for users?')
+    await sio.emit('chat', 'Want a bot that can be easily customized with a settings json and loopAll config file?')
 
 
 @sio.on('lobbyState')
