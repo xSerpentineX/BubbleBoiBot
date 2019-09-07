@@ -68,6 +68,7 @@ palette = hitherdither.palette.Palette(
      0xA0522D, 0x63300D]
 )
 
+
 async def dither(word):
     if (SETTINGS["RandomImage"]):
         path = "images/"
@@ -87,6 +88,7 @@ async def dither(word):
     elif SETTINGS["Algorithm"].lower() == 'yliluoma':
         img_dithered = hitherdither.ordered.yliluoma.yliluomas_1_ordered_dithering(img, palette, order=8)
         return img_dithered
+
 
 def GenRandomLine(length=8, chars=string.ascii_letters):
     """
@@ -117,6 +119,7 @@ async def on_connect():
     del num2
     del num3
     del num4
+
 
 @sio.on('lobbyConnected')
 async def on_lobbyConnected(data):
@@ -150,6 +153,7 @@ async def on_lobbyConnected(data):
     for x in range(0, 2):
         await sendSpamMessage()
 
+
 @sio.on('lobbyState')
 def on_lobbyState(data):
     """
@@ -163,6 +167,7 @@ def on_lobbyCurrentWord(data):
     When lobby updates current word, we want to show that
     """
     print(f"Current Word = {data}")
+
 
 @sio.on('chat')
 async def on_chat(data):
@@ -180,6 +185,7 @@ async def on_chat(data):
     else:
         print(f"{data['id']} wrote > {data['message']}")
 
+
 @sio.on('lobbyPlayerConnected')
 async def on_lobbyPlayerConnected(data):
     """
@@ -187,6 +193,7 @@ async def on_lobbyPlayerConnected(data):
     """
     GAME_DATA['players'].update({data['id'] : {'name': data['name'], 'score': data['score'], 'guessedWord': data['guessedWord']}})
     print(f"player connected -> {data['name']}")
+
 
 @sio.on('lobbyPlayerDisconnected')
 async def on_lobbyPlayerDisconnected(data):
@@ -200,6 +207,7 @@ async def on_lobbyPlayerDisconnected(data):
         time.sleep(2)
         await start_server()
 
+
 @sio.on('lobbyPlayerGuessedWord')
 def on_lobbyPlayerGuessedWord(data):
     """
@@ -207,12 +215,14 @@ def on_lobbyPlayerGuessedWord(data):
     """
     print(f"player guessed word -> {GAME_DATA['players'][data]['name']}")
 
+
 @sio.on('drawCommands')
 def on_drawCommands(data):
     """
     Here can be your logic to work with draw data that we get from lobby, u can use kivy to easily draw that
     """
     pass
+
 
 @sio.on('disconnect')
 async def on_disconnect():
@@ -222,6 +232,7 @@ async def on_disconnect():
     print('disconnected from server')
     await sio.eio.disconnect(True)
 
+
 @sio.on('kicked')
 def on_kicked():
     """
@@ -229,6 +240,7 @@ def on_kicked():
     """
     print('You either die a hero or you live long enough to see yourself become the villain')
     GAME_DATA['died'] = True
+
 
 @sio.on('lobbyChooseWord')
 async def on_lobbyChooseWord(data):
@@ -240,6 +252,7 @@ async def on_lobbyChooseWord(data):
         print(f"I am drawing {data['words'][2]}")
         await sio.emit("chat", f"The actual word is: {data['words'][2]}.")
         await sio.emit("lobbyChooseWord", 2)
+
 
 def image_optimize(img, x_size, y_size):
     """
@@ -300,6 +313,7 @@ def image_optimize(img, x_size, y_size):
         shuffle(draw_data_x) if SETTINGS['Shuffle'] else False
         return draw_data_x
 
+
 @sio.on('lobbyPlayerDrawing')
 async def on_lobbyPlayerDrawing(data):
     """
@@ -317,6 +331,7 @@ async def start_server():
     await sio.connect(f"wss://skribbl.io:{SETTINGS['Port']}/")
     await sio.wait()
     print('Et tu, Brute?')
+
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
