@@ -22,7 +22,7 @@ try:
         if algorithm == 'cluster' or algorithm == 'Cluster' or algorithm == 'CLUSTER' or algorithm == 'yliluoma' or algorithm == 'Yliluoma' or algorithm == 'YLILUOMA':
             pass
         else:
-            print("Warning: Algorithm is not equal to yliluoma or cluster in settings.json")
+            print("Error: Algorithm is not equal to yliluoma or cluster in settings.json")
             time.sleep(5)
             os._exit(1)
 except Exception as e:
