@@ -55,7 +55,7 @@ palette = hitherdither.palette.Palette(
 
 async def dither(word):
     if (SETTINGS["RandomImage"]):
-        path ='images/'
+        path = "images/"
         files = os.listdir(path)
         index = r.randrange(0, len(files))
         image2Draw = files[index]
