@@ -12,7 +12,7 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 
 
 # Features:
-- 18 Bots per computer, easily managed via a .bat file.
+- 18 Bots per computer, all ran at the click of a .bat file.
 - Customization that makes use of the `settings.json` and the `loopAll.config` files.
 - Automated Spam that can be easily customized using the `spam.txt` file.
 - Automated Drawing that can chose random or select images from the `images` folder.
@@ -90,7 +90,7 @@ disconnected from server.
 ```
 This error means either; You are running too many bots one port or the server the bot tried to connect to was full. Solution: If the problem is caused by running more than six bots on one port, close any excessive bots on that port. There isn't exactly a solution to cause B other than, "Try again later".
 
-`ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` YOU MUST NOT USE TRANSPARENT FILES.
+`ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
 
 `Error: NoneType has no size attribute` This error means either; The image searched for by the bot doesn't work or you messed the code up somewhere. Solution: If caused by search, change the keyword you used. Remember to make `'exact_size': 'w', 'h'` the same size as the image you wanted from Google Images. If caused by messing up the code, try extracting the bot from the ZIP file again to completely redo any changes to the BubblyBoiBot.py file, or try `Ctrl+Z`ing out of it.
 
