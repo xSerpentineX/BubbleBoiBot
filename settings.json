@@ -20,6 +20,8 @@
 	"Algorithm": "cluster", // Set this to either "cluster" or "yliluoma". Failing to do so will show a error when starting the bot, then the bot will close.
 	// cluster: Fast drawing speed, lower quality drawings.
 	// yliluoma: Extremely slow drawing speed, higher quality drawings.
+
+	"AnnounceWord": false,  // Set this to true if you want the bot to announce the real word to the chat. Set this to false if otherwise.
 	
 	
 	// Search Settings
