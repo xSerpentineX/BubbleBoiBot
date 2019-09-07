@@ -17,7 +17,7 @@
 
 	// Drawing Settings
 
-	"Algorithm": "cluster", // Set this to either "cluster" or "yliluoma". Failing to do so will show a simple warning when starting the bot, then the bot will close.
+	"Algorithm": "cluster", // Set this to either "cluster" or "yliluoma". Failing to do so will show a error when starting the bot, then the bot will close.
 	// cluster: Fast drawing speed, lower quality drawings.
 	// yliluoma: Extremely slow drawing speed, higher quality drawings.
 	
