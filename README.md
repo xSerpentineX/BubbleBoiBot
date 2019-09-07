@@ -19,7 +19,7 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 - Automated Reconnect on kick.
 - Automatic Searching for users (Joins a game, checks for a user, if user is not there, joins another game).
 - .bat support for easier running and management.
-- An active discord community of 50+ members.
+- An active discord community of 70+ members.
 
 
 # How to install the bot:
@@ -66,20 +66,20 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"Algorithm": "cluster" or "yliluoma"`: Set the drawing algorithm to either cluster or yliluoma.
 
+`"AnnounceWord": true`: If "AnnounceWord" is true, the bot will announce the real word to chat before drawing. If false, it will not.
+
 `"OnlyUser": false` Enable the automatic searching feature.
 
 `"OnlyUserName": "yourusernamehere"` Specify which username to search for.
 
+
 All files in the `images` folder must be images.
 Image names are case and symbol sensitive and you must include the file extension.
+Images must be JPG/JPEG/BMP.
 
 
 # How to turn off auto-spam:
 Open `spam.txt` and leave line one completely blank.
-
-
-# How to stop the bot from giving the word before drawing:
-Go to Line 254 and put a `#` in front of it to cancel it out.
 
 
 # Common Errors:
