@@ -27,7 +27,7 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 
 2. When installing Python 3.7.4, check the, "Install to PATH", checkbox then click, "Custom installation". Check every box and leave the default save location as default (Do not click browse!)
 
-3. On this GitHub page, click the green, "Clone or download." Buton and then click, "Download as ZIP." Then, extract the ZIP file somewhere on your computer. You will need to come to this file to run the bot, so save it somewhere rememerable.
+3. On this GitHub page, click the green, "Clone or download." Button and then click, "Download as ZIP." Then, extract the ZIP file somewhere on your computer. You will need to come to this file to run the bot, so save it somewhere rememerable.
 
 4. Do `windows + s` and type in the search, "Windows power shell". Right click it and then click, "Run as administrator."
 
