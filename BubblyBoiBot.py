@@ -37,6 +37,11 @@ if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lowe
     print(f"Error: Algorithm \"{SETTINGS['Algorithm']}\" was not found. See settings.json and change \"Algorithm\" to \"cluster\" or \"yliluoma\".")
     errexit(1,5)
 
+if not (SETTINGS["Port"] == 5001 or SETTINGS["Port"] == 5002 or SETTINGS["Port"] == 5003):
+    print(f"Error: Port {SETTINGS['Port']} does not exist. See settings.json and change \"Port\" to 5001, 5002 or 5003.")
+    errexit(1, 5)
+
+
 if len(sys.argv) == 2:
     """
     U can set port using command line
@@ -80,7 +85,7 @@ async def dither(word):
 
     print("Drawing: " + image2Draw)
     img = Image.open("images/" + image2Draw)
-    img = img.resize((int(200), int(150)))                                                              
+    img = img.resize((int(275), int(150)))                                                              
     print(img.size)
     if SETTINGS["Algorithm"].lower() == 'cluster':
         img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       
@@ -150,9 +155,8 @@ async def on_lobbyConnected(data):
     Here u can send your welcoming message to the chat, a max of 100 characters per line, u can however use anything, emojis or even special characters
     """
 
-    await sio.emit('chat', 'Want a bot that can run eighteen times per PC with one click of a .bat file?')
-    await sio.emit('chat', 'Want a bot that can auto-spam, auto-draw images from files, auto-recconect and search for users?')
-    await sio.emit('chat', 'Want a bot that can be easily customized with a settings json and loopAll config file?')
+    for x in range(0, 2):
+        await sendSpamMessage()
 
 
 @sio.on('lobbyState')
@@ -251,7 +255,8 @@ async def on_lobbyChooseWord(data):
     if data['id'] == GAME_DATA["myID"]:
         GAME_DATA.update({"word": data['words'][2]})   # We always choose the third word, you can change it the way you want it to work
         print(f"I am drawing {data['words'][2]}")
-        await sio.emit("chat", f"The actual word is: {data['words'][2]}.")
+        if SETTINGS["AnnounceWord"]:
+            await sio.emit("chat", f"The actual word is: {data['words'][2]}.")
         await sio.emit("lobbyChooseWord", 2)
 
 
