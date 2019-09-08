@@ -7,14 +7,13 @@ import asyncio
 import socketio
 import requests
 import commentjson
-import random as r
 import hitherdither
 from io import BytesIO
-from random import choice, randint, shuffle
+from random import choice, randint, shuffle as r
 from PIL import Image, ImageDraw, ImageFont
 
 clear = True
-under_100 = True
+under_101 = True
 
 
 def errexit(errcode, sleep):
@@ -25,25 +24,27 @@ def errexit(errcode, sleep):
 try:
     with open('settings.json') as settings_file:
         SETTINGS = commentjson.load(settings_file)
+        messageLength = len(SETTINGS["SpamMessage"])
 except Exception as e:
     print("Error: Loading json file.")
     print(e)
     errexit(1,5)
 
 
+if len(SETTINGS["SpamMessage"]) > 100:
+    under_101 = False
+
+
 async def sendSpamMessage():
-    global under_100
+    global under_101
     if SETTINGS["SpamServer"]:
-        if len(SETTINGS["SpamMessage"]) > 99:
-            under_100 = False
-            print("Warning: SpamMessage is greater than one hundred characters.")
-        if not under_100:
-            pass
+        if not under_101:
+            print(f"Warning: Your message is {messageLength - 100} characters too long.")
         else:
             if SETTINGS["AutomaticFormatting"]:
-                await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
+                    await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
             else:
-                await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
 
     
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
@@ -341,7 +342,7 @@ async def start_server():
     await sio.wait()
     print('Et tu, Brute?')
 
-
+    
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     loop.run_until_complete(start_server())
