@@ -85,10 +85,6 @@ Image names are case and symbol sensitive and you must include the file extensio
 Images must be JPG/JPEG/BMP.
 
 
-# How to turn off auto-spam:
-Open `spam.txt` and leave line one completely blank.
-
-
 # Common Errors:
 ```
 connection established.
