@@ -14,12 +14,13 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 # Features:
 - 18 Bots per computer, all ran at the click of a .bat file.
 - Customization that makes use of the `settings.json` and the `loopAll.config` files.
-- Automated Spam that can be easily customized using the `spam.txt` file.
+- (Optional) Automated Spam that can be easily customized using the `settings.json` file.
 - Automated Drawing that can chose random or select images from the `images` folder.
 - Automated Reconnect on kick.
-- Automatic Searching for users (Joins a game, checks for a user, if user is not there, joins another game).
+- (Optional) Automatic Searching for users (Joins a game, checks for a user, if user is not there, joins another game).
 - .bat support for easier running and management.
 - An active discord community of 70+ members.
+- (Optional) Automatic Formatting that converts any fullstops (periods) into commas, so you can spam links without editing them.
 
 
 # How to install the bot:
@@ -45,6 +46,7 @@ pip install websockets aiohttp python-socketio requests Pillow numpy commentjson
 # How to customize the bot (loopAll.config):
 In the `loopAll.config` file (Inside the exec folder), you will find the following options: `hidden`, `delay`, `devSkip` and `startTimes`. `hidden` is set to false by default. Setting it to true will cause the bot windows to become hidden to the user outside of the task manager. Leaving it as false will set the bot windows to open minimized. `delay` sets how long the delay is between each bot starting. The default value is 1. `devSkip` simply stops any bots from running when using the `loopAll.bat` file. It is set to false by default and is only really used when testing the simple interface of the `loopAll.bat` program. Finally, `startTimes` sets how many bots will open on each of the three Skribbl.io ports (port5001, port5002, port5003) when running `loopAll.bat`. The default is 6. From testing, it appears the maximum is also six bots per port (Meaning at optimal time and without any errors, you can run up to eighteen bots on one computer).
 
+
 # How to customize the bot:
 Open the `settings.json` file with your text editor and customize the bot with the following options:
 
@@ -60,6 +62,12 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"Shuffle": true` Draw the image randomly as opposed to moving up or down the image. Don't get this confused with "RandomImage".
 
+`"SpamServer": false` Set this to true if you want to automatically spam a server.
+
+`"SpamMessage": "Replace this text with text you want to spam."`: Set this too your spam message. Do not use 100+ characters.
+
+`"AutomaticFormatting": false`: Use this if you want to automatically convert all fullstops (periods) into commans.
+
 `"RandomImage": false` Select a random image from the `images` folder.
 
 `"ImageToDraw": ""` If "RandomImage" is false, specify the image here. Image must be in the `images` folder.
@@ -71,7 +79,6 @@ Open the `settings.json` file with your text editor and customize the bot with t
 `"OnlyUser": false` Enable the automatic searching feature.
 
 `"OnlyUserName": "yourusernamehere"` Specify which username to search for.
-
 
 All files in the `images` folder must be images.
 Image names are case and symbol sensitive and you must include the file extension.
