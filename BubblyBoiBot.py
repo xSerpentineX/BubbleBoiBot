@@ -9,7 +9,7 @@ import requests
 import commentjson
 import hitherdither
 from io import BytesIO
-from random import choice, randint, shuffle as r
+import random as r
 from PIL import Image, ImageDraw, ImageFont
 
 clear = True
