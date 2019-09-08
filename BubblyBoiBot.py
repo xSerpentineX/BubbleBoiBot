@@ -13,7 +13,6 @@ import random as r
 from PIL import Image, ImageDraw, ImageFont
 
 clear = True
-under_101 = True
 
 
 def errexit(errcode, sleep):
@@ -33,6 +32,8 @@ except Exception as e:
 
 if len(SETTINGS["SpamMessage"]) > 100:
     under_101 = False
+else:
+    under_101 = True
 
 
 async def sendSpamMessage():
