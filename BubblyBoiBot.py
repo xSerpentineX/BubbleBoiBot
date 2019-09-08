@@ -54,7 +54,7 @@ if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lowe
 
 if not (SETTINGS["Port"] == 5001 or SETTINGS["Port"] == 5002 or SETTINGS["Port"] == 5003):
     print(f"Error: Port {SETTINGS['Port']} does not exist. See settings.json and change \"Port\" to 5001, 5002 or 5003.")
-    errexit(1, 5)
+    errexit(1,5)
 
 if len(sys.argv) == 2:
     """
