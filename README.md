@@ -95,8 +95,6 @@ This error means either; You are running too many bots one port or the server th
 
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
 
-`Error: NoneType has no size attribute` This error means either; The image searched for by the bot doesn't work or you messed the code up somewhere. Solution: If caused by search, change the keyword you used. Remember to make `'exact_size': 'w', 'h'` the same size as the image you wanted from Google Images. If caused by messing up the code, try extracting the bot from the ZIP file again to completely redo any changes to the BubblyBoiBot.py file, or try `Ctrl+Z`ing out of it.
-
 Please report any errors you get to PotassiumSnek#6853. If I get the error commonly, I will add it to this list.
 # Thank You, PotassiumSnek#6853 (That's my discord).
 # Join our community discord: https://discord.gg/38n5TYK
