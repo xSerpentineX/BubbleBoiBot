@@ -54,7 +54,6 @@ if not (SETTINGS["Port"] == 5001 or SETTINGS["Port"] == 5002 or SETTINGS["Port"]
     print(f"Error: Port {SETTINGS['Port']} does not exist. See settings.json and change \"Port\" to 5001, 5002 or 5003.")
     errexit(1, 5)
 
-
 if len(sys.argv) == 2:
     """
     U can set port using command line
@@ -161,6 +160,7 @@ async def on_lobbyConnected(data):
     if SETTINGS["SpamServer"]:
         await sendSpamMessage()
 
+              
 @sio.on('lobbyState')
 def on_lobbyState(data):
     """
@@ -168,6 +168,7 @@ def on_lobbyState(data):
     """
     print(f"Lobby State = {data}")
 
+              
 @sio.on('lobbyCurrentWord')
 def on_lobbyCurrentWord(data):
     """
