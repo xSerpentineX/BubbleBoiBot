@@ -14,6 +14,7 @@ from random import choice, randint, shuffle
 from PIL import Image, ImageDraw, ImageFont
 
 clear = True
+under_100 = True
 
 
 def errexit(errcode, sleep):
@@ -31,11 +32,18 @@ except Exception as e:
 
 
 async def sendSpamMessage():
+    global under_100
     if SETTINGS["SpamServer"]:
-        if SETTINGS["AutomaticFormatting"]:
-            await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
+        if len(SETTINGS["SpamMessage"]) > 99:
+            under_100 = False
+            print("Warning: SpamMessage is greater than one hundred characters.")
+        if not under_100:
+            pass
         else:
-            await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+            if SETTINGS["AutomaticFormatting"]:
+                await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
+            else:
+                await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
 
     
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
@@ -151,8 +159,7 @@ async def on_lobbyConnected(data):
     """
 
     if SETTINGS["SpamServer"]:
-        for x in range(0, 2):
-            await sendSpamMessage()
+        await sendSpamMessage()
 
 @sio.on('lobbyState')
 def on_lobbyState(data):
