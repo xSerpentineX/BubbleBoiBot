@@ -1,10 +1,10 @@
 @mode 70,40
 @echo off
-title Bubbly Boi Bot v1.62 - Starter
+title Bubbly Boi Bot v1.63 - Starter
 
 echo.
 
-echo				 BubblyBoiBot v1.62
+echo				 BubblyBoiBot v1.63
 echo                 Original bot programmed by alekxeyuk
 echo     Spam Integrated Bot programmed by TheLoveableBubblyNoodle#6853
 echo         Batch support programmed by ! [( TheGamerX )]#7912
