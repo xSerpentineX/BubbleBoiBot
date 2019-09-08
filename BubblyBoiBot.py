@@ -20,11 +20,7 @@ def errexit(errcode, sleep):
     time.sleep(sleep)
     os._exit(errcode)
 
-    
-async def sendSpamMessage():
-    await sio.emit("chat", text2spam.replace("%random", str(r.randint(0, 99))))
-
-    
+ 
 try:
     with open('settings.json') as settings_file:
         SETTINGS = commentjson.load(settings_file)
@@ -32,6 +28,15 @@ except Exception as e:
     print("Error: Loading json file.")
     print(e)
     errexit(1,5)
+
+
+async def sendSpamMessage():
+    if SETTINGS["SpamServer"]:
+        if SETTINGS["AutomaticFormatting"]:
+            await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
+        else:
+            await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+
     
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
     print(f"Error: Algorithm \"{SETTINGS['Algorithm']}\" was not found. See settings.json and change \"Algorithm\" to \"cluster\" or \"yliluoma\".")
@@ -50,16 +55,6 @@ if len(sys.argv) == 2:
     
 GAME_DATA = {'died': False}
 sio = socketio.AsyncClient(logger=False, reconnection=True)  # U can turn logger True, if u need to catch events that are not described in current version of program
-
-# Read spam.txt file
-f = open("spam.txt")
-text2spam = f.readline()
-f.close()
-
-# Check Spam Text
-if len(text2spam.replace("%random", str(r.randint(0, 99)))) > 100:
-    print("Warning: Text file is longer than 100 characters")
-    print()
 
 """
 Game palette
@@ -155,9 +150,9 @@ async def on_lobbyConnected(data):
     Here u can send your welcoming message to the chat, a max of 100 characters per line, u can however use anything, emojis or even special characters
     """
 
-    for x in range(0, 2):
-        await sendSpamMessage()
-
+    if SETTINGS["SpamServer"]:
+        for x in range(0, 2):
+            await sendSpamMessage()
 
 @sio.on('lobbyState')
 def on_lobbyState(data):
