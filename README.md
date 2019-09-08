@@ -34,7 +34,7 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 
 5. In the windows shell, enter the following command:
 ```
-pip install websockets aiohttp python-socketio requests Pillow numpy commentjson
+pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama
 ```
 6. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `loopAll.bat` file.
 
