@@ -6,11 +6,14 @@ import string
 import asyncio
 import socketio
 import requests
+import colorama as color
 import commentjson
 import hitherdither
 from io import BytesIO
 import random as r
 from PIL import Image, ImageDraw, ImageFont
+
+color.init(autoreset="true")
 
 clear = True
 
@@ -25,7 +28,7 @@ try:
         SETTINGS = commentjson.load(settings_file)
         messageLength = len(SETTINGS["SpamMessage"])
 except Exception as e:
-    print("Error: Loading json file.")
+    print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Loading json file.")
     print(e)
     errexit(1,5)
 
@@ -40,7 +43,7 @@ async def sendSpamMessage():
     global under_101
     if SETTINGS["SpamServer"]:
         if not under_101:
-            print(f"Warning: Your message is {messageLength - 100} characters too long.")
+            print(f"{color.Back.YELLOW}{color.Style.BRIGHT}Warning: Your message has {messageLength - 100} extra characters.")
         else:
             if SETTINGS["AutomaticFormatting"]:
                     await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
@@ -49,11 +52,11 @@ async def sendSpamMessage():
 
     
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
-    print(f"Error: Algorithm \"{SETTINGS['Algorithm']}\" was not found. See settings.json and change \"Algorithm\" to \"cluster\" or \"yliluoma\".")
+    print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Algorithm \"{SETTINGS['Algorithm']}\" was not found. See settings.json and change \"Algorithm\" to \"cluster\" or \"yliluoma\".")
     errexit(1,5)
 
 if not (SETTINGS["Port"] == 5001 or SETTINGS["Port"] == 5002 or SETTINGS["Port"] == 5003):
-    print(f"Error: Port {SETTINGS['Port']} does not exist. See settings.json and change \"Port\" to 5001, 5002 or 5003.")
+    print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Port {SETTINGS['Port']} does not exist. See settings.json and change \"Port\" to 5001, 5002 or 5003.")
     errexit(1,5)
 
 if len(sys.argv) == 2:
@@ -61,9 +64,11 @@ if len(sys.argv) == 2:
     U can set port using command line
     """
     SETTINGS['Port'] = sys.argv[1]
-    
+
+
 GAME_DATA = {'died': False}
 sio = socketio.AsyncClient(logger=False, reconnection=True)  # U can turn logger True, if u need to catch events that are not described in current version of program
+
 
 """
 Game palette
@@ -87,12 +92,12 @@ async def dither(word):
     else:
         image2Draw = SETTINGS["ImageToDraw"]
 
-    print("Drawing: " + image2Draw)
+
     img = Image.open("images/" + image2Draw)
-    img = img.resize((int(275), int(150)))                                                              
-    print(img.size)
+    img = img.resize((int(275), int(150)))
+    print(f"{color.Back.GREEN}Drawing: {image2Draw} with {img.size}")
     if SETTINGS["Algorithm"].lower() == 'cluster':
-        img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)       
+        img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)
         return img_dithered
     elif SETTINGS["Algorithm"].lower() == 'yliluoma':
         img_dithered = hitherdither.ordered.yliluoma.yliluomas_1_ordered_dithering(img, palette, order=8)
@@ -103,7 +108,7 @@ def GenRandomLine(length=8, chars=string.ascii_letters):
     """
     Generate random line
     """
-    return ''.join([choice(chars) for i in range(length)])
+    return ''.join([r.choice(chars) for i in range(length)])
 
 
 @sio.on('connect')
@@ -111,7 +116,8 @@ async def on_connect():
     """
     On connection to the lobby we must introduce ourselves
     """
-    print('connection established')
+    print(f"{color.Back.GREEN}{color.Style.BRIGHT}Connection established")
+    print()
     if (SETTINGS["RandomAvatar"]):
         num1 = r.randint(1, 5)
         num2 = r.randint(1, 5)
@@ -124,10 +130,7 @@ async def on_connect():
         num4 = -1
 
     await sio.emit('userData' , {"name": SETTINGS['BotName'], "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['Join'], "language": SETTINGS['Language'], "createPrivate": False})
-    del num1
-    del num2
-    del num3
-    del num4
+    del num1,num2,num3,num4
 
 
 @sio.on('lobbyConnected')
@@ -136,47 +139,47 @@ async def on_lobbyConnected(data):
     """
     When we connected to the lobby we print out the current round, the number of players, the players names and their score, we also also store that info into GAME_DATA dict
     """
-    print("Lobby Connected")
-    print(f"round {data['round']} / {data['roundMax']}")
-    print(f"there {len(data['players'])} players : ")
+    print(f"{color.Fore.GREEN}{color.Style.BRIGHT}Lobby connected")
+    print(f"{color.Fore.YELLOW}Round {data['round']} / {data['roundMax']}")
+    print(f"{color.Fore.MAGENTA}{color.Style.DIM}There {len(data['players'])} players: ")
 
     doLeave = False
     for player in data['players']:
-        print(f"{player['id']} = {player['name']} > {player['score']}")
+        print(f"    {color.Style.DIM}{player['id']} = {player['name']} > {player['score']}")
 
         if player['name'] == SETTINGS["OnlyUserName"] and SETTINGS['OnlyUser']:
             doLeave = True
 
+    print()
+
     if not doLeave and SETTINGS['OnlyUser']:
-        print("Info: Leaving because " + SETTINGS["OnlyUserName"] + " not found")
+        print(f"{color.Back.GREEN}Info: Leaving because {SETTINGS['OnlyUserName']} was not found.")
         await sio.disconnect()
         os._exit(1)
 
     GAME_DATA.update({'players' : {player['id'] : {'name': player['name'], 'score': player['score'], 'guessedWord': player['guessedWord']} for player in data['players']}})
     GAME_DATA.update({'myID': data['myID']})
     GAME_DATA.update({'round' : data['round']})
-    """
-    Here u can send your welcoming message to the chat, a max of 100 characters per line, u can however use anything, emojis or even special characters
-    """
 
     if SETTINGS["SpamServer"]:
         await sendSpamMessage()
 
-              
+
 @sio.on('lobbyState')
 def on_lobbyState(data):
     """
     When lobby change its state, we want to show that
     """
-    print(f"Lobby State = {data}")
+    print(f"{color.Back.WHITE}{color.Fore.BLACK}Lobby State: {data}")
 
-              
+
 @sio.on('lobbyCurrentWord')
 def on_lobbyCurrentWord(data):
     """
-    When lobby updates current word, we want to show that
+    When lobby updates current word, we want to show this.
     """
-    print(f"Current Word = {data}")
+    print(f"{color.Style.BRIGHT}Current Word: {data}")
+    print()
 
 
 @sio.on('chat')
@@ -186,14 +189,14 @@ async def on_chat(data):
     Chat function, prints username or id of user and their message
     """
     if 'players' in GAME_DATA.keys():
-        print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
+        print(f"{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
         if clear == True:
             clear = False
             time.sleep(1.4)
             await sendSpamMessage()
             clear = True
     else:
-        print(f"{data['id']} wrote > {data['message']}")
+        print(f"{color.Style.DIM}{data['id']} wrote > {data['message']}")
 
 
 @sio.on('lobbyPlayerConnected')
@@ -202,17 +205,17 @@ async def on_lobbyPlayerConnected(data):
     When someone enters the lobby, we want to know this, so this is what this function does
     """
     GAME_DATA['players'].update({data['id'] : {'name': data['name'], 'score': data['score'], 'guessedWord': data['guessedWord']}})
-    print(f"player connected -> {data['name']}")
+    print(f"{color.Fore.GREEN}{color.Style.DIM}{data['name']} connected.")
 
 
 @sio.on('lobbyPlayerDisconnected')
 async def on_lobbyPlayerDisconnected(data):
     """
     When someone leaves the lobby, we want to know this, so this is what this function does
+    It also makes the bot leave if OnlyUser is enabled
     """
-    print(f"player left -> {GAME_DATA['players'][data]['name']}")
-    # If our OnlyUser player left we leave too
-    if GAME_DATA['players'][data]['name'] == SETTINGS["OnlyUserName"]:
+    print(f"{color.Fore.RED}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} left.")
+    if SETTINGS["OnlyUser"] and GAME_DATA['players'][data]['name'] == SETTINGS["OnlyUserName"]:
         await sio.eio.disconnect(True)
         time.sleep(2)
         await start_server()
@@ -223,7 +226,7 @@ def on_lobbyPlayerGuessedWord(data):
     """
     When someone guesses a word, we want to know it, so this is what this function does
     """
-    print(f"player guessed word -> {GAME_DATA['players'][data]['name']}")
+    print(f"{color.Fore.CYAN}{GAME_DATA['players'][data]['name']} the guessed word!")
 
 
 @sio.on('drawCommands')
@@ -239,7 +242,7 @@ async def on_disconnect():
     """
     When we disconnected from server we need explicitly call eio.disconnect or Sio would stuck in forever wait loop
     """
-    print('disconnected from server')
+    print(f"{color.Back.RED}Disconnected from server")
     await sio.eio.disconnect(True)
 
 
@@ -248,7 +251,7 @@ def on_kicked():
     """
     The lobby can kick us, we can't do anything about it, at least I have no idea
     """
-    print('You either die a hero or you live long enough to see yourself become the villain')
+    print(f"{color.Back.RED}The lobby kicked us!")
     GAME_DATA['died'] = True
 
 
@@ -259,7 +262,7 @@ async def on_lobbyChooseWord(data):
     """
     if data['id'] == GAME_DATA["myID"]:
         GAME_DATA.update({"word": data['words'][2]})   # We always choose the third word, you can change it the way you want it to work
-        print(f"I am drawing {data['words'][2]}")
+        print(f"{color.Style.BRIGHT}I am drawing {data['words'][2]}")
         if SETTINGS["AnnounceWord"]:
             await sio.emit("chat", f"The actual word is: {data['words'][2]}.")
         await sio.emit("lobbyChooseWord", 2)
@@ -318,10 +321,10 @@ def image_optimize(img, x_size, y_size):
     Depending on the size of the operations, we choose what will be more efficient to draw
     """
     if x > y:
-        shuffle(draw_data_y) if SETTINGS['Shuffle'] else False
+        r.shuffle(draw_data_y) if SETTINGS['Shuffle'] else False
         return draw_data_y
     else:
-        shuffle(draw_data_x) if SETTINGS['Shuffle'] else False
+        r.shuffle(draw_data_x) if SETTINGS['Shuffle'] else False
         return draw_data_x
 
 
@@ -331,7 +334,6 @@ async def on_lobbyPlayerDrawing(data):
     When lobby says that someone is drawing and that one is us, we draw
     """
     if data == GAME_DATA["myID"]:
-        print("My Time Has Come")
         img = await dither(GAME_DATA['word'])                           # Image Dither
         for line in image_optimize(img, SETTINGS['X'], SETTINGS['Y']):  # Optimization for fast draw here, 3 and 5 are sizes of pixels for x drawing and y drawing, changing them u can make image bigger or smaller
             if line[0][1] != 0:                                         # We loop through image
@@ -341,10 +343,11 @@ async def on_lobbyPlayerDrawing(data):
 async def start_server():
     await sio.connect(f"wss://skribbl.io:{SETTINGS['Port']}/")
     await sio.wait()
-    print('Et tu, Brute?')
+    print(f"{color.Back.RED}{color.Style.BRIGHT}Et tu, Brute?")
 
     
 if __name__ == '__main__':
+    print(f"{color.Fore.GREEN}Logging in server \"{SETTINGS['Language']}\" with name \"{SETTINGS['BotName']}\".")
     loop = asyncio.get_event_loop()
     loop.run_until_complete(start_server())
     loop.close()
