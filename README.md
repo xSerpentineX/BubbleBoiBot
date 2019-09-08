@@ -12,15 +12,17 @@ This bot is a remake of a bot created by alekxeyuk that adds an easier command l
 
 
 # Features:
-- 18 Bots per computer, all ran at the click of a .bat file.
-- Customization that makes use of the `settings.json` and the `loopAll.config` files.
-- (Optional) Automated Spam that can be easily customized using the `settings.json` file.
-- Automated Drawing that can chose random or select images from the `images` folder.
-- Automated Reconnect on kick.
-- (Optional) Automatic Searching for users (Joins a game, checks for a user, if user is not there, joins another game).
-- .bat support for easier running and management.
-- An active discord community of 70+ members.
-- (Optional) Automatic Formatting that converts any fullstops (periods) into commas, so you can spam links without editing them.
+- 100% Free and Opensource at GitHub.
++ You can run eighteen bots per computer.
+- You can customize settings easily within the settings.json file.
++ Automatic drawing of custom images with two optional algorithms; cluster or yliluoma.
+- Automatic reconnection when kicked so you can leave the bot running without constantly monitoring it.
++ .bat support so you can run all eighteen bots from a single click without taking up the entire screen.
+- Optional automatic spam that avoids muting.
++ Optional spam formatting that converts any fullstops (periods) into commas for easy link spamming.
+- Optional automatic searching for users with a specified username.
++ Seven colour themes for the bot console.
+- A community discord with over seventy members including support channels and support bots (ModMail).
 
 
 # How to install the bot:
