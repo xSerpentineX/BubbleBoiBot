@@ -50,7 +50,11 @@ In the `loopAll.config` file (Inside the exec folder), you will find the followi
 # How to customize the bot:
 Open the `settings.json` file with your text editor and customize the bot with the following options:
 
-`BotName: "BubblyBoiBot"` You can change the bot name when connection to a server here.
+`"ColourTheme": "plain"`: You can change this to either `emerald`, `fire`, `ocean`, `storm`, `candy`, `gold` or `plain`. Some colour themes look better than others as of v1.63, but they should all be perfected by v1.70. Right now, I'd say fire and emerald are the best.
+
+`"BrightOrDim": "dim"`: You can change this to either `bright` or `dim`, which will affect how bright the bot text is.
+
+`"BotName": "BubblyBoiBot"` You can change the bot name when connection to a server here.
 
 `"Port": 5001` You do not have to change this unless you're using private games.
 
