@@ -1,4 +1,18 @@
 {
+	// Colour Theme
+
+	"ColourTheme": "plain", // Change this to match a colour theme listed below. You may want to go through a couple that sound intresting to you to see what they look like:
+	// List of themes:
+	// emerald: A mainly green colour theme.
+	// fire: A mainly red colour theme.
+	// ocean: A mainly blue colour theme.
+	// storm: A mainly cyan colour theme with a dash of yellow.
+	// candy: A mainly magenta colour theme with a dash of yellow.
+	// gold: A mainly yellow colour theme.
+	// plain: No colours (Set by default).
+	"BrightOrDim": "dim", // Change this to either bright or dim.
+
+
 	// Join Settings
 	
 	"BotName": "BubblyBoiBot", // Change this to change the name of the bot when connecting to a server.
@@ -13,6 +27,7 @@
 	"SpamMessage": "REPLACE THIS TEXT WITH THE TEXT YOU WANT TO SPAM.", // If "SpamServer" is true, put the message you want to be spammed here. Make sure your message is not above 100 characters.
 	"AutomaticFormatting": false, // Set this to true if you want to automatically all fullstops (periods) with commas. This will allow you to spam links, etc.
 
+
 	// Image Settings
 	
 	"Shuffle": false, // Draw the image randomly. Don't get this confused with RandomImage.
@@ -25,7 +40,6 @@
 	"Algorithm": "cluster", // Set this to either "cluster" or "yliluoma". Failing to do so will show a error when starting the bot, then the bot will close.
 	// cluster: Fast drawing speed, lower quality drawings.
 	// yliluoma: Extremely slow drawing speed, higher quality drawings.
-
 	"AnnounceWord": false,  // Set this to true if you want the bot to announce the real word to the chat. Set this to false if otherwise.
 	
 	
