@@ -58,9 +58,9 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"Language": "English"` Select what servers you wish to join (i.e Join the English servers).
 
-`"RandomAvatar": true` If set to false the avatar will be transparent. If set to true, your avatar will be random.
+`"RandomAvatar": false` If set to false the avatar will be transparent. If set to true, your avatar will be random.
 
-`"Shuffle": true` Draw the image randomly as opposed to moving up or down the image. Don't get this confused with "RandomImage".
+`"Shuffle": false` Draw the image randomly as opposed to moving up or down the image. Don't get this confused with "RandomImage".
 
 `"SpamServer": false` Set this to true if you want to automatically spam a server.
 
@@ -74,7 +74,7 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"Algorithm": "cluster" or "yliluoma"`: Set the drawing algorithm to either cluster or yliluoma.
 
-`"AnnounceWord": true`: If "AnnounceWord" is true, the bot will announce the real word to chat before drawing. If false, it will not.
+`"AnnounceWord": false`: If "AnnounceWord" is true, the bot will announce the real word to chat before drawing. If false, it will not.
 
 `"OnlyUser": false` Enable the automatic searching feature.
 
