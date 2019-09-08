@@ -5,10 +5,10 @@
 	// List of themes:
 	// emerald: A mainly green colour theme.
 	// fire: A mainly red colour theme.
-	// ocean: A mainly blue colour theme.
-	// storm: A mainly cyan colour theme with a dash of yellow.
-	// candy: A mainly magenta colour theme with a dash of yellow.
-	// gold: A mainly yellow colour theme.
+	// ocean: A mainly blue colour theme (WIP but still useable).
+	// storm: A mainly cyan colour theme with a dash of yellow (WIP but still useable).
+	// candy: A mainly magenta colour theme with a dash of yellow (WIP but still useable).
+	// gold: A mainly yellow colour theme (WIP but still useable, very close to completetion).
 	// plain: No colours (Set by default).
 	"BrightOrDim": "dim", // Change this to either bright or dim.
 
