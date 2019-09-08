@@ -5,14 +5,19 @@
 	"Port": 5001, // This is the port managed by the command line. LoopAll.bat runs on all three ports. You only need to change this when joining private games.
 	"Join": "", // Enter the private game code (The string of characters after the '?' in the private game link) here. This is also where you would test each port seperately.
 	"Language": "English", // Select what servers you wish to join (i.e Join the English servers).
-	"RandomAvatar": true, // If set to false the avatar will be transparent. If set to true, your avatar will be random.
+	"RandomAvatar": false, // If set to false the avatar will be transparent. If set to true, your avatar will be random.
 	
 
-	// Image Settings (YOU MUST USE JPG / JPEG)
+	// Spam Settings
+	"SpamServer": false, // If set to true, the server will be spammed with a message set in spam.txt. If false, the server will not be spammed.
+	"SpamMessage": "Replace this text with text you want to spam.", // If "SpamServer" is true, put the message you want to be spammed here. Make sure your message is not above 100 characters.
+	"AutomaticFormatting": false, // Set this to true if you want to automatically all fullstops (periods) with commas. This will allow you to spam links, etc.
+
+	// Image Settings
 	
-	"Shuffle": true, // Draw the image randomly. Don't get this confused with RandomImage.
-	"RandomImage": true, // Set this option to true to select a random image from the images folder.
-	"ImageToDraw": "BubbleBoiBotLogo.jpg", // If the RandomImage option is set to false, enter the image name here, including the file extension.
+	"Shuffle": false, // Draw the image randomly. Don't get this confused with RandomImage.
+	"RandomImage": false, // Set this option to true to select a random image from the images folder.
+	"ImageToDraw": "BubbleBoiBotLogo.jpg", // If the RandomImage option is set to false, enter the image name here. You must use either JPG or BMP.
 
 
 	// Drawing Settings
