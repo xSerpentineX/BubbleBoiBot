@@ -62,9 +62,9 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"Shuffle": false` Draw the image randomly as opposed to moving up or down the image. Don't get this confused with "RandomImage".
 
-`"SpamServer": false` Set this to true if you want to automatically spam a server.
+`"SpamServer": true` Set this to true if you want to automatically spam a server.
 
-`"SpamMessage": "Replace this text with text you want to spam."`: Set this to your spam message. Do not use 100+ characters.
+`"SpamMessage": "See settings,json to change the spam text."`: Set this to your spam message. Do not use 100+ characters.
 
 `"AutomaticFormatting": false`: Use this if you want to automatically convert all fullstops (periods) into commans.
 
