@@ -23,7 +23,7 @@
 	
 
 	// Spam Settings
-	"SpamServer": true, // If set to true, the server will be spammed with a message set in spam.txt. If false, the server will not be spammed.
+	"SpamServer": false, // If set to true, the server will be spammed with a message set in spam.txt. If false, the server will not be spammed.
 	"SpamMessage": "REPLACE THIS TEXT WITH THE TEXT YOU WANT TO SPAM", // If "SpamServer" is true, put the message you want to be spammed here. Make sure your message is not above 100 characters.
 	"AutomaticFormatting": false, // Set this to true if you want to automatically all fullstops (periods) with commas. This will allow you to spam links, etc.
 
