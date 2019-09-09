@@ -49,75 +49,9 @@ async def sendSpamMessage():
                 print(f"{color.Back.YELLOW}{color.Style.DIM}Warning: Your message has {messageLength - 100} extra characters.")
         else:
             if SETTINGS["AutomaticFormatting"]:
-                if SETTINGS["BrightOrDim"].lower() == "bright":
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                else:
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
+                await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))        
             else:
-                if SETTINGS["BrightOrDim"].lower() == "bright":
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                else:
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
 
     
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
@@ -861,6 +795,6 @@ if __name__ == '__main__':
 # Thank you for using our bot.
 
 # Original bot created by alekxeyuk.
-# Spam intergration and eighteen bot running created by PotassiumSnek#6853.
-# .bat support, exec and .config created by ! [( TheGamerX )]#7912.
+# New features created by PotassiumSnek#6853.
+# .bat support and configeration of features created by ! [( TheGamerX )]#7912.
 # Discord community server managed by PotassiumSnek#6853, ! [( TheGamerX )]#7912 and Kittler#4652
