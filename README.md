@@ -8,7 +8,7 @@ Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `lo
 
 
 # BubbleBoiBot
-This bot is a remake of a bot created by alekxeyuk that adds an easier command line interface, the ability to easily run eighteen bots at the same time and adds an easier spam configuration.
+This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly.
 
 
 # Features:
@@ -52,7 +52,7 @@ In the `loopAll.config` file (Inside the exec folder), you will find the followi
 # How to customize the bot:
 Open the `settings.json` file with your text editor and customize the bot with the following options:
 
-`"ColourTheme": "plain"`: You can change this to either `emerald`, `fire`, `ocean`, `storm`, `candy`, `gold` or `plain`. Some colour themes look better than others as of v1.63, but they should all be perfected by v1.70. Right now, I'd say fire and emerald are the best.
+`"ColourTheme": "plain"`: You can change this to either `emerald`, `fire`, `ocean`, `storm`, `candy`, `gold` or `plain`.
 
 `"BrightOrDim": "dim"`: You can change this to either `bright` or `dim`, which will affect how bright the bot text is.
 
@@ -70,7 +70,7 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"SpamServer": true` Set this to true if you want to automatically spam a server.
 
-`"SpamMessage": "See settings,json to change the spam text."`: Set this to your spam message. Do not use 100+ characters.
+`"SpamMessage": "REPLACE THIS TEXT WITH THE TEXT YOU WANT TO SPAM"`: Set this to your spam message. Do not use 100+ characters.
 
 `"AutomaticFormatting": false`: Use this if you want to automatically convert all fullstops (periods) into commans.
 
