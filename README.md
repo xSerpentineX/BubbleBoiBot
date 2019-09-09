@@ -7,7 +7,7 @@ Disclaimer No.2: There is a differance between a potentially unwanted program (P
 Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `loopAll.config` file in the exec folder. If `hidden` option is not enabled you can remove `quiet.exe`.
 
 
-# BubbleBoiBot
+# BubbleBoiBot v1.7
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly.
 
 
