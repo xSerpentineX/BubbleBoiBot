@@ -51,71 +51,71 @@ async def sendSpamMessage():
             if SETTINGS["AutomaticFormatting"]:
                 if SETTINGS["BrightOrDim"].lower() == "bright":
                     if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{color.Fore.GREEN}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{color.Fore.RED}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{color.Fore.BLUE}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{color.Fore.CYAN}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{color.Fore.MAGENTA}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "plain":
                         await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{color.Fore.YELLOW}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     else:
                         await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                 else:
                     if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{color.Fore.GREEN}{color.Style.DIM}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{color.Fore.RED}{color.Style.DIM}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{color.Fore.BLUE}{color.Style.DIM}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{color.Fore.CYAN}{color.Style.DIM}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{color.Fore.MAGENTA}{color.Style.DIM}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "plain":
                         await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{color.Fore.YELLOW}{color.Style.DIM}{SETTINGS['SpamMessage']}".replace(".", ","))
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
                     else:
                         await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
             else:
                 if SETTINGS["BrightOrDim"].lower() == "bright":
                     if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{color.Fore.GREEN}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}")
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
                     elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{color.Fore.RED}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}")
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
                     elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{color.Fore.BLUE}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}")
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
                     elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{color.Fore.CYAN}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}")
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
                     elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{color.Fore.MAGENTA}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{color.Fore.YELLOW}{color.Style.BRIGHT}{SETTINGS['SpamMessage']}")
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                else:
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{color.Fore.GREEN}{color.Style.DIM}{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{color.Fore.RED}{color.Style.DIM}{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{color.Fore.BLUE}{color.Style.DIM}{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{color.Fore.CYAN}{color.Style.DIM}{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{color.Fore.MAGENTA}{color.Style.DIM}{SETTINGS['SpamMessage']}")
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
                     elif SETTINGS["ColourTheme"].lower() == "plain":
                         await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
                     elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{color.Fore.YELLOW}{color.Style.DIM}{SETTINGS['SpamMessage']}")
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    else:
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                else:
+                    if SETTINGS["ColourTheme"].lower() == "emerald":
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    elif SETTINGS["ColourTheme"].lower() == "fire":
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    elif SETTINGS["ColourTheme"].lower() == "ocean":
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    elif SETTINGS["ColourTheme"].lower() == "storm":
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    elif SETTINGS["ColourTheme"].lower() == "candy":
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    elif SETTINGS["ColourTheme"].lower() == "plain":
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    elif SETTINGS["ColourTheme"].lower() == "gold":
+                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
                     else:
                         await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
 
@@ -441,7 +441,7 @@ async def on_chat(data):
     if 'players' in GAME_DATA.keys():
         if SETTINGS["BrightOrDim"].lower() == "bright":
             if SETTINGS["ColourTheme"].lower() == "emerald":
-                print(f"{color.Fore.WHITE}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
+                print(f"{color.Fore.GREEN}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
             elif SETTINGS["ColourTheme"].lower() == "fire":
                 print(f"{color.Fore.LIGHTRED_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
             elif SETTINGS["ColourTheme"].lower() == "ocean":
@@ -458,7 +458,7 @@ async def on_chat(data):
                 print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
         else:
             if SETTINGS["ColourTheme"].lower() == "emerald":
-                print(f"{color.Fore.WHITE}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
+                print(f"{color.Fore.GREEN}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
             elif SETTINGS["ColourTheme"].lower() == "fire":
                 print(f"{color.Fore.LIGHTRED_EX}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
             elif SETTINGS["ColourTheme"].lower() == "ocean":
