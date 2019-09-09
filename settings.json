@@ -5,17 +5,17 @@
 	// List of themes:
 	// emerald: A mainly green colour theme.
 	// fire: A mainly red colour theme.
-	// ocean: A mainly blue colour theme (WIP but still useable).
-	// storm: A mainly cyan colour theme with a dash of yellow (WIP but still useable).
-	// candy: A mainly magenta colour theme with a dash of yellow (WIP but still useable).
-	// gold: A mainly yellow colour theme (WIP but still useable, very close to completetion).
+	// ocean: A mainly blue colour theme.
+	// storm: A mainly cyan colour theme with a dash of yellow.
+	// candy: A strange but colourful theme.
+	// gold: A mainly yellow colour theme.
 	// plain: No colours (Set by default).
-	"BrightOrDim": "dim", // Change this to either bright or dim.
+	"BrightOrDim": "bright", // Change this to either bright or dim.
 
 
 	// Join Settings
 	
-	"BotName": "BubblyBoiBot", // Change this to change the name of the bot when connecting to a server.
+	"BotName": "BubbleBoiBot", // Change this to change the name of the bot when connecting to a server.
 	"Port": 5001, // This is the port managed by the command line. LoopAll.bat runs on all three ports. You only need to change this when joining private games.
 	"Join": "", // Enter the private game code (The string of characters after the '?' in the private game link) here. This is also where you would test each port seperately.
 	"Language": "English", // Select what servers you wish to join (i.e Join the English servers).
@@ -24,7 +24,7 @@
 
 	// Spam Settings
 	"SpamServer": true, // If set to true, the server will be spammed with a message set in spam.txt. If false, the server will not be spammed.
-	"SpamMessage": "REPLACE THIS TEXT WITH THE TEXT YOU WANT TO SPAM.", // If "SpamServer" is true, put the message you want to be spammed here. Make sure your message is not above 100 characters.
+	"SpamMessage": "REPLACE THIS TEXT WITH THE TEXT YOU WANT TO SPAM", // If "SpamServer" is true, put the message you want to be spammed here. Make sure your message is not above 100 characters.
 	"AutomaticFormatting": false, // Set this to true if you want to automatically all fullstops (periods) with commas. This will allow you to spam links, etc.
 
 
