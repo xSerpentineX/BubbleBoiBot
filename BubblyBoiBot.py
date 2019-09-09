@@ -1,19 +1,23 @@
 import os
 import sys
-import json
 import time
 import string
-import asyncio
-import socketio
-import requests
-import colorama as color
-import commentjson
-import hitherdither
-from io import BytesIO
-import random as r
-from PIL import Image, ImageDraw, ImageFont
-
-color.init(autoreset="true")
+try:
+    import colorama as color
+    color.init(autoreset=1)
+except ImportError as e:
+    print(f"Error: {e}")
+try:
+    import asyncio
+    import socketio
+    import requests
+    import commentjson
+    import hitherdither
+    from io import BytesIO
+    import random as r
+    from PIL import Image, ImageDraw, ImageFont
+except ImportError as e:
+    print(f"{color.Back.RED}{color.Style.BRIGHT}Error:{color.Back.BLACK}{color.Fore.RED} {e}")
 
 clear = True
 
@@ -28,7 +32,7 @@ try:
         SETTINGS = commentjson.load(settings_file)
         messageLength = len(SETTINGS["SpamMessage"])
 except Exception as e:
-    print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Loading json file.")
+    print(f"{color.Back.RED}{color.Style.BRIGHT}Error:{color.Back.BLACK}{color.Fore.RED} Loading json file.")
     print(e)
     errexit(1,5)
 
@@ -43,81 +47,12 @@ async def sendSpamMessage():
     global under_101
     if SETTINGS["SpamServer"]:
         if not under_101:
-            if SETTINGS["BrightOrDim"].lower() == "bright":
-                print(f"{color.Back.YELLOW}{color.Style.BRIGHT}Warning: Your message has {messageLength - 100} extra characters.")
-            else:
-                print(f"{color.Back.YELLOW}{color.Style.DIM}Warning: Your message has {messageLength - 100} extra characters.")
+            print(f"{color.Back.YELLOW}{color.Style.BRIGHT}Warning: Your message has {messageLength - 100} extra characters.")
         else:
             if SETTINGS["AutomaticFormatting"]:
-                if SETTINGS["BrightOrDim"].lower() == "bright":
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                else:
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
+                    await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))
             else:
-                if SETTINGS["BrightOrDim"].lower() == "bright":
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                else:
-                    if SETTINGS["ColourTheme"].lower() == "emerald":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "fire":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "ocean":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "storm":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "candy":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "plain":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    elif SETTINGS["ColourTheme"].lower() == "gold":
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-                    else:
-                        await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+                    await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
 
     
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
@@ -127,14 +62,6 @@ if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lowe
 if not (SETTINGS["Port"] == 5001 or SETTINGS["Port"] == 5002 or SETTINGS["Port"] == 5003):
     print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Port {SETTINGS['Port']} does not exist. See settings.json and change \"Port\" to 5001, 5002 or 5003.")
     errexit(1,5)
-
-if not (SETTINGS["ColourTheme"].lower() == "emerald" or SETTINGS["ColourTheme"].lower() == "fire" or SETTINGS["ColourTheme"].lower() == "ocean" or SETTINGS["ColourTheme"].lower() == "storm" or SETTINGS["ColourTheme"].lower() == "candy" or SETTINGS["ColourTheme"].lower() == "plain" or SETTINGS["ColourTheme"].lower() == "gold"):
-    print(f"{color.Fore.RED}Warning: Colour Theme \"{SETTINGS['ColourTheme']}\" does not exist. See settings.json and change \"ColourTheme\" to a correct theme listed (Using plain as default).")
-    print()
-
-if not (SETTINGS["BrightOrDim"].lower() == "dim" or SETTINGS["BrightOrDim"].lower() == "bright"):
-    print(f"{color.Fore.RED}Warning: \"BrightOrDim\" is not set to either \"bright\" or \"dim\". Please change \"BrightOrDim\" to either \"bright\" or \"dim\" (Using DIM as default).")
-    print()
 
 if len(sys.argv) == 2:
     """
@@ -172,37 +99,7 @@ async def dither(word):
 
     img = Image.open("images/" + image2Draw)
     img = img.resize((int(275), int(150)))
-    if SETTINGS["BrightOrDim"].lower() == "bright":
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.LIGHTGREEN_EX}{color.Style.BRIGHT}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.LIGHTRED_EX}{color.Style.BRIGHT}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.LIGHTBLUE_EX}{color.Style.BRIGHT}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print(f"Drawing: {image2Draw} with {img.size}")
-        else:
-            print(f"Drawing: {image2Draw} with {img.size}")
-    else:
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.LIGHTGREEN_EX}{color.Style.DIM}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.LIGHTRED_EX}{color.Style.DIM}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.LIGHTBLUE_EX}{color.Style.DIM}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}Drawing: {image2Draw} with {img.size}")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print(f"Drawing: {image2Draw} with {img.size}")
-        else:
-            print(f"Drawing: {image2Draw} with {img.size}")
-
+    print(f"{color.Back.GREEN}Drawing: {image2Draw} with {img.size}")
     if SETTINGS["Algorithm"].lower() == 'cluster':
         img_dithered = hitherdither.ordered.cluster.cluster_dot_dithering(img, palette, [1, 1, 1], 4)
         return img_dithered
@@ -223,57 +120,8 @@ async def on_connect():
     """
     On connection to the lobby we must introduce ourselves
     """
-    if SETTINGS["BrightOrDim"].lower() == "bright":
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.BLUE}{color.Style.BRIGHT}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print("Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}Connection established")
-            print()
-        else:
-            print("Connection established")
-            print()
-    else:
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.BLUE}{color.Style.DIM}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print("Connection established")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}Connection established")
-            print()
-        else:
-            print("Connection established")
-            print()
-
+    print(f"{color.Back.GREEN}{color.Style.BRIGHT}Connection established")
+    print()
     if (SETTINGS["RandomAvatar"]):
         num1 = r.randint(1, 5)
         num2 = r.randint(1, 5)
@@ -288,8 +136,6 @@ async def on_connect():
     await sio.emit('userData' , {"name": SETTINGS['BotName'], "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['Join'], "language": SETTINGS['Language'], "createPrivate": False})
     del num1,num2,num3,num4
 
-    await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
-
 
 @sio.on('lobbyConnected')
 async def on_lobbyConnected(data):
@@ -297,109 +143,13 @@ async def on_lobbyConnected(data):
     """
     When we connected to the lobby we print out the current round, the number of players, the players names and their score, we also also store that info into GAME_DATA dict
     """
-    if SETTINGS["BrightOrDim"].lower() == "bright":
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}Lobby connected")
-            print(f"{color.Fore.GREEN}{color.Style.BRIGHT}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}Lobby connected")
-            print(f"{color.Fore.RED}{color.Style.BRIGHT}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}Lobby connected")
-            print(f"{color.Fore.BLUE}{color.Style.BRIGHT}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}Lobby connected")
-            print(f"{color.Fore.CYAN}{color.Style.BRIGHT}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}Lobby connected")
-            print(f"{color.Fore.MAGENTA}{color.Style.BRIGHT}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print("Lobby connected")
-            print(f"Round {data['round']} / {data['roundMax']}")
-            print(f"There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}Lobby connected")
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}There {len(data['players'])} players: ")
-        else:
-            print("Lobby connected")
-            print(f"Round {data['round']} / {data['roundMax']}")
-            print(f"There {len(data['players'])} players: ")
-    else:
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}Lobby connected")
-            print(f"{color.Fore.GREEN}{color.Style.DIM}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.WHITE}{color.Style.DIM}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}Lobby connected")
-            print(f"{color.Fore.RED}{color.Style.DIM}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}Lobby connected")
-            print(f"{color.Fore.BLUE}{color.Style.DIM}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.WHITE}{color.Style.DIM}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}Lobby connected")
-            print(f"{color.Fore.CYAN}{color.Style.DIM}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}Lobby connected")
-            print(f"{color.Fore.MAGENTA}{color.Style.DIM}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print("Lobby connected")
-            print(f"Round {data['round']} / {data['roundMax']}")
-            print(f"There {len(data['players'])} players: ")
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}Lobby connected")
-            print(f"{color.Fore.WHITE}{color.Style.DIM}Round {data['round']} / {data['roundMax']}")
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}There {len(data['players'])} players: ")
-        else:
-            print("Lobby connected")
-            print(f"Round {data['round']} / {data['roundMax']}")
-            print(f"There {len(data['players'])} players: ")
+    print(f"{color.Fore.GREEN}{color.Style.BRIGHT}Lobby connected")
+    print(f"{color.Fore.YELLOW}Round {data['round']} / {data['roundMax']}")
+    print(f"{color.Fore.MAGENTA}{color.Style.DIM}There {len(data['players'])} players: ")
 
     doLeave = False
     for player in data['players']:
-        if SETTINGS["BrightOrDim"].lower() == "bright":
-            if SETTINGS["ColourTheme"].lower() == "emerald":
-                print(f"    {color.Fore.LIGHTGREEN_EX}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "fire":
-                print(f"    {color.Fore.LIGHTYELLOW_EX}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "ocean":
-                print(f"    {color.Fore.LIGHTCYAN_EX}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "storm":
-                print(f"    {color.Fore.LIGHTYELLOW_EX}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "candy":
-                print(f"    {color.Fore.LIGHTCYAN_EX}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "plain":
-                print(f"    {player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "gold":
-                print(f"    {color.Fore.LIGHTWHITE_EX}{player['id']} = {player['name']} > {player['score']}")
-            else:
-                print(f"    {player['id']} = {player['name']} > {player['score']}")
-        else:
-            if SETTINGS["ColourTheme"].lower() == "emerald":
-                print(f"    {color.Fore.GREEN}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "fire":
-                print(f"    {color.Fore.YELLOW}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "ocean":
-                print(f"    {color.Fore.CYAN}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "storm":
-                print(f"    {color.Fore.YELLOW}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "candy":
-                print(f"    {color.Fore.CYAN}{player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "plain":
-                print(f"    {player['id']} = {player['name']} > {player['score']}")
-            elif SETTINGS["ColourTheme"].lower() == "gold":
-                print(f"    {color.Fore.WHITE}{player['id']} = {player['name']} > {player['score']}")
-            else:
-                print(f"    {player['id']} = {player['name']} > {player['score']}")
+        print(f"    {color.Style.DIM}{player['id']} = {player['name']} > {player['score']}")
 
         if player['name'] == SETTINGS["OnlyUserName"] and SETTINGS['OnlyUser']:
             doLeave = True
@@ -407,7 +157,7 @@ async def on_lobbyConnected(data):
     print()
 
     if not doLeave and SETTINGS['OnlyUser']:
-        print(f"{color.Back.WHITE}{color.Style.BRIGHT}{color.Fore.GREEN}Info: Leaving because {SETTINGS['OnlyUserName']} was not found.")
+        print(f"{color.Back.GREEN}Info: Leaving because {SETTINGS['OnlyUserName']} was not found.")
         await sio.disconnect()
         os._exit(1)
 
@@ -415,48 +165,16 @@ async def on_lobbyConnected(data):
     GAME_DATA.update({'myID': data['myID']})
     GAME_DATA.update({'round' : data['round']})
 
-    await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
-    
+    if SETTINGS["SpamServer"]:
+        await sendSpamMessage()
+
 
 @sio.on('lobbyState')
 def on_lobbyState(data):
     """
     When lobby change its state, we want to show that
     """
-    if SETTINGS["BrightOrDim"].lower() == 'bright':
-        if SETTINGS["ColourTheme"].lower() == 'emerald':
-            print(f"{color.Fore.LIGHTWHITE_EX}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'fire':
-            print(f"{color.Fore.LIGHTRED_EX}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'ocean':
-            print(f"{color.Fore.LIGHTCYAN_EX}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'storm':
-            print(f"{color.Fore.LIGHTYELLOW_EX}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'candy':
-            print(f"{color.Fore.LIGHTBLUE_EX}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'plain':
-            print(f"Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'gold':
-            print(f"{color.Fore.LIGHTWHITE_EX}Lobby State: {data}")
-        else:
-            print(f"Lobby State: {data}")
-    else:
-        if SETTINGS["ColourTheme"].lower() == 'emerald':
-            print(f"{color.Fore.WHITE}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'fire':
-            print(f"{color.Fore.RED}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'ocean':
-            print(f"{color.Fore.CYAN}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'storm':
-            print(f"{color.Fore.YELLOW}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'candy':
-            print(f"{color.Fore.CYAN}Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'plain':
-            print(f"Lobby State: {data}")
-        elif SETTINGS["ColourTheme"].lower() == 'gold':
-            print(f"{color.Fore.WHITE}Lobby State: {data}")
-        else:
-            print(f"Lobby State: {data}")
+    print(f"{color.Fore.MAGENTA}Lobby State: {data}")
 
 
 @sio.on('lobbyCurrentWord')
@@ -464,57 +182,8 @@ def on_lobbyCurrentWord(data):
     """
     When lobby updates current word, we want to show this.
     """
-    if SETTINGS["BrightOrDim"].lower() == 'bright':
-        if SETTINGS["ColourTheme"].lower() == 'emerald':
-            print(f"{color.Style.BRIGHT}{color.Fore.WHITE}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'fire':
-            print(f"{color.Style.BRIGHT}{color.Fore.YELLOW}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'ocean':
-            print(f"{color.Style.BRIGHT}{color.Fore.LIGHTCYAN_EX}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'storm':
-            print(f"{color.Style.BRIGHT}{color.Fore.YELLOW}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'candy':
-            print(f"{color.Style.BRIGHT}{color.Fore.LIGHTBLUE_EX}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'plain':
-            print(f"Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'gold':
-            print(f"{color.Style.BRIGHT}{color.Fore.WHITE}Current Word: {data}")
-            print()
-        else:
-            print(f"Current Word: {data}")
-            print()
-    else:
-        if SETTINGS["ColourTheme"].lower() == 'emerald':
-            print(f"{color.Style.DIM}{color.Fore.WHITE}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'fire':
-            print(f"{color.Style.DIM}{color.Fore.YELLOW}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'ocean':
-            print(f"{color.Style.DIM}{color.Fore.LIGHTCYAN_EX}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'storm':
-            print(f"{color.Style.DIM}{color.Fore.YELLOW}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'candy':
-            print(f"{color.Style.DIM}{color.Fore.LIGHTBLUE_EX}Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'plain':
-            print(f"Current Word: {data}")
-            print()
-        elif SETTINGS["ColourTheme"].lower() == 'gold':
-            print(f"{color.Style.DIM}{color.Fore.WHITE}Current Word: {data}")
-            print()
-        else:
-            print(f"Current Word: {data}")
-            print()
-    
+    print(f"{color.Fore.MAGENTA}Current Word: {data}")
+    print()
 
 
 @sio.on('chat')
@@ -524,40 +193,7 @@ async def on_chat(data):
     Chat function, prints username or id of user and their message
     """
     if 'players' in GAME_DATA.keys():
-        if SETTINGS["BrightOrDim"].lower() == "bright":
-            if SETTINGS["ColourTheme"].lower() == "emerald":
-                print(f"{color.Fore.LIGHTGREEN_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "fire":
-                print(f"{color.Fore.LIGHTRED_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "ocean":
-                print(f"{color.Fore.LIGHTBLUE_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "storm":
-                print(f"{color.Fore.LIGHTCYAN_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "candy":
-                print(f"{color.Fore.LIGHTMAGENTA_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "plain":
-                print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "gold":
-                print(f"{color.Fore.LIGHTYELLOW_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            else:
-                print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-        else:
-            if SETTINGS["ColourTheme"].lower() == "emerald":
-                print(f"{color.Fore.GREEN}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "fire":
-                print(f"{color.Fore.RED}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "ocean":
-                print(f"{color.Fore.BLUE}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "storm":
-                print(f"{color.Fore.CYAN}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "candy":
-                print(f"{color.Fore.MAGENTA}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "plain":
-                print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            elif SETTINGS["ColourTheme"].lower() == "gold":
-                print(f"{color.Fore.YELLOW}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
-            else:
-                print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
+        print(f"{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
         if clear == True:
             clear = False
             time.sleep(1.4)
@@ -573,40 +209,7 @@ async def on_lobbyPlayerConnected(data):
     When someone enters the lobby, we want to know this, so this is what this function does
     """
     GAME_DATA['players'].update({data['id'] : {'name': data['name'], 'score': data['score'], 'guessedWord': data['guessedWord']}})
-    if SETTINGS["BrightOrDim"].lower() == "bright":
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print(f"{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}{data['name']} connected.")
-        else:
-            print(f"{data['name']} connected.")
-    else:
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print(f"{data['name']} connected.")
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}{data['name']} connected.")
-        else:
-            print(f"{data['name']} connected.")
+    print(f"{color.Fore.GREEN}{color.Style.DIM}{data['name']} connected.")
 
 
 @sio.on('lobbyPlayerDisconnected')
@@ -615,41 +218,7 @@ async def on_lobbyPlayerDisconnected(data):
     When someone leaves the lobby, we want to know this, so this is what this function does
     It also makes the bot leave if OnlyUser is enabled
     """
-    if SETTINGS["BrightOrDim"].lower() == "bright":
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print(f"{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.WHITE}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} left.")
-        else:
-            print(f"{GAME_DATA['players'][data]['name']} left.")
-    else:
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print(f"{GAME_DATA['players'][data]['name']} left.")
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}{GAME_DATA['players'][data]['name']} left.")
-        else:
-            print(f"{GAME_DATA['players'][data]['name']} left.")
-
+    print(f"{color.Fore.RED}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} left.")
     if SETTINGS["OnlyUser"] and GAME_DATA['players'][data]['name'] == SETTINGS["OnlyUserName"]:
         await sio.eio.disconnect(True)
         time.sleep(2)
@@ -661,40 +230,7 @@ def on_lobbyPlayerGuessedWord(data):
     """
     When someone guesses a word, we want to know it, so this is what this function does
     """
-    if SETTINGS["BrightOrDim"].lower() == "bright":
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.LIGHTWHITE_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.LIGHTYELLOW_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.LIGHTCYAN_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.LIGHTBLUE_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print(f"{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.LIGHTWHITE_EX}{color.Style.BRIGHT}{GAME_DATA['players'][data]['name']} the guessed word!")
-        else:
-            print(f"{GAME_DATA['players'][data]['name']} the guessed word!")
-    else:
-        if SETTINGS["ColourTheme"].lower() == "emerald":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "fire":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "ocean":
-            print(f"{color.Fore.CYAN}{color.Style.DIM}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "storm":
-            print(f"{color.Fore.YELLOW}{color.Style.DIM}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "candy":
-            print(f"{color.Fore.CYAN}{color.Style.DIM}{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "plain":
-            print(f"{GAME_DATA['players'][data]['name']} the guessed word!")
-        elif SETTINGS["ColourTheme"].lower() == "gold":
-            print(f"{color.Fore.WHITE}{color.Style.DIM}{GAME_DATA['players'][data]['name']} the guessed word!")
-        else:
-            print(f"{GAME_DATA['players'][data]['name']} the guessed word!")
+    print(f"{color.Fore.CYAN}{GAME_DATA['players'][data]['name']} the guessed word!")
 
 
 @sio.on('drawCommands')
@@ -730,10 +266,7 @@ async def on_lobbyChooseWord(data):
     """
     if data['id'] == GAME_DATA["myID"]:
         GAME_DATA.update({"word": data['words'][2]})   # We always choose the third word, you can change it the way you want it to work
-        if SETTINGS["BrightOrDim"].lower() == "dim":
-            print(f"{color.Style.BRIGHT}I am drawing {data['words'][2]}")
-        else:
-            print(f"{color.Style.DIM}I am drawing {data['words'][2]}")
+        print(f"{color.Style.BRIGHT}I am drawing {data['words'][2]}")
         if SETTINGS["AnnounceWord"]:
             await sio.emit("chat", f"The actual word is: {data['words'][2]}.")
         await sio.emit("lobbyChooseWord", 2)
@@ -818,41 +351,7 @@ async def start_server():
 
     
 if __name__ == '__main__':
-    if SETTINGS["BrightOrDim"].lower() == 'bright':
-        if SETTINGS["ColourTheme"].lower() == 'emerald':
-            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'fire':
-            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'ocean':
-            print(f"{color.Fore.LIGHTCYAN_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'storm':
-            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'candy':
-            print(f"{color.Fore.LIGHTBLUE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'plain':
-            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'gold':
-            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        else:
-            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-    else:
-        if SETTINGS["ColourTheme"].lower() == 'emerald':
-            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'fire':
-            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'ocean':
-            print(f"{color.Fore.CYAN}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'storm':
-            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'candy':
-            print(f"{color.Fore.CYAN}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'plain':
-            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        elif SETTINGS["ColourTheme"].lower() == 'gold':
-            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-        else:
-            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
-    
+    print(f"{color.Fore.GREEN}Logging in server \"{SETTINGS['Language']}\" with name \"{SETTINGS['BotName']}\".")
     loop = asyncio.get_event_loop()
     loop.run_until_complete(start_server())
     loop.close()
