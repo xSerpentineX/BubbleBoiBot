@@ -1,14 +1,5 @@
-Disclaimer No.1: VirusTotal states, "57/58 scanners, including Avast, AVG, McAfee, Norton, claim that this is malware free. The only scanner that claims virus is obsecure, and claims it is adware, more than likely due to spamming.
-
-
-Disclaimer No.2: There is a differance between a potentially unwanted program (PUP) and malware.
-
-
-Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `loopAll.config` file in the exec folder. If `hidden` option is not enabled you can remove `quiet.exe`.
-
-
 # BubbleBoiBot v1.7
-This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly.
+This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly (See disclaimers at bottom of README.md (the text you're reading right now)).
 
 
 # Features:
@@ -102,5 +93,17 @@ This error means either; You are running too many bots one port or the server th
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
 
 Please report any errors you get to PotassiumSnek#6853. If I get the error commonly, I will add it to this list.
+
+
+# Disclaimers
+- Disclaimer No.1: VirusTotal states, "57/58 scanners, including Avast, AVG, McAfee, Norton, claim that this is malware free. The only scanner that claims virus is obsecure, and claims it is adware, more than likely due to spamming.
+
+
+- Disclaimer No.2: There is a differance between a potentially unwanted program (PUP) and malware.
+
+
+- Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `loopAll.config` file in the exec folder. If `hidden` option is not enabled you can remove `quiet.exe`.
+
+
 # Thank You, PotassiumSnek#6853 (That's my discord).
 # Join our community discord: https://discord.gg/38n5TYK
