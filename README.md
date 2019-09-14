@@ -32,8 +32,7 @@ pip install websockets aiohttp python-socketio requests Pillow numpy commentjson
 6. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `loopAll.bat` file.
 
 
-**Thank you for installing the bot! We'd be even more thankful if you joined our discord server from the URL inside the file. You can use the discord server for support with installation and discussion with brand new friends.**
-(We also have many great discord bots in our server!)
+**Thank you for installing the bot!**
 
 
 # How to customize the bot (loopAll.config):
@@ -92,7 +91,7 @@ This error means either; You are running too many bots one port or the server th
 
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
 
-Please report any errors you get to PotassiumSnek#6853. If I get the error commonly, I will add it to this list.
+Please report any errors you get to Izarus#6723. If I get the error commonly, I will add it to this list.
 
 
 # Disclaimers
@@ -105,5 +104,4 @@ Please report any errors you get to PotassiumSnek#6853. If I get the error commo
 - Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `loopAll.config` file in the exec folder. If `hidden` option is not enabled you can remove `quiet.exe`.
 
 
-# Thank You, PotassiumSnek#6853 (That's my discord).
-# Join our community discord: https://discord.gg/38n5TYK
+# Thank You, Izarus#6723 (That's my discord).
