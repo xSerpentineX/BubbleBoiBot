@@ -794,6 +794,6 @@ if __name__ == '__main__':
 # Thank you for using our bot.
 
 # Original bot created by alekxeyuk.
-# New features created by PotassiumSnek#6853.
+# New features created by Izarus#6723.
 # .bat support and configeration of features created by ! [( TheGamerX )]#7912.
 # Discord community server managed by PotassiumSnek#6853, ! [( TheGamerX )]#7912 and Kittler#4652
