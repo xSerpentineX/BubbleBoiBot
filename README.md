@@ -1,4 +1,4 @@
-# BubbleBoiBot v1.7
+# BubbleBoiBot v1.71
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly (See disclaimers at bottom of README.md (the text you're reading right now)).
 
 
