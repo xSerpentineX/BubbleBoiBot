@@ -13,7 +13,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 + Optional spam formatting that converts any fullstops (periods) into commas for easy link spamming.
 - Optional automatic searching for users with a specified username.
 + Seven colour themes for the bot console.
-- A community discord with over seventy members including support channels and support bots (ModMail).
+- How discord server got removed and old discount account got terminated. RIP.
 
 
 # How to install the bot:
