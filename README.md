@@ -104,4 +104,4 @@ Please report any errors you get to Izarus#6723. If I get the error commonly, I 
 - Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `loopAll.config` file in the exec folder. If `hidden` option is not enabled you can remove `quiet.exe`.
 
 
-# Thank You, Izarus#6723 (That's my discord).
+# Thank You, Catterall#6723 (That's my discord).
