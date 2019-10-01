@@ -1,7 +1,8 @@
 {
 	// Colour Theme
 
-	"ColourTheme": "plain", // Change this to match a colour theme listed below. You may want to go through a couple that sound intresting to you to see what they look like:
+	"ColourTheme": "plain", // Change "plain" to a colour theme.
+	
 	// List of themes:
 	// emerald: A mainly green colour theme.
 	// fire: A mainly red colour theme.
@@ -10,44 +11,50 @@
 	// candy: A strange but colourful theme.
 	// gold: A mainly yellow colour theme.
 	// plain: No colours (Set by default).
-	"BrightOrDim": "bright", // Change this to either bright or dim.
-
+	"BrightOrDim": "bright", // Change this to either "bright" or "dim".
+	
+	// --------------------------------------------------------------------------------------------------------------------
 
 	// Join Settings
 	
 	"BotName": "BubbleBoiBot", // Change this to change the name of the bot when connecting to a server.
-	"Port": 5001, // This is the port managed by the command line. LoopAll.bat runs on all three ports. You only need to change this when joining private games.
-	"Join": "", // Enter the private game code (The string of characters after the '?' in the private game link) here. This is also where you would test each port seperately.
+	"Port": 5001, // This is the port managed by the command line. Only change if joining private games.
+	"Join": "", // Enter the private game code (The string of characters after the '?' in the private game link) here. 
 	"Language": "English", // Select what servers you wish to join (i.e Join the English servers).
 	"RandomAvatar": false, // If set to false the avatar will be transparent. If set to true, your avatar will be random.
 	
-
+	// --------------------------------------------------------------------------------------------------------------------
+	
 	// Spam Settings
-	"SpamServer": true, // If set to true, the server will be spammed with a message set in spam.txt. If false, the server will not be spammed.
-	"SpamMessage": "REPLACE THIS TEXT WITH THE TEXT YOU WANT TO SPAM", // If "SpamServer" is true, put the message you want to be spammed here. Make sure your message is not above 100 characters.
-	"AutomaticFormatting": false, // Set this to true if you want to automatically all fullstops (periods) with commas. This will allow you to spam links, etc.
+	"SpamServer": true, // If set to true, the server will be spammed with the message set below.
+	"SpamMessage": "Replace this text with spam text", // Place spam text here. Make sure it is under 100 characters.
+	"AutomaticFormatting": false, // Changes all full-stops (periods) into commas. Good for mass link spam.
 
+	// --------------------------------------------------------------------------------------------------------------------
 
 	// Image Settings
 	
 	"Shuffle": false, // Draw the image randomly. Don't get this confused with RandomImage.
 	"RandomImage": false, // Set this option to true to select a random image from the images folder.
-	"ImageToDraw": "BubbleBoiBotLogo.jpg", // If the RandomImage option is set to false, enter the image name here. You must use either JPG or BMP.
-
+	"ImageToDraw": "BubbleBoiBotLogo.jpg", // ^^^ Enter the image name here. JPG/BMP ONLY.
+	
+	// --------------------------------------------------------------------------------------------------------------------
 
 	// Drawing Settings
 
-	"Algorithm": "cluster", // Set this to either "cluster" or "yliluoma". Failing to do so will show a error when starting the bot, then the bot will close.
+	"Algorithm": "cluster", // Set this to either "cluster" or "yliluoma".
 	// cluster: Fast drawing speed, lower quality drawings.
 	// yliluoma: Extremely slow drawing speed, higher quality drawings.
-	"AnnounceWord": false,  // Set this to true if you want the bot to announce the real word to the chat. Set this to false if otherwise.
+	"AnnounceWord": false,  // Announces the real word to the chat.
 	
+	// --------------------------------------------------------------------------------------------------------------------
 	
 	// Search Settings
 	
-	"OnlyUser": false, // Set this option to true for the bot to join a server, leave and reconnect continously until it finds a specific username in the server.
-	"OnlyUserName": "yourusernamehere", // If the option, "OnlyUser" is set to true, please specify the user here. CaSe SpECiFic. $YMB()L $P£CIFIC.
+	"OnlyUser": false, // Search for a username. Causes skribbl.io to halt connections from your IP once exiting the bot. Use a VPN!
+	"OnlyUserName": "yourusernamehere", // Enter the username (CaSe SpECiFic. $YMB()L $P£CIFIC).
 	
+	// --------------------------------------------------------------------------------------------------------------------
 	
 	// SETTINGS YOU SHOULD NOT CHANGE
 	
