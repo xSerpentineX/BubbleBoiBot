@@ -1,4 +1,4 @@
-# BubbleBoiBot v1.71
+# BubbleBoiBot v1.72
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly (See disclaimers at bottom of README.md (the text you're reading right now)).
 
 
@@ -14,6 +14,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 - Optional automatic searching for users with a specified username.
 + Seven colour themes for the bot console.
 - Our discord server got removed and old discount account got terminated. RIP.
++ A simple bat GUI on starting to make it easier to use.
 
 
 # How to install the bot:
@@ -33,10 +34,6 @@ pip install websockets aiohttp python-socketio requests Pillow numpy commentjson
 
 
 **Thank you for installing the bot!**
-
-
-# How to customize the bot (loopAll.config):
-In the `loopAll.config` file (Inside the exec folder), you will find the following options: `hidden`, `delay`, `devSkip` and `startTimes`. `hidden` is set to false by default. Setting it to true will cause the bot windows to become hidden to the user outside of the task manager. Leaving it as false will set the bot windows to open minimized. `delay` sets how long the delay is between each bot starting. The default value is 1. `devSkip` simply stops any bots from running when using the `loopAll.bat` file. It is set to false by default and is only really used when testing the simple interface of the `loopAll.bat` program. Finally, `startTimes` sets how many bots will open on each of the three Skribbl.io ports (port5001, port5002, port5003) when running `loopAll.bat`. The default is 6. From testing, it appears the maximum is also six bots per port (Meaning at optimal time and without any errors, you can run up to eighteen bots on one computer).
 
 
 # How to customize the bot:
@@ -76,6 +73,7 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"OnlyUserName": "yourusernamehere"` Specify which username to search for.
 
+
 All files in the `images` folder must be images.
 Image names are case and symbol sensitive and you must include the file extension.
 Images must be JPG/JPEG/BMP.
@@ -87,11 +85,11 @@ connection established.
 disconnected from server.
 disconnected from server.
 ```
-This error means either; You are running too many bots one port or the server the bot tried to connect to was full. Solution: If the problem is caused by running more than six bots on one port, close any excessive bots on that port. There isn't exactly a solution to cause B other than, "Try again later".
+This error means a number of different things. Either the servers are full, which can be solved easily by waiting or joining a different language; You're running too many bots on one port, which can be solved easily by closing some bots on one port; or the skribbl.io website has targetted your PC on suspicion (this happens a lot when you use the bot to search for users) which can be solved by using a VPN. ProtonVPN would be a good VPN to use for this.
 
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
 
-Please report any errors you get to Izarus#6723. If I get the error commonly, I will add it to this list.
+Please report any errors you get to Catterall#6723. If I get the error commonly, I will add it to this list.
 
 
 # Disclaimers
