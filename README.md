@@ -6,7 +6,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 - 100% Free and Opensource at GitHub.
 + You can run eighteen bots per computer.
 - You can customize settings easily within the `settings.json` file.
-+ Automatic drawing of custom images with two optional algorithms; cluster (fast, low quality) or yliluoma (slow, high quality).
++ Automatic drawing of custom images with two algorithms; cluster (fast, low quality) or yliluoma (slow, high quality).
 - Automatic reconnection when kicked so you can leave the bot running without constantly monitoring it.
 + .bat support so you can run all eighteen bots from a single click without taking up the entire screen.
 - Optional automatic spam that avoids muting.
