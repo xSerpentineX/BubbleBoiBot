@@ -5,8 +5,8 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 # Features:
 - 100% Free and Opensource at GitHub.
 + You can run eighteen bots per computer.
-- You can customize settings easily within the settings.json file.
-+ Automatic drawing of custom images with two optional algorithms; cluster or yliluoma.
+- You can customize settings easily within the `settings.json` file.
++ Automatic drawing of custom images with two optional algorithms; cluster (fast, low quality) or yliluoma (slow, high quality).
 - Automatic reconnection when kicked so you can leave the bot running without constantly monitoring it.
 + .bat support so you can run all eighteen bots from a single click without taking up the entire screen.
 - Optional automatic spam that avoids muting.
@@ -30,7 +30,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 ```
 pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama
 ```
-6. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `loopAll.bat` file.
+6. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `launcher.bat` file.
 
 
 **Thank you for installing the bot!**
@@ -41,7 +41,7 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"ColourTheme": "plain"`: You can change this to either `emerald`, `fire`, `ocean`, `storm`, `candy`, `gold` or `plain`.
 
-`"BrightOrDim": "dim"`: You can change this to either `bright` or `dim`, which will affect how bright the bot text is.
+`"BrightOrDim": "bright"`: You can change this to either `bright` or `dim`, which will affect how bright the bot text is.
 
 `"BotName": "BubblyBoiBot"` You can change the bot name when connection to a server here.
 
@@ -57,7 +57,7 @@ Open the `settings.json` file with your text editor and customize the bot with t
 
 `"SpamServer": true` Set this to true if you want to automatically spam a server.
 
-`"SpamMessage": "REPLACE THIS TEXT WITH THE TEXT YOU WANT TO SPAM"`: Set this to your spam message. Do not use 100+ characters.
+`"SpamMessage": "Replace this text with spam text."`: Set this to your spam message. Do not use 100+ characters.
 
 `"AutomaticFormatting": false`: Use this if you want to automatically convert all fullstops (periods) into commans.
 
