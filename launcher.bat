@@ -143,7 +143,7 @@ goto:INI
     call exec\centertext %windowWidth% Original bot programmed by alekxeyuk
     echo.
     call exec\centertext %windowWidth% Spam Integrated Bot programmed
-    call exec\centertext %windowWidth% by TheLoveableBubblyNoodle#6853
+    call exec\centertext %windowWidth% by Catterall#6723
     call exec\centertext %windowWidth% Batch support programmed
     call exec\centertext %windowWidth% by ^^! [( TheGamerX )]#7912
     echo.
@@ -217,7 +217,7 @@ exit 0
         if %hidden%==true (
             exec\Quiet loop5002 >nul 2>&1
         ) else (
-            start "Port 5002" /MIN exec\loop5001
+            start "Port 5002" /MIN exec\loop5002
         )
         echo ^(OK^)
         exec\nircmdc wait %delay%
@@ -230,7 +230,7 @@ exit 0
         if %hidden%==true (
             exec\Quiet loop5003 >nul 2>&1
         ) else (
-            start "Port 5003" /MIN exec\loop5001
+            start "Port 5003" /MIN exec\loop5003
         )
         echo ^(OK^)
         exec\nircmdc wait %delay%
