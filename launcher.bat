@@ -1,6 +1,6 @@
 mode 50,16
 @echo off
-set vn=1.72
+set vn=1.7
 title Bubbly Boi Bot v%vn% - Loading
 color 0C
 SetLocal EnableDelayedExpansion
@@ -75,8 +75,8 @@ exit 0
 :cursorchange
     if /I "%1"=="enter" (
         if "%cursor%"=="1" (if /I %hidden%==true (set hidden=false) else (set hidden=true))
-        if "%cursor%"=="2" (set /p delay=ยฏ Delay in miliseconds: )
-        if "%cursor%"=="3" (set /p times=ยฏ Start times: )
+        if "%cursor%"=="2" (set /p delay=ฏ Delay in miliseconds: )
+        if "%cursor%"=="3" (set /p times=ฏ Start times: )
         if "%cursor%"=="4" (call:configsave & call:start)
         if "%cursor%"=="5" (call:about)
         if "%cursor%"=="6" (call:configdefault)
@@ -103,26 +103,26 @@ exit 0
     for /l %%a in (1,1,%items%) do (
         set cursor[%%a]=  
     )
-    set cursor[%cursor%]=ยฏ
+    set cursor[%cursor%]=ฏ
 exit /b 0
 
 :INI
 title Bubbly Boi Bot v%vn% - Menu
 cls & echo.
-echo  รรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรยป
-echo  ยบ                               Bubbly Boi Bot ยบ
-echo  ร Optionsรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรยน
-echo  ยบ
-echo  ยบ   %cursor[1]% Hidden: %hidden%
-echo  ยบ   %cursor[2]% Delay: %delay%ms
-echo  ยบ   %cursor[3]% Start times: %times%
-echo  ยบ
-echo  ยบ   %cursor[4]% Start
-echo  ยบ   %cursor[5]% About
-echo  ยบ   %cursor[6]% Defaults
-echo  ยบ   %cursor[7]% Exit
-echo  ยบ
-echo  รรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรยผ
+echo  ษออออออออออออออออออออออออออออออออออออออออออออออป
+echo  บ                               Bubbly Boi Bot บ
+echo  ฬ Optionsออออออออออออออออออออออออออออออออออออออน
+echo  บ
+echo  บ   %cursor[1]% Hidden: %hidden%
+echo  บ   %cursor[2]% Delay: %delay%ms
+echo  บ   %cursor[3]% Start times: %times%
+echo  บ
+echo  บ   %cursor[4]% Start
+echo  บ   %cursor[5]% About
+echo  บ   %cursor[6]% Defaults
+echo  บ   %cursor[7]% Exit
+echo  บ
+echo  ศออออออออออออออออออออออออออออออออออออออออออออออผ
 exec\getkey
 
 if "%errorlevel%"=="%keyLeft%" (call:cursorchange slide left)
