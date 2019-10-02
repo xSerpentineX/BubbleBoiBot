@@ -1,4 +1,4 @@
-![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+![#f03c15](https://placehold.it/15/f03c15/000000?text=dasdaads) `#f03c15`
 # BubbleBoiBot v1.72
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
