@@ -1,3 +1,7 @@
+# Download
+Download file from our releases page because github changes file encoding to `UTF-8` and batch files use ANSI so the gui of `launcher.bat` will look bad
+https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases
+
 # BubbleBoiBot v1.72
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
