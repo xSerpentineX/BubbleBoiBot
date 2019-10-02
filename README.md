@@ -1,9 +1,3 @@
-```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-```
 # BubbleBoiBot v1.72
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
