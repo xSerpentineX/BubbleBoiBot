@@ -1,5 +1,5 @@
 # Download
-Download file from our releases page because github changes file encoding to `UTF-8` and batch files use `ANSI` so the gui of `launcher.bat` will look bad.
+Download program from our releases page because github changes file encoding to `UTF-8` and batch files use `ANSI` so the gui of `launcher.bat` will look bad.
 
 https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases
 
