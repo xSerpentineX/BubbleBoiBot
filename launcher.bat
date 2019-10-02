@@ -1,6 +1,6 @@
 mode 50,16
 @echo off
-set vn=1.7
+set vn=1.72
 title Bubbly Boi Bot v%vn% - Loading
 color 0C
 SetLocal EnableDelayedExpansion
