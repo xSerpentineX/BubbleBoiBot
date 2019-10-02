@@ -99,7 +99,7 @@ Please report any errors you get to Catterall#6723. If I get the error commonly,
 - Disclaimer No.2: There is a differance between a potentially unwanted program (PUP) and malware.
 
 
-- Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `loopAll.config` file in the exec folder. If `hidden` option is not enabled you can remove `quiet.exe`.
+- Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `config.ini` file in the exec folder. If `hidden` option is not enabled you can remove `quiet.exe`.
 
 
 # Thank You, Catterall#6723 (That's my discord).
