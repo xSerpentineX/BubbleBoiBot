@@ -1,11 +1,11 @@
 mode 50,16
 @echo off
-set vn=1.72
+set vn=1.7
 title Bubbly Boi Bot v%vn% - Loading
 color 0C
 SetLocal EnableDelayedExpansion
 SetLocal enableextensions
-chcp 437>nul
+chcp 850>nul
 
 title Bubbly Boi Bot v%vn% - Loading powershell
 for /f "tokens=3,4 delims=, " %%A in (
@@ -49,6 +49,10 @@ if defined error (
     call:configrestart
 )
 call:configcheck
+
+for %%a in (%configcheck%) do (
+    set %%a=!%%a: =!
+)
 
 title Bubbly Boi Bot v%vn% - Loading Keys
 for /f "tokens=* eol=[" %%a in (exec\keys.ini) do (set %%a)
@@ -98,10 +102,8 @@ exit 0
     if /I "%1"=="up" (if %cursor% GTR 1 (set /a cursor-=1))
     for /l %%a in (1,1,%items%) do (
         set cursor[%%a]=  
-        set "cursor0[%%a]="
     )
     set cursor[%cursor%]=¯
-    set cursor0[%cursor%]=®
 exit /b 0
 
 :INI
@@ -112,7 +114,7 @@ echo  º                               Bubbly Boi Bot º
 echo  Ì OptionsÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
 echo  º
 echo  º   %cursor[1]% Hidden: %hidden%
-echo  º   %cursor[2]% Delay: %delay%
+echo  º   %cursor[2]% Delay: %delay%ms
 echo  º   %cursor[3]% Start times: %times%
 echo  º
 echo  º   %cursor[4]% Start
