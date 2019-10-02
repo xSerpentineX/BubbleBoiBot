@@ -1,8 +1,3 @@
-# Download
-Download program from our releases page because github changes file encoding to `UTF-8` and batch files use `ANSI` so the gui of `launcher.bat` will look bad.
-
-https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases
-
 # BubbleBoiBot v1.72
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
@@ -27,7 +22,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 
 2. When installing Python 3.7.4, check the, "Install to PATH", checkbox then click, "Custom installation". Check every box and leave the default save location as default (Do not click browse!)
 
-3. On this GitHub page, click the green, "Clone or download." Button and then click, "Download as ZIP." Then, extract the ZIP file somewhere on your computer. You will need to come to this file to run the bot, so save it somewhere rememerable.
+3. Download the bot at the releases tab: https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases. If you don't do this, GitHub will convert the ANSI to UTF-8 and it will cause the .bat GUI to look as though it has been corrupted.
 
 4. Do `windows + s` and type in the search, "Windows power shell". Right click it and then click, "Run as administrator."
 
