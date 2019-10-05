@@ -1,4 +1,4 @@
-# BubbleBoiBot v1.72
+# BubbleBoiBot v1.73
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
 
@@ -28,7 +28,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 
 5. In the windows shell, enter the following command:
 ```
-pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama
+pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5 pyqt5-tools
 ```
 6. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `launcher.bat` file.
 
