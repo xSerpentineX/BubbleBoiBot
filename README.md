@@ -11,10 +11,9 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 + .bat support so you can run all eighteen bots from a single click without taking up the entire screen.
 - Optional automatic spam that avoids muting.
 + Optional spam formatting that converts any fullstops (periods) into commas for easy link spamming.
-- Optional automatic searching for users with a specified username.
+- Optional automatic searching for users (Use a VPN to stop skribbl.io stopping your connections!).
 + Seven colour themes for the bot console.
-- Our discord server got removed and old discount account got terminated. RIP.
-+ A simple bat GUI on starting to make it easier to use.
+- A simple GUI that is easy to use.
 
 
 # How to install the bot:
@@ -22,7 +21,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 
 2. When installing Python 3.7.4, check the, "Install to PATH", checkbox then click, "Custom installation". Check every box and leave the default save location as default (Do not click browse!)
 
-3. Download the bot at the releases tab: https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases. If you don't do this, GitHub will convert the ANSI to UTF-8 and it will cause the .bat GUI to look as though it has been corrupted.
+3. Download the bot at the releases tab: https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases.
 
 4. Do `windows + s` and type in the search, "Windows power shell". Right click it and then click, "Run as administrator."
 
@@ -30,7 +29,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 ```
 pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5 pyqt5-tools
 ```
-6. To run the bot, head to the BubblyBoiBot folder (not the ZIP, the folder you extracted) and click the `launcher.bat` file.
+6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `BubbleBoiBot Launcher` file.
 
 
 **Thank you for installing the bot!**
@@ -95,11 +94,7 @@ Please report any errors you get to Catterall#6723. If I get the error commonly,
 # Disclaimers
 - Disclaimer No.1: VirusTotal states, "57/58 scanners, including Avast, AVG, McAfee, Norton, claim that this is malware free. The only scanner that claims virus is obsecure, and claims it is adware, more than likely due to spamming.
 
-
 - Disclaimer No.2: There is a differance between a potentially unwanted program (PUP) and malware.
-
-
-- Disclaimer No.3: Quiet.exe is only used if `hidden` option is enabled in the `config.ini` file in the exec folder. If `hidden` option is not enabled you can remove `quiet.exe`.
 
 
 # Thank You, Catterall#6723 (That's my discord).
