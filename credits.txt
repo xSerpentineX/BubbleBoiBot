@@ -1,5 +1,0 @@
-# Thank you for using our bot.
-
-# Original bot created by alekxeyuk.
-# Spam intergration and eighteen bot running created by Catterall#6723.
-# .bat support, exec and .config created by ! [( TheGamerX )]#7912.
