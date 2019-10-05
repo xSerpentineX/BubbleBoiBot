@@ -753,38 +753,38 @@ async def start_server():
 if __name__ == '__main__':
     if SETTINGS["BrightOrDim"].lower() == 'bright':
         if SETTINGS["ColourTheme"].lower() == 'emerald':
-            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'fire':
-            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'ocean':
-            print(f"{color.Fore.LIGHTCYAN_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.LIGHTCYAN_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'storm':
-            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'candy':
-            print(f"{color.Fore.LIGHTBLUE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.LIGHTBLUE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'plain':
-            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'gold':
-            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         else:
-            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
     else:
         if SETTINGS["ColourTheme"].lower() == 'emerald':
-            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'fire':
-            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'ocean':
-            print(f"{color.Fore.CYAN}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.CYAN}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'storm':
-            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'candy':
-            print(f"{color.Fore.CYAN}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.CYAN}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'plain':
-            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'gold':
-            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         else:
-            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\".")
+            print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
     
     loop = asyncio.get_event_loop()
     loop.run_until_complete(start_server())
@@ -793,6 +793,6 @@ if __name__ == '__main__':
 
 # Thank you for using our bot.
 
-# Original bot created by alekxeyuk.
-# New features created by Catterall#6723.
-# .bat support and configeration of features created by ! [( TheGamerX )]#7912.
+# [Original] Python programmed by alekxeyuk.
+# [New] Python programmed by Catterall#6723
+# [New] Batch / JSON programmed by ! [( TheGamerX )]#7912
