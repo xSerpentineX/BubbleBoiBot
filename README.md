@@ -34,7 +34,7 @@ pip install websockets aiohttp python-socketio requests Pillow numpy commentjson
 
 # Thank you for installing the bot!
 All files in the `images` folder must be images.
-Image names are case and symbol sensitive and you must include the extension and images folder (e.g images/BubbleBoiBotLogo.jpg).
+Image names are case and symbol sensitive and you must include the extension and images folder (e.g images\BubbleBoiBotLogo.jpg).
 Images must be JPG/JPEG/BMP.
 
 
