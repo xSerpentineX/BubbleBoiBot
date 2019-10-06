@@ -57,8 +57,8 @@ if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lowe
     print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Algorithm \"{SETTINGS['Algorithm']}\" was not found. See settings.json and change \"Algorithm\" to \"cluster\" or \"yliluoma\".")
     errexit(1,5)
 
-if not (SETTINGS["Port"] == 5001 or SETTINGS["Port"] == 5002 or SETTINGS["Port"] == 5003):
-    print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Port {SETTINGS['Port']} does not exist. See settings.json and change \"Port\" to 5001, 5002 or 5003.")
+if not (SETTINGS["Port"] == 5001 or SETTINGS["Port"] == 5002 or SETTINGS["Port"] == 5003 or SETTINGS["Port"] == "all"):
+    print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Port {SETTINGS['Port']} does not exist. See settings.json and change \"Port\" to 5001, 5002, 5003 or \"all\".")
     errexit(1,5)
 
 if not (SETTINGS["ColourTheme"].lower() == "emerald" or SETTINGS["ColourTheme"].lower() == "fire" or SETTINGS["ColourTheme"].lower() == "ocean" or SETTINGS["ColourTheme"].lower() == "storm" or SETTINGS["ColourTheme"].lower() == "candy" or SETTINGS["ColourTheme"].lower() == "plain" or SETTINGS["ColourTheme"].lower() == "gold"):
@@ -220,9 +220,7 @@ async def on_connect():
 
     await sio.emit('userData' , {"name": SETTINGS['BotName'], "code":"", "avatar": [num1, num2, num3, num4], "join": SETTINGS['Join'], "language": SETTINGS['Language'], "createPrivate": False})
     del num1,num2,num3,num4
-
-    await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
-
+ 
 
 @sio.on('lobbyConnected')
 async def on_lobbyConnected(data):
@@ -667,9 +665,7 @@ async def on_lobbyChooseWord(data):
             print(f"{color.Style.BRIGHT}I am drawing {data['words'][2]}")
         else:
             print(f"{color.Style.DIM}I am drawing {data['words'][2]}")
-        if SETTINGS["AnnounceWord"]:
-            await sio.emit("chat", f"The actual word is: {data['words'][2]}.")
-        await sio.emit("lobbyChooseWord", 2)
+            await sio.emit("lobbyChooseWord", 2)
 
 
 def image_optimize(img, x_size, y_size):
@@ -745,6 +741,8 @@ async def on_lobbyPlayerDrawing(data):
 
 
 async def start_server():
+    if SETTINGS["Port"] == "all":
+        SETTINGS["Port"] = 5001
     await sio.connect(f"wss://skribbl.io:{SETTINGS['Port']}/")
     await sio.wait()
     print(f"{color.Back.RED}{color.Style.BRIGHT}Et tu, Brute?")

@@ -1,11 +1,11 @@
-# BubbleBoiBot v1.73
+# BubbleBoiBot v1.8
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
 
 # Features:
 - 100% Free and Opensource at GitHub.
 + You can run eighteen bots per computer.
-- You can customize settings easily within the `settings.json` file.
+- You can customize settings easily within the GUI.
 + Automatic drawing of custom images with two algorithms; cluster (fast, low quality) or yliluoma (slow, high quality).
 - Automatic reconnection when kicked so you can leave the bot running without constantly monitoring it.
 + .bat support so you can run all eighteen bots from a single click without taking up the entire screen.
@@ -13,7 +13,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 + Optional spam formatting that converts any fullstops (periods) into commas for easy link spamming.
 - Optional automatic searching for users (Use a VPN to stop skribbl.io stopping your connections!).
 + Seven colour themes for the bot console.
-- A simple GUI that is easy to use.
+- A simple GUI that is easy to use and remembers input.
 
 
 # How to install the bot:
@@ -29,53 +29,14 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 ```
 pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5 pyqt5-tools
 ```
-6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `BubbleBoiBot Launcher` file.
+6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `BubbleBoiBot v1.8 Launcher` file.
+
+All files in the `images` folder must be images.
+Image names are case and symbol sensitive and you must include the extension and images folder (e.g images/BubbleBoiBotLogo.jpg).
+Images must be JPG/JPEG/BMP.
 
 
 **Thank you for installing the bot!**
-
-
-# How to customize the bot:
-Open the `settings.json` file with your text editor and customize the bot with the following options:
-
-`"ColourTheme": "plain"`: You can change this to either `emerald`, `fire`, `ocean`, `storm`, `candy`, `gold` or `plain`.
-
-`"BrightOrDim": "bright"`: You can change this to either `bright` or `dim`, which will affect how bright the bot text is.
-
-`"BotName": "BubblyBoiBot"` You can change the bot name when connection to a server here.
-
-`"Port": 5001` You do not have to change this unless you're using private games.
-
-`"Join": ""` To join a private game, add the code here (The string of characters found after the '?' in the server link). You'll have to test each port to see if it works.
-
-`"Language": "English"` Select what servers you wish to join (i.e Join the English servers).
-
-`"RandomAvatar": false` If this is set to false the avatar will be transparent. If set to true, your avatar will be random.
-
-`"Shuffle": false` Draw the image randomly as opposed to moving up or down the image. Don't get this confused with "RandomImage".
-
-`"SpamServer": true` Set this to true if you want to automatically spam a server.
-
-`"SpamMessage": "Replace this text with spam text."`: Set this to your spam message. Do not use 100+ characters.
-
-`"AutomaticFormatting": false`: Use this if you want to automatically convert all fullstops (periods) into commans.
-
-`"RandomImage": false` Select a random image from the `images` folder.
-
-`"ImageToDraw": ""` If "RandomImage" is false, specify the image here. Image must be in the `images` folder.
-
-`"Algorithm": "cluster" or "yliluoma"`: Set the drawing algorithm to either cluster or yliluoma.
-
-`"AnnounceWord": false`: If "AnnounceWord" is true, the bot will announce the real word to chat before drawing. If false, it will not.
-
-`"OnlyUser": false` Enable the automatic searching feature.
-
-`"OnlyUserName": "yourusernamehere"` Specify which username to search for.
-
-
-All files in the `images` folder must be images.
-Image names are case and symbol sensitive and you must include the file extension.
-Images must be JPG/JPEG/BMP.
 
 
 # Common Errors:
