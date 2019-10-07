@@ -61,4 +61,4 @@ Please report any errors you get to Catterall#6723. If I get the error commonly,
 - Disclaimer No.2: There is a differance between a potentially unwanted program (PUP) and malware.
 
 
-# Thank You, Catterall#6723 (That's my discord).
+# Thank You, Catterall#5487 (That's my discord).
