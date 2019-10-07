@@ -1,5 +1,3 @@
-# Notice: Im locked out of my discord account. Don't know if I'll get back in. Notify them, TheGamerX.
-
 ![example](https://user-images.githubusercontent.com/54080082/66280258-bda1e200-e8ad-11e9-9c21-b3b82ce52cb2.png)
 
 # BubbleBoiBot v1.8
