@@ -40,9 +40,6 @@ Image names are case and symbol sensitive and you must include the extension (e.
 Images must be JPG/JPEG/BMP.
 
 
-# Thank you for installing the bot!
-
-
 # Common Errors
 ```
 connection established.
