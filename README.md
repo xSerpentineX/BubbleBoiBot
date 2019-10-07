@@ -66,4 +66,4 @@ Please report any errors you get to Catterall#5487. If I get the error commonly,
 **Discord: Catterall#5487 (Notice: This discord may change at any times due to random reasons, keep up to date!)**
 **ProtonMail: CleoStevenson92@protonmail.com (Yes, this is a made up name)**
 
-***You can find my current up-to-date discord at all times at github.com/TheLoveableBananaNoodle***
+***You can find my current up-to-date discord at all times at `github.com/TheLoveableBananaNoodle`***
