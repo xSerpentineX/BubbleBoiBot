@@ -70,4 +70,4 @@ Please report any errors you get to Catterall#5487. If I get the error commonly,
 ***You can find my current up-to-date discord at all times at `github.com/TheLoveableBananaNoodle`***
 
 
-[I'm an inline-style link](https://www.google.com)
+# [Jump back to top!](https://www.google.com)
