@@ -37,7 +37,7 @@ Images must be JPG/JPEG/BMP.
 
 
 # Thank you for installing the bot!
-If this bot performed well for you, perhaps consider leaving a star? ;P
+***⭐ If this bot performed well for you, perhaps consider leaving a star? ⭐***
 
 
 # Common Errors:
