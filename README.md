@@ -1,3 +1,5 @@
+# Notice: Im locked out of my discord account and for a second time, I've lost everyone. Please, tell them all TheGamerX. I might be able to get in if I'm lucky but it's uncertain and unlikely.
+
 ![example](https://user-images.githubusercontent.com/54080082/66280258-bda1e200-e8ad-11e9-9c21-b3b82ce52cb2.png)
 
 # BubbleBoiBot v1.8
