@@ -1,4 +1,4 @@
-![example](https://user-images.githubusercontent.com/54080082/66280258-bda1e200-e8ad-11e9-9c21-b3b82ce52cb2.png)
+![MainImage](https://user-images.githubusercontent.com/54080082/66329928-50329780-e927-11e9-99e9-3be6b64afe0d.jpg)
 
 # BubbleBoiBot v1.8
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
