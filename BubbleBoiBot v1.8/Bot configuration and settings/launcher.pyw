@@ -501,19 +501,24 @@ class Ui_BubbleBoiLauncher(object):
 
     def retranslateUi(self, BubbleBoiLauncher):
         _translate = QtCore.QCoreApplication.translate
-        BubbleBoiLauncher.setWindowTitle(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.8 - Launcher"))
-        self.title_label.setText(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.8"))
+        BubbleBoiLauncher.setWindowTitle(_translate(
+            "BubbleBoiLauncher", "BubbleBoiBot v1.8 - Launcher"))
+        self.title_label.setText(_translate(
+            "BubbleBoiLauncher", "BubbleBoiBot v1.8"))
         self.delay_label.setText(_translate("BubbleBoiLauncher", "Delay:"))
         self.start_button.setText(_translate("BubbleBoiLauncher", "Launch"))
-        self.hidden_mode_label.setText(_translate("BubbleBoiLauncher", "Hidden (Hide tasks in Task Manager):"))
-        self.start_times_label.setText(_translate("BubbleBoiLauncher", "Start Times:"))
+        self.hidden_mode_label.setText(_translate(
+            "BubbleBoiLauncher", "Hidden (Hide tasks in Task Manager):"))
+        self.start_times_label.setText(
+            _translate("BubbleBoiLauncher", "Start Times:"))
         self.one_start_radio.setText(_translate("BubbleBoiLauncher", "1"))
         self.two_start_radio.setText(_translate("BubbleBoiLauncher", "2"))
         self.three_start_radio.setText(_translate("BubbleBoiLauncher", "3"))
         self.four_start_radio.setText(_translate("BubbleBoiLauncher", "4"))
         self.five_start_radio.setText(_translate("BubbleBoiLauncher", "5"))
         self.six_start_radio.setText(_translate("BubbleBoiLauncher", "6"))
-        self.colour_themes_label.setText(_translate("BubbleBoiLauncher", "Colour Theme:"))
+        self.colour_themes_label.setText(
+            _translate("BubbleBoiLauncher", "Colour Theme:"))
         self.emerald_radio.setText(_translate("BubbleBoiLauncher", "Emerald"))
         self.fire_radio.setText(_translate("BubbleBoiLauncher", "Fire"))
         self.ocean_radio.setText(_translate("BubbleBoiLauncher", "Ocean"))
@@ -521,31 +526,49 @@ class Ui_BubbleBoiLauncher(object):
         self.candy_radio.setText(_translate("BubbleBoiLauncher", "Candy"))
         self.desert_radio.setText(_translate("BubbleBoiLauncher", "Desert"))
         self.plain_radio.setText(_translate("BubbleBoiLauncher", "Plain"))
-        self.dark_checkbox.setText(_translate("BubbleBoiLauncher", "Dark Mode"))
-        self.join_settings_label.setText(_translate("BubbleBoiLauncher", "Join Settings:"))
-        self.bot_name_label.setText(_translate("BubbleBoiLauncher", "Bot Name:"))
-        self.port_label.setText(_translate("BubbleBoiLauncher", "Port to attack:"))
+        self.dark_checkbox.setText(_translate(
+            "BubbleBoiLauncher", "Dark Mode"))
+        self.join_settings_label.setText(
+            _translate("BubbleBoiLauncher", "Join Settings:"))
+        self.bot_name_label.setText(
+            _translate("BubbleBoiLauncher", "Bot Name:"))
+        self.port_label.setText(_translate(
+            "BubbleBoiLauncher", "Port to attack:"))
         self.port5001_radio.setText(_translate("BubbleBoiLauncher", "5001"))
         self.port5002_radio.setText(_translate("BubbleBoiLauncher", "5002"))
         self.port5003_radio.setText(_translate("BubbleBoiLauncher", "5003"))
         self.portAll_radio.setText(_translate("BubbleBoiLauncher", "All"))
-        self.join_label.setText(_translate("BubbleBoiLauncher", "Join Code (For Private Games):"))
-        self.language_label.setText(_translate("BubbleBoiLauncher", "Language:"))
-        self.randomAvatar_checkbox.setText(_translate("BubbleBoiLauncher", "Random Avatar"))
-        self.spam_settings_label.setText(_translate("BubbleBoiLauncher", "Spam Settings:"))
-        self.doSpam_checkbox.setText(_translate("BubbleBoiLauncher", "Spam Server"))
+        self.join_label.setText(_translate(
+            "BubbleBoiLauncher", "Join Code (For Private Games):"))
+        self.language_label.setText(
+            _translate("BubbleBoiLauncher", "Language:"))
+        self.randomAvatar_checkbox.setText(
+            _translate("BubbleBoiLauncher", "Random Avatar"))
+        self.spam_settings_label.setText(
+            _translate("BubbleBoiLauncher", "Spam Settings:"))
+        self.doSpam_checkbox.setText(_translate(
+            "BubbleBoiLauncher", "Spam Server"))
         self.spam_label.setText(_translate("BubbleBoiLauncher", "Message:"))
-        self.linkFilter_checkbox.setText(_translate("BubbleBoiLauncher", "Link Message Filter (Convert any periods to commas)"))
-        self.draw_settings_label.setText(_translate("BubbleBoiLauncher", "Drawing Settings:"))
-        self.shuffle_checkbox.setText(_translate("BubbleBoiLauncher", "Shuffle"))
-        self.randomImage_checkbox.setText(_translate("BubbleBoiLauncher", "Random image from images folder"))
-        self.image_path_label.setText(_translate("BubbleBoiLauncher", "Image path:"))
-        self.algorithm_label.setText(_translate("BubbleBoiLauncher", "Drawing algorithm:"))
+        self.linkFilter_checkbox.setText(_translate(
+            "BubbleBoiLauncher", "Link Message Filter (Convert any periods to commas)"))
+        self.draw_settings_label.setText(_translate(
+            "BubbleBoiLauncher", "Drawing Settings:"))
+        self.shuffle_checkbox.setText(
+            _translate("BubbleBoiLauncher", "Shuffle"))
+        self.randomImage_checkbox.setText(_translate(
+            "BubbleBoiLauncher", "Random image from images folder"))
+        self.image_path_label.setText(
+            _translate("BubbleBoiLauncher", "Image path:"))
+        self.algorithm_label.setText(_translate(
+            "BubbleBoiLauncher", "Drawing algorithm:"))
         self.cluster_radio.setText(_translate("BubbleBoiLauncher", "Cluster"))
-        self.yliluoma_radio.setText(_translate("BubbleBoiLauncher", "Yliluoma (Very slow, higher quality)"))
-        self.search_settings_label.setText(_translate("BubbleBoiLauncher", "Search Settings:"))
+        self.yliluoma_radio.setText(_translate(
+            "BubbleBoiLauncher", "Yliluoma (Very slow, higher quality)"))
+        self.search_settings_label.setText(
+            _translate("BubbleBoiLauncher", "Search Settings:"))
         self.search_checkbox.setText(_translate("BubbleBoiLauncher", "Search"))
-        self.username_label.setText(_translate("BubbleBoiLauncher", "Username to find:"))
+        self.username_label.setText(_translate(
+            "BubbleBoiLauncher", "Username to find:"))
         self.delay250_radio.setText(_translate("BubbleBoiLauncher", "250ms"))
         self.delay500_radio.setText(_translate("BubbleBoiLauncher", "500ms"))
         self.delay750_radio.setText(_translate("BubbleBoiLauncher", "750ms"))
@@ -587,82 +610,86 @@ class Ui_BubbleBoiLauncher(object):
         if self.delay1250_radio.isChecked():
             delay = 1250
         if self.hidden_mode_checkbox.isChecked():
-        	hidden = True
+            hidden = True
         else:
-        	hidden = False
+            hidden = False
         if self.one_start_radio.isChecked():
-        	start_times = 1
+            start_times = 1
         if self.two_start_radio.isChecked():
-        	start_times = 2
+            start_times = 2
         if self.three_start_radio.isChecked():
-        	start_times = 3
+            start_times = 3
         if self.four_start_radio.isChecked():
-        	start_times = 4
+            start_times = 4
         if self.five_start_radio.isChecked():
-        	start_times = 5
+            start_times = 5
         if self.six_start_radio.isChecked():
-        	start_times = 6
+            start_times = 6
         if self.emerald_radio.isChecked():
-        	colour_theme = 'emerald'
+            colour_theme = 'emerald'
         if self.fire_radio.isChecked():
-        	colour_theme = 'fire'
+            colour_theme = 'fire'
         if self.ocean_radio.isChecked():
-        	colour_theme = 'ocean'
+            colour_theme = 'ocean'
         if self.storm_radio.isChecked():
-        	colour_theme = 'storm'
+            colour_theme = 'storm'
         if self.candy_radio.isChecked():
-        	colour_theme = 'candy'
+            colour_theme = 'candy'
         if self.desert_radio.isChecked():
-        	colour_theme = 'gold'
+            colour_theme = 'gold'
         if self.plain_radio.isChecked():
-        	colour_theme = 'plain'
+            colour_theme = 'plain'
         name = self.bot_name_text.toPlainText()
         language = self.language_text.toPlainText()
         if self.port5001_radio.isChecked():
-        	port = 5001
-        	port_all = False
+            port = 5001
+            port_all = False
         if self.port5002_radio.isChecked():
-        	port = 5002
-        	port_all = False
+            port = 5002
+            port_all = False
         if self.port5003_radio.isChecked():
-        	port = 5003
-        	port_all = False
+            port = 5003
+            port_all = False
         if self.portAll_radio.isChecked():
-        	port = 5001
-        	port_all = True
+            port = 5001
+            port_all = True
         else:
-        	port_all = False
+            port_all = False
         join = self.join_text.toPlainText()
         if self.randomAvatar_checkbox.isChecked():
-        	random_avatar = True
+            random_avatar = True
         else:
-        	random_avatar = False
+            random_avatar = False
+        if self.dark_checkbox.isChecked():
+            dark_mode = 'dim'
+        else:
+            dark_mode = 'bright'
         if self.doSpam_checkbox.isChecked():
-        	spam_server = True
+            spam_server = True
         else:
-        	spam_server = False
+            spam_server = False
         if self.linkFilter_checkbox.isChecked():
-        	automatic_formatting = True
+            automatic_formatting = True
         else:
-        	automatic_formatting = False
+            automatic_formatting = False
         spam_message = self.spam_text.toPlainText()
         if self.shuffle_checkbox.isChecked():
-        	shuffle = True
+            shuffle = True
         else:
-        	shuffle = False
+            shuffle = False
         if self.randomImage_checkbox.isChecked():
-        	random_image = True
+            random_image = True
         else:
-        	random_image = False
+            random_image = False
         image_path = self.image_path_text.toPlainText()
         if self.cluster_radio.isChecked():
-        	drawing_algorithm = 'cluster'
+            drawing_algorithm = 'cluster'
         else:
-        	drawing_algorithm = 'yliluoma'
+            drawing_algorithm = 'yliluoma'
         if self.search_checkbox.isChecked():
-        	only_user = True
+            only_user = True
         else:
-        	only_user = False
+            only_user = False
         only_username = self.username_text.toPlainText()
 
         BubbleBoiLauncher.close()

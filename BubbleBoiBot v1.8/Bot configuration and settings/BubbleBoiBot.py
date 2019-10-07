@@ -346,7 +346,9 @@ async def on_lobbyConnected(data):
     GAME_DATA.update({'myID': data['myID']})
     GAME_DATA.update({'round' : data['round']})
 
-    await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
+    await sio.emit('chat', 'Want to download a bot with auto-spam, filter, searching, drawing, reconnecting and a lot more?')
+    await sio.emit('chat', 'Or download a bot with drawing of custom/random images from a folder with seven colour themes?')
+    await sio.emit('chat', 'Or download a bot with each setting available in a simple GUI (that remembers your settings too!)?')
     
 
 @sio.on('lobbyState')
@@ -792,5 +794,5 @@ if __name__ == '__main__':
 # Thank you for using our bot.
 
 # [Original] Python programmed by alekxeyuk.
-# [New] Python programmed by Catterall#5487
+# [New] Python programmed by Catterall#6723
 # [New] Batch / JSON programmed by ! [( TheGamerX )]#7912
