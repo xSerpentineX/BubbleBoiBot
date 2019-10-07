@@ -1,4 +1,4 @@
-***⭐ If this bot performed well for you, perhaps consider leaving a star? ⭐***
+***⭐ If this bot performed well for you, perhaps consider leaving a star? It lets us know we're on the right path! <3⭐***
 
 ![MainImage](https://user-images.githubusercontent.com/54080082/66329928-50329780-e927-11e9-99e9-3be6b64afe0d.jpg)
 
