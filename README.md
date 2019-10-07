@@ -1,3 +1,5 @@
+***⭐ If this bot performed well for you, perhaps consider leaving a star? ⭐***
+
 ![MainImage](https://user-images.githubusercontent.com/54080082/66329928-50329780-e927-11e9-99e9-3be6b64afe0d.jpg)
 
 # BubbleBoiBot v1.8
@@ -39,7 +41,6 @@ Images must be JPG/JPEG/BMP.
 
 
 # Thank you for installing the bot!
-***⭐ If this bot performed well for you, perhaps consider leaving a star? ⭐***
 
 
 # Common Errors:
