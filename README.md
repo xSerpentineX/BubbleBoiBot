@@ -70,4 +70,4 @@ Please report any errors you get to Catterall#5487. If I get the error commonly,
 ***You can find my current up-to-date discord at all times at `github.com/TheLoveableBananaNoodle`***
 
 
-[](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/blob/master/README.md#bubbleboibot-v18 "Jump back to top.")
+[I'm an inline-style link](https://www.google.com)
