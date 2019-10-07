@@ -6,7 +6,7 @@
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
 
-# Features:
+# Features
 - 100% Free and Opensource at GitHub.
 + You can run eighteen bots per computer.
 - You can customize settings easily within the GUI.
@@ -20,7 +20,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 - A simple GUI that is easy to use and remembers input.
 
 
-# How to install the bot:
+# How to install the bot
 1. Download Python 3.7.4 here: https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe
 
 2. When installing Python 3.7.4, check the, "Install to PATH", checkbox then click, "Custom installation". Check every box and leave the default save location as default (Do not click browse!)
@@ -43,7 +43,7 @@ Images must be JPG/JPEG/BMP.
 # Thank you for installing the bot!
 
 
-# Common Errors:
+# Common Errors
 ```
 connection established.
 disconnected from server.
@@ -62,4 +62,6 @@ Please report any errors you get to Catterall#5487. If I get the error commonly,
 - Disclaimer No.2: There is a differance between a potentially unwanted program (PUP) and malware.
 
 
-# Thank You, Catterall#5487 (That's my discord).
+# Contact Me
+**Discord: Catterall#5487 (Will more than likely change every so often, make sure to check if your contacting the right me!**
+**ProtonMail: CleoStevenson92@protonmail.com (Yes, this is a made up name)**
