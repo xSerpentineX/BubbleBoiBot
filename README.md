@@ -34,7 +34,7 @@ pip install websockets aiohttp python-socketio requests Pillow numpy commentjson
 6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `BubbleBoiBot v1.8 Launcher` file.
 
 All files in the `images` folder must be images.
-Image names are case and symbol sensitive and you must include the extension and images folder (e.g images\BubbleBoiBotLogo.jpg).
+Image names are case and symbol sensitive and you must include the extension (e.g BubbleBoiBotLogo.jpg).
 Images must be JPG/JPEG/BMP.
 
 
@@ -52,7 +52,7 @@ This error means a number of different things. Either the servers are full, whic
 
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
 
-Please report any errors you get to Catterall#6723. If I get the error commonly, I will add it to this list.
+Please report any errors you get to Catterall#5487. If I get the error commonly, I will add it to this list.
 
 
 # Disclaimers
