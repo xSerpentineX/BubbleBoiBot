@@ -44,6 +44,11 @@ Image names are case and symbol sensitive and you must include the extension (e.
 Images must be JPG/JPEG/BMP.
 
 
+# How to use the bot.
+
+You can find out how to use the bot at the wiki page. To visit the wiki page, 
+
+
 # Common Errors
 ```
 connection established.
