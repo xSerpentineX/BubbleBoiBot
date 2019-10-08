@@ -46,7 +46,7 @@ Images must be JPG/JPEG/BMP.
 
 # How to use the bot.
 
-You can find out how to use the bot at the wiki page. To visit the wiki page, 
+You can find out how to use the bot at the wiki page. To visit the wiki page, [click here](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/wiki).
 
 
 # Common Errors
