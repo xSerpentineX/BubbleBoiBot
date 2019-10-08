@@ -37,7 +37,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 ```
 pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5 pyqt5-tools subprocess
 ```
-6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `BubbleBoiBot v1.8 Launcher` file.
+6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `launcher.pyw` file to run the GUI.
 
 All files in the `images` folder must be images.
 Image names are case and symbol sensitive and you must include the extension (e.g BubbleBoiBotLogo.jpg).
