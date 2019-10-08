@@ -347,7 +347,7 @@ async def on_lobbyConnected(data):
     GAME_DATA.update({'round' : data['round']})
 
     await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
-    
+
 
 @sio.on('lobbyState')
 def on_lobbyState(data):
