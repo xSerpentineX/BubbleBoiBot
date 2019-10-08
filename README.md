@@ -35,7 +35,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 
 5. In the windows shell, enter the following command:
 ```
-pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5 pyqt5-tools
+pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5 pyqt5-tools subprocess
 ```
 6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `BubbleBoiBot v1.8 Launcher` file.
 
