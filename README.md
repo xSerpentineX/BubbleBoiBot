@@ -76,4 +76,4 @@ Please report any errors you get to Catterall#5487. If I get the error commonly,
 ***You can find my current up-to-date discord at all times at my GitHub page [here](https://github.com/TheLoveableBananaNoodle).***
 
 
-# [Jump back to top!](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot#bubbleboibot-v181)
+# [Jump back to top!](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot#bubbleboibot-v182)
