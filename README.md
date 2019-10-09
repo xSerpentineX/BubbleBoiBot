@@ -1,4 +1,4 @@
-# BubbleBoiBot v1.81
+# BubbleBoiBot v1.82
 
 
 ***⭐ If this bot performed well for you, perhaps consider leaving a star? It'll let us know if we're on the right path! <3⭐***
