@@ -11,7 +11,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 
 
 # We now have a website!
-It doesn't exactly look great, but we now have a webpage for the bot: ![Click here to visit.](https://theloveablebanananoodle.github.io)
+It doesn't exactly look great, but we now have a webpage for the bot: [Click here to visit.](https://theloveablebanananoodle.github.io)
 
 
 # Features
