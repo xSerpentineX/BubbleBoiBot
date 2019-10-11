@@ -10,6 +10,10 @@ BubbleBoiBot is a skribbl.io bot programmed by `Catterall#5487` and `! [( TheGam
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
 
+# We now have a website!
+It doesn't exactly look great, but we now have a webpage for the bot: ![Click here to visit.](https://theloveablebanananoodle.github.io)
+
+
 # Features
 - 100% Free and Opensource at GitHub.
 + You can run eighteen bots per computer.
