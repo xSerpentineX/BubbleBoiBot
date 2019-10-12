@@ -39,7 +39,7 @@ It doesn't exactly look great, but we now have a webpage for the bot: [Click her
 
 5. In the windows shell, enter the following command:
 ```
-pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5 pyqt5-tools subprocess
+pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5
 ```
 6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `launcher.pyw` file to run the GUI.
 
