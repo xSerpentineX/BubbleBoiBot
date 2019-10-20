@@ -23,7 +23,7 @@ def errexit(errcode, sleep):
 
  
 try:
-    with open('settings.json') as settings_file:
+    with open('exec\settings.json') as settings_file:
         SETTINGS = commentjson.load(settings_file)
         messageLength = len(SETTINGS["SpamMessage"])
 except Exception as e:
@@ -339,6 +339,7 @@ async def on_lobbyConnected(data):
 
     if not doLeave and SETTINGS['OnlyUser']:
         print(f"{color.Back.WHITE}{color.Style.BRIGHT}{color.Fore.GREEN}Info: Leaving because {SETTINGS['OnlyUserName']} was not found.")
+        time.sleep(3)
         await sio.disconnect()
         os._exit(1)
 

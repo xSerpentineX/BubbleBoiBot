@@ -339,6 +339,8 @@ class Ui_BubbleBoiLauncher(object):
         self.gridLayout.addWidget(self.port5002_radio, 41, 0, 1, 1)
         self.search_checkbox = QtWidgets.QCheckBox(self.scrollAreaWidgetContents)
         self.search_checkbox.setObjectName("search_checkbox")
+        if only_user == True:
+            self.search_checkbox.setChecked(True)
         self.gridLayout.addWidget(self.search_checkbox, 67, 0, 1, 1)
         self.search_settings_label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
@@ -694,7 +696,7 @@ class Ui_BubbleBoiLauncher(object):
 
             if SETTINGS["portAll"]:
                 if not hidden:
-                    cmd = "exec\loop5001.bat"
+                    cmd = "loop5001.bat"
                     for x in range(start_times):
                         SW_MINIMIZE = 6
                         info = subprocess.STARTUPINFO()
@@ -702,7 +704,7 @@ class Ui_BubbleBoiLauncher(object):
                         info.wShowWindow = SW_MINIMIZE
                         subprocess.Popen(cmd, startupinfo=info)
                         t.sleep((delay/1000))
-                    cmd = "exec\loop5002.bat"
+                    cmd = "loop5002.bat"
                     for x in range(start_times):
                         SW_MINIMIZE = 6
                         info = subprocess.STARTUPINFO()
@@ -710,7 +712,7 @@ class Ui_BubbleBoiLauncher(object):
                         info.wShowWindow = SW_MINIMIZE
                         subprocess.Popen(cmd, startupinfo=info)
                         t.sleep((delay/1000))
-                    cmd = "exec\loop5003.bat"
+                    cmd = "loop5003.bat"
                     for x in range(start_times):
                         SW_MINIMIZE = 6
                         info = subprocess.STARTUPINFO()
@@ -719,7 +721,7 @@ class Ui_BubbleBoiLauncher(object):
                         subprocess.Popen(cmd, startupinfo=info)
                         t.sleep((delay/1000))
                 else:
-                    cmd = "exec\loop5001.bat"
+                    cmd = "loop5001.bat"
                     for x in range(start_times):
                         SW_HIDE = 0
                         info = subprocess.STARTUPINFO()
@@ -727,7 +729,7 @@ class Ui_BubbleBoiLauncher(object):
                         info.wShowWindow = SW_HIDE
                         subprocess.Popen(cmd, startupinfo=info)
                         t.sleep((delay/1000))
-                    cmd = "exec\loop5002.bat"
+                    cmd = "loop5002.bat"
                     for x in range(start_times):
                         SW_HIDE = 0
                         info = subprocess.STARTUPINFO()
@@ -735,7 +737,7 @@ class Ui_BubbleBoiLauncher(object):
                         info.wShowWindow = SW_HIDE
                         subprocess.Popen(cmd, startupinfo=info)
                         t.sleep((delay/1000))
-                    cmd = "exec\loop5003.bat"
+                    cmd = "loop5003.bat"
                     for x in range(start_times):
                         SW_HIDE = 0
                         info = subprocess.STARTUPINFO()
@@ -746,7 +748,7 @@ class Ui_BubbleBoiLauncher(object):
             else:
                 if SETTINGS["Port"] == 5001:
                     if not hidden:
-                        cmd = "exec\loop5001.bat"
+                        cmd = "loop5001.bat"
                         for x in range(start_times):
                             SW_MINIMIZE = 6
                             info = subprocess.STARTUPINFO()
@@ -755,7 +757,7 @@ class Ui_BubbleBoiLauncher(object):
                             subprocess.Popen(cmd, startupinfo=info)
                             t.sleep((delay/1000))
                     else:
-                        cmd = "exec\loop5001.bat"
+                        cmd = "loop5001.bat"
                         for x in range(start_times):
                             SW_HIDE = 0
                             info = subprocess.STARTUPINFO()
@@ -765,7 +767,7 @@ class Ui_BubbleBoiLauncher(object):
                             t.sleep((delay/1000))
                 if SETTINGS["Port"] == 5002:
                     if not hidden:
-                        cmd = "exec\loop5002.bat"
+                        cmd = "loop5002.bat"
                         for x in range(start_times):
                             SW_MINIMIZE = 6
                             info = subprocess.STARTUPINFO()
@@ -774,7 +776,7 @@ class Ui_BubbleBoiLauncher(object):
                             subprocess.Popen(cmd, startupinfo=info)
                             t.sleep((delay/1000))
                     else:
-                        cmd = "exec\loop5002.bat"
+                        cmd = "loop5002.bat"
                         for x in range(start_times):
                             SW_HIDE = 0
                             info = subprocess.STARTUPINFO()
@@ -784,7 +786,7 @@ class Ui_BubbleBoiLauncher(object):
                             t.sleep((delay/1000))
                 if SETTINGS["Port"] == 5003:
                     if not hidden:
-                        cmd = "exec\loop5003.bat"
+                        cmd = "loop5003.bat"
                         for x in range(start_times):
                             SW_MINIMIZE = 6
                             info = subprocess.STARTUPINFO()
@@ -793,7 +795,7 @@ class Ui_BubbleBoiLauncher(object):
                             subprocess.Popen(cmd, startupinfo=info)
                             t.sleep((delay/1000))
                     else:
-                        cmd = "exec\loop5003.bat"
+                        cmd = "loop5003.bat"
                         for x in range(start_times):
                             SW_HIDE = 0
                             info = subprocess.STARTUPINFO()
