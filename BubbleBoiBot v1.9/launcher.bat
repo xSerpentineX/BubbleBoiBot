@@ -1,6 +1,6 @@
 @echo off
 mode 10,10
 Call bubble_venv\Scripts\activate.bat
-cd exec
+cd bin
 start launcher.pyw
 exit 0

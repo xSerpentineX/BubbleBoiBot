@@ -15,6 +15,7 @@ from PIL import Image, ImageDraw, ImageFont
 color.init(autoreset="true")
 
 clear = True
+word_length = 0
 
 
 def errexit(errcode, sleep):
@@ -23,7 +24,7 @@ def errexit(errcode, sleep):
 
  
 try:
-    with open('exec\settings.json') as settings_file:
+    with open('bin\settings.json') as settings_file:
         SETTINGS = commentjson.load(settings_file)
         messageLength = len(SETTINGS["SpamMessage"])
 except Exception as e:
@@ -40,17 +41,23 @@ else:
 
 async def sendSpamMessage():
     global under_101
-    if SETTINGS["SpamServer"]:
-        if not under_101:
-            if SETTINGS["BrightOrDim"].lower() == "bright":
-                print(f"{color.Back.YELLOW}{color.Style.BRIGHT}Warning: Your message has {messageLength - 100} extra characters.")
-            else:
-                print(f"{color.Back.YELLOW}{color.Style.DIM}Warning: Your message has {messageLength - 100} extra characters.")
+    if not under_101:
+        if SETTINGS["BrightOrDim"].lower() == "bright":
+            print(f"{color.Back.YELLOW}{color.Style.BRIGHT}Warning: Your message has {messageLength - 100} extra characters.")
         else:
-            if SETTINGS["AutomaticFormatting"]:
-                await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))        
-            else:
-                await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+            print(f"{color.Back.YELLOW}{color.Style.DIM}Warning: Your message has {messageLength - 100} extra characters.")
+    else:
+        if SETTINGS["AutomaticFormatting"]:
+            await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))        
+        else:
+            await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+
+@sio.on('lobbyCurrentWord')
+async def guessWords(data):
+    global word_length
+    word_length == len({data})
+    
+
 
     
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
@@ -347,7 +354,11 @@ async def on_lobbyConnected(data):
     GAME_DATA.update({'myID': data['myID']})
     GAME_DATA.update({'round' : data['round']})
 
-    await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
+    if SETTINGS["SpamMessage"]:
+        await sio.emit('chat', f'{SETTINGS["SpamServer"]}')
+    else:
+        print(f"{color.Fore.WHITE}SpamServer not enabled. Word Guess mode activated.")
+        await sio.emit('chat', 'BubbleBoiBot Word Guesser.')
 
 
 @sio.on('lobbyState')
