@@ -1,4 +1,4 @@
-# BubbleBoiBot v1.82
+# BubbleBoiBot v1.9
 
 
 ***⭐ If this bot performed well for you, perhaps consider leaving a star? It'll let us know if we're on the right path! <3⭐***
@@ -11,7 +11,7 @@ This bot is a complete remake of alekxeyuk's original Python bot that adds count
 
 
 # We now have a website!
-It doesn't exactly look great, but we now have a webpage for the bot: [Click here to visit.](https://theloveablebanananoodle.github.io)
+It doesn't exactly look great, but we now have a webpage for the bot: [Click here to visit.](https://bubbleboibot.github.io)
 
 
 # Features
@@ -35,13 +35,7 @@ It doesn't exactly look great, but we now have a webpage for the bot: [Click her
 
 3. Download the bot at the releases tab: https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases.
 
-4. Do `windows + s` and type in the search, "Windows power shell". Right click it and then click, "Run as administrator."
-
-5. In the windows shell, enter the following command:
-```
-pip install websockets aiohttp python-socketio requests Pillow numpy commentjson colorama pyqt5
-```
-6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `launcher.pyw` file to run the GUI.
+6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `launcher.bat` file to run the GUI.
 
 All files in the `images` folder must be images.
 Image names are case and symbol sensitive and you must include the extension (e.g BubbleBoiBotLogo.jpg).
@@ -80,4 +74,4 @@ Please report any errors you get to Catterall#5487. If I get the error commonly,
 ***You can find my current up-to-date discord at all times at my GitHub page [here](https://github.com/TheLoveableBananaNoodle).***
 
 
-# [Jump back to top!](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot#bubbleboibot-v182)
+# [Jump back to top!](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot#bubbleboibot-v19)
