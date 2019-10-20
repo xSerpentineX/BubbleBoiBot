@@ -40,26 +40,20 @@ else:
 
 
 async def sendSpamMessage():
-    global under_101
-    if not under_101:
-        if SETTINGS["BrightOrDim"].lower() == "bright":
-            print(f"{color.Back.YELLOW}{color.Style.BRIGHT}Warning: Your message has {messageLength - 100} extra characters.")
+    if SETTINGS["SpamServer"]:
+        global under_101
+        if not under_101:
+            if SETTINGS["BrightOrDim"].lower() == "bright":
+                print(f"{color.Back.YELLOW}{color.Style.BRIGHT}Warning: Your message has {messageLength - 100} extra characters.")
+            else:
+                print(f"{color.Back.YELLOW}{color.Style.DIM}Warning: Your message has {messageLength - 100} extra characters.")
         else:
-            print(f"{color.Back.YELLOW}{color.Style.DIM}Warning: Your message has {messageLength - 100} extra characters.")
-    else:
-        if SETTINGS["AutomaticFormatting"]:
-            await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))        
-        else:
-            await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
-
-@sio.on('lobbyCurrentWord')
-async def guessWords(data):
-    global word_length
-    word_length == len({data})
-    
+            if SETTINGS["AutomaticFormatting"]:
+                await sio.emit("chat", f"{SETTINGS['SpamMessage']}".replace(".", ","))        
+            else:
+                await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
 
 
-    
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
     print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Algorithm \"{SETTINGS['Algorithm']}\" was not found. See settings.json and change \"Algorithm\" to \"cluster\" or \"yliluoma\".")
     errexit(1,5)
