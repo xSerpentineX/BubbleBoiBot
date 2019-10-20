@@ -15,7 +15,6 @@ from PIL import Image, ImageDraw, ImageFont
 color.init(autoreset="true")
 
 clear = True
-word_length = 0
 
 
 def errexit(errcode, sleep):
@@ -40,8 +39,8 @@ else:
 
 
 async def sendSpamMessage():
+    global under_101
     if SETTINGS["SpamServer"]:
-        global under_101
         if not under_101:
             if SETTINGS["BrightOrDim"].lower() == "bright":
                 print(f"{color.Back.YELLOW}{color.Style.BRIGHT}Warning: Your message has {messageLength - 100} extra characters.")
@@ -53,7 +52,7 @@ async def sendSpamMessage():
             else:
                 await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
 
-
+    
 if not (SETTINGS["Algorithm"].lower() == 'cluster' or SETTINGS["Algorithm"].lower() == 'yliluoma'):
     print(f"{color.Back.RED}{color.Style.BRIGHT}Error: Algorithm \"{SETTINGS['Algorithm']}\" was not found. See settings.json and change \"Algorithm\" to \"cluster\" or \"yliluoma\".")
     errexit(1,5)
@@ -348,11 +347,7 @@ async def on_lobbyConnected(data):
     GAME_DATA.update({'myID': data['myID']})
     GAME_DATA.update({'round' : data['round']})
 
-    if SETTINGS["SpamMessage"]:
-        await sio.emit('chat', f'{SETTINGS["SpamServer"]}')
-    else:
-        print(f"{color.Fore.WHITE}SpamServer not enabled. Word Guess mode activated.")
-        await sio.emit('chat', 'BubbleBoiBot Word Guesser.')
+    await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
 
 
 @sio.on('lobbyState')
