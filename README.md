@@ -67,7 +67,7 @@ Please report any errors you get to Catterall#5487. If I get the error commonly,
 
 
 # Contact Me
-**Discord: `Catterall#5487` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
+**Discord: `Catterall#7322` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
 
 **ProtonMail: `CleoStevenson92@protonmail.com` (Yes, this is a made up name)**
 
