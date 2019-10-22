@@ -5,7 +5,7 @@
 
 ![MainImage](https://user-images.githubusercontent.com/54080082/67154365-c4d7df80-f2f2-11e9-9186-1d20e7ea803b.jpg)
 
-BubbleBoiBot is a skribbl.io bot programmed by `Catterall#5487` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
+BubbleBoiBot is a skribbl.io bot programmed by `Catterall#7322` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
 
 This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
@@ -28,7 +28,7 @@ It doesn't exactly look great, but we now have a webpage for the bot: [Click her
 - A simple GUI that is easy to use and remembers input.
 
 
-# How to install the bot
+# How to install the bot (As of v1.9)
 1. Download Python 3.7.4 here: https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe
 
 2. When installing Python 3.7.4, check the, "Install to PATH", checkbox then click, "Custom installation". Check every box and leave the default save location as default (Do not click browse!)
@@ -57,7 +57,7 @@ This error means a number of different things. Either the servers are full, whic
 
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
 
-Please report any errors you get to Catterall#5487. If I get the error commonly, I will add it to this list.
+Please report any errors you get to Catterall#7322. If I get the error commonly, I will add it to this list.
 
 
 # Disclaimers
@@ -67,7 +67,7 @@ Please report any errors you get to Catterall#5487. If I get the error commonly,
 
 
 # Contact Me
-**Discord: `Catterall#5487` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
+**Discord: `Catterall#7322` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
 
 **ProtonMail: `CleoStevenson92@protonmail.com` (Yes, this is a made up name)**
 
