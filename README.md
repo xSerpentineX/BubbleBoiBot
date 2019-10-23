@@ -7,7 +7,7 @@
 
 BubbleBoiBot is a skribbl.io bot programmed by `Catterall#7322` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
 
-This bot is a complete remake of alekxeyuk's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
+This bot is a complete remake of @alekxeyuk 's original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
 
 # We now have a website!
