@@ -69,7 +69,7 @@ Please report any errors you get to Catterall#7322. If I get the error commonly,
 # Contact Me
 **Discord: `Catterall#7322` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
 
-**ProtonMail: `CleoStevenson92@protonmail.com` (Yes, this is a made up name)**
+**ProtonMail: `kylejamescatterall@protonmail.com`**
 
 ***You can find my current up-to-date discord at all times at my GitHub page [here](https://github.com/TheLoveableBananaNoodle).***
 
