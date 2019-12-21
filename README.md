@@ -29,7 +29,7 @@ It doesn't exactly look great, but we now have a webpage for the bot: [Click her
 + A simple chat logger to read over the chat in case you missed anything.
 
 
-# How to install the bot (As of v1.9)
+# How to install the bot (As of v1.91)
 1. Download Python 3.7.4 32bit or 64bit here: 
 
 32-bit: https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe
