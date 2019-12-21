@@ -1,11 +1,11 @@
-# BubbleBoiBot v1.9
+# BubbleBoiBot v1.91
 
 
 ***⭐ If this bot performed well for you, perhaps consider leaving a star? It'll let us know if we're on the right path! <3⭐***
 
 ![MainImage](https://user-images.githubusercontent.com/54080082/67154365-c4d7df80-f2f2-11e9-9186-1d20e7ea803b.jpg)
 
-BubbleBoiBot is a skribbl.io bot programmed by `Catterall#7322` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
+BubbleBoiBot is a skribbl.io bot programmed by `KyleJamesCatterall#0989` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
 
 This bot is a complete remake of [alekxeyuk's](https://github.com/alekxeyuk) original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
@@ -26,6 +26,7 @@ It doesn't exactly look great, but we now have a webpage for the bot: [Click her
 - Optional automatic searching for users (Use a VPN to stop skribbl.io stopping your connections!).
 + Seven colour themes for the bot console.
 - A simple GUI that is easy to use and remembers input.
++ A simple chat logger to read over the chat in case you missed anything.
 
 
 # How to install the bot (As of v1.9)
