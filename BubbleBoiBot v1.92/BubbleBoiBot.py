@@ -49,8 +49,8 @@ log_name_f = time.strftime("%S")
 if not os.path.exists(r'chat-log'):
     os.mkdir('chat-log')
 
-with open(r'chat-log\{} {} {}; {}h {}m {}s.txt'.format(log_name_a, log_name_b, log_name_c, log_name_d,log_name_e,log_name_f), 'w') as file:
-    file.write("Chat log for bot ran at {}h {}m {}s on {} {} {}:\n".format(log_name_d, log_name_e, log_name_f, log_name_a,log_name_b,log_name_c))
+with open(r'chat-log\PORT {}; {} {} {}; {}h {}m {}s.txt'.format(SETTINGS["Port"], log_name_a, log_name_b, log_name_c, log_name_d,log_name_e,log_name_f), 'w') as file:
+    file.write("Chat log for bot ran at {}h {}m {}s on {} {} {} (PORT {}):\n".format(log_name_d, log_name_e, log_name_f, log_name_a,log_name_b,log_name_c, SETTINGS["Port"]))
     file.close()
 
 async def sendSpamMessage():
@@ -243,6 +243,9 @@ async def on_lobbyConnected(data):
     """
     When we connected to the lobby we print out the current round, the number of players, the players names and their score, we also also store that info into GAME_DATA dict
     """
+    log_destination = r'chat-log\PORT {}; {} {} {}; {}h {}m {}s.txt'.format(SETTINGS["Port"], log_name_a, log_name_b, log_name_c, log_name_d,log_name_e,log_name_f)
+    print(f'{color.Fore.LIGHTMAGENTA_EX}This lobbies chat will be saved to {log_destination}')
+    print(f'{color.Fore.LIGHTMAGENTA_EX}Notice: As of v1.92, text containing unicode or text from a username containing unicode can not be saved into the chat logs.\n')
     if SETTINGS["BrightOrDim"].lower() == "bright":
         if SETTINGS["ColourTheme"].lower() == "emerald":
             print(f"{color.Fore.WHITE}{color.Style.BRIGHT}Lobby connected")
@@ -506,9 +509,16 @@ async def on_chat(data):
                 print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
         
         if not GAME_DATA['players'][data['id']]['name'] == SETTINGS['BotName']:
-            with open(r'chat-log\{} {} {}; {}h {}m {}s.txt'.format(log_name_a, log_name_b, log_name_c, log_name_d,log_name_e,log_name_f), 'a') as file:
-                file.write(f"\n{GAME_DATA['players'][data['id']]['name']} >>> {data['message']}")
-                file.close()
+            with open(r'chat-log\PORT {}; {} {} {}; {}h {}m {}s.txt'.format(SETTINGS["Port"], log_name_a, log_name_b, log_name_c, log_name_d,log_name_e,log_name_f), 'a') as file:
+                try:
+                    file.write(f"\n{GAME_DATA['players'][data['id']]['name']} >>> {data['message']}")
+                    file.close()
+                except UnicodeEncodeError:
+                    if SETTINGS["ColourTheme"].lower() == "emerald" or SETTINGS["ColourTheme"].lower() == "ocean" or SETTINGS["ColourTheme"].lower() == "storm" or SETTINGS["ColourTheme"].lower() == "candy" or SETTINGS["ColourTheme"].lower() == "plain" or SETTINGS["ColourTheme"].lower() == "gold":
+                        print(f"{color.Fore.RED}{color.Style.BRIGHT}Unicode error: Text not saved to log.")
+                        file.close()
+                    else:
+                        print(f"{color.Fore.LIGHTBLUE_EX}{color.Style.BRIGHT}Unicode error: Text not saved to log.")
         if clear == True:
             clear = False
             t.sleep(1.4)
@@ -765,43 +775,60 @@ async def start_server():
         SETTINGS["Port"] = 5001
     await sio.connect(f"wss://skribbl.io:{SETTINGS['Port']}/")
     await sio.wait()
-    print(f"{color.Back.RED}{color.Style.BRIGHT}Et tu, Brute?")
+    print(f"{color.Back.RED}{color.Style.BRIGHT}Reconnecting.")
 
     
 if __name__ == '__main__':
+    your_time = f"{log_name_a} {log_name_b} {log_name_c} :: {log_name_d}h {log_name_e}m {log_name_f}s\n"
     if SETTINGS["BrightOrDim"].lower() == 'bright':
         if SETTINGS["ColourTheme"].lower() == 'emerald':
+            print(f"{color.Fore.LIGHTGREEN_EX}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'fire':
+            print(f"{color.Fore.LIGHTRED_EX}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'ocean':
+            print(f"{color.Fore.LIGHTBLUE_EX}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.LIGHTCYAN_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'storm':
+            print(f"{color.Fore.LIGHTCYAN_EX}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'candy':
+            print(f"{color.Fore.LIGHTYELLOW_EX}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.LIGHTBLUE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'plain':
+            print(f"{color.Fore.LIGHTWHITE_EX}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'gold':
+            print(f"{color.Fore.LIGHTWHITE_EX}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.LIGHTYELLOW_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         else:
+            print(f"{color.Fore.LIGHTWHITE_EX}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.LIGHTWHITE_EX}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
     else:
         if SETTINGS["ColourTheme"].lower() == 'emerald':
+            print(f"{color.Fore.GREEN}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'fire':
+            print(f"{color.Fore.RED}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'ocean':
+            print(f"{color.Fore.BLUE}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.CYAN}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'storm':
+            print(f"{color.Fore.CYAN}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'candy':
+            print(f"{color.Fore.YELLOW}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.CYAN}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'plain':
+            print(f"{color.Fore.WHITE}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         elif SETTINGS["ColourTheme"].lower() == 'gold':
+            print(f"{color.Fore.WHITE}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.YELLOW}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
         else:
+            print(f"{color.Fore.WHITE}BubbleBoiBot v1.92 programmed by KyleJamesCatterall#0989\n{your_time}")
             print(f"{color.Fore.WHITE}Logging into server \"{SETTINGS['Language']}\" with the username: \"{SETTINGS['BotName']}\" at port {SETTINGS['Port']}.")
     
     loop = asyncio.get_event_loop()
