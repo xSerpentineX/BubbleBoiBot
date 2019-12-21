@@ -61,7 +61,7 @@ This error means a number of different things. Either the servers are full, whic
 
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
 
-Please report any errors you get to Catterall#7322. If I get the error commonly, I will add it to this list.
+Please report any errors you get to KyleJamesCatterall#0989. If I get the error commonly, I will add it to this list.
 
 
 # Disclaimers
@@ -71,7 +71,7 @@ Please report any errors you get to Catterall#7322. If I get the error commonly,
 
 
 # Contact Me
-**Discord: `Catterall#7322` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
+**Discord: `KyleJamesCatterall#0989` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
 
 **ProtonMail: `kylejamescatterall@protonmail.com`**
 
