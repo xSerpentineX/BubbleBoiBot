@@ -1,6 +1,7 @@
 import os
+from datetime import datetime
 import sys
-import time
+import time as t
 import string
 import asyncio
 import socketio
@@ -18,7 +19,7 @@ clear = True
 
 
 def errexit(errcode, sleep):
-    time.sleep(sleep)
+    t.sleep(sleep)
     os._exit(errcode)
 
  
@@ -37,6 +38,20 @@ if len(SETTINGS["SpamMessage"]) > 100:
 else:
     under_101 = True
 
+time = datetime.now()
+log_name_a = time.strftime("%d")
+log_name_b = time.strftime("%b")
+log_name_c = time.strftime("%Y")
+log_name_d = time.strftime("%H")
+log_name_e = time.strftime("%M")
+log_name_f = time.strftime("%S")
+
+if not os.path.exists(r'chat-log'):
+    os.mkdir('chat-log')
+
+with open(r'chat-log\{} {} {}; {}h {}m {}s.txt'.format(log_name_a, log_name_b, log_name_c, log_name_d,log_name_e,log_name_f), 'w') as file:
+    file.write("Chat log for bot ran at {}h {}m {}s on {} {} {}:\n".format(log_name_d, log_name_e, log_name_f, log_name_a,log_name_b,log_name_c))
+    file.close()
 
 async def sendSpamMessage():
     global under_101
@@ -339,7 +354,7 @@ async def on_lobbyConnected(data):
 
     if not doLeave and SETTINGS['OnlyUser']:
         print(f"{color.Back.WHITE}{color.Style.BRIGHT}{color.Fore.GREEN}Info: Leaving because {SETTINGS['OnlyUserName']} was not found.")
-        time.sleep(3)
+        t.sleep(3)
         await sio.disconnect()
         os._exit(1)
 
@@ -348,7 +363,6 @@ async def on_lobbyConnected(data):
     GAME_DATA.update({'round' : data['round']})
 
     await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
-
 
 @sio.on('lobbyState')
 def on_lobbyState(data):
@@ -490,9 +504,14 @@ async def on_chat(data):
                 print(f"{color.Fore.YELLOW}{color.Style.DIM}{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
             else:
                 print(f"{GAME_DATA['players'][data['id']]['name']} wrote > {data['message']}")
+        
+        if not GAME_DATA['players'][data['id']]['name'] == SETTINGS['BotName']:
+            with open(r'chat-log\{} {} {}; {}h {}m {}s.txt'.format(log_name_a, log_name_b, log_name_c, log_name_d,log_name_e,log_name_f), 'a') as file:
+                file.write(f"\n{GAME_DATA['players'][data['id']]['name']} >>> {data['message']}")
+                file.close()
         if clear == True:
             clear = False
-            time.sleep(1.4)
+            t.sleep(1.4)
             await sendSpamMessage()
             clear = True
     else:
@@ -584,7 +603,7 @@ async def on_lobbyPlayerDisconnected(data):
 
     if SETTINGS["OnlyUser"] and GAME_DATA['players'][data]['name'] == SETTINGS["OnlyUserName"]:
         await sio.eio.disconnect(True)
-        time.sleep(2)
+        t.sleep(2)
         await start_server()
 
 

@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="C:\users\kylej\desktop\BubbleBoiBot v1.9\bubble_venv"
+$env:VIRTUAL_ENV="C:\Users\kylej\Desktop\BubbleBoiBot v1.91\bubble_venv"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name
