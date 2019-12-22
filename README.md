@@ -3,7 +3,7 @@
 
 ***⭐ If this bot performed well for you, perhaps consider leaving a star? It'll let us know if we're on the right path! <3⭐***
 
-![MainImage](https://user-images.githubusercontent.com/54080082/67154365-c4d7df80-f2f2-11e9-9186-1d20e7ea803b.jpg)
+![MainImage](https://user-images.githubusercontent.com/54080082/71325739-f898d680-24e8-11ea-8ca5-0cb0a3015d2c.jpg)
 
 BubbleBoiBot is a skribbl.io bot programmed by `KyleJamesCatterall#0989` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
 
