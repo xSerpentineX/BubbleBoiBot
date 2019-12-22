@@ -58,9 +58,10 @@ connection established.
 disconnected from server.
 disconnected from server.
 ```
-This error means a number of different things. Either the servers are full, which can be solved easily by waiting or joining a different language; You're running too many bots on one port, which can be solved easily by closing some bots on one port; or the skribbl.io website has targetted your PC on suspicion (this happens a lot when you use the bot to search for users) which can be solved by using a VPN. ProtonVPN would be a good VPN to use for this.
+This error means a number of different things. Either the servers are full, which can be solved easily by waiting or joining a different language; You're running too many bots on one port, which can be solved easily by closing some bots on one port; or the skribbl.io website has targetted your PC on suspicion (maybe you were joining games too quickly) which can be solved by using a VPN. ProtonVPN would be a good VPN to use for this, as it is free and only requires a proton email, which is also free.
 
-`ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)` You must use JPG/JPEG images.
+`ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)`
+You must use JPG/JPEG images.
 
 Please report any errors you get to KyleJamesCatterall#0989. If I get the error commonly, I will add it to this list.
 
