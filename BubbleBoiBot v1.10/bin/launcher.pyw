@@ -107,6 +107,8 @@ class Ui_BubbleBoiLauncher(object):
         BubbleBoiLauncher.resize(950, 700)
         BubbleBoiLauncher.setMinimumSize(QtCore.QSize(950, 700))
         BubbleBoiLauncher.setMaximumSize(QtCore.QSize(950, 700))
+        scriptDir = os.path.dirname(os.path.realpath(__file__))
+        BubbleBoiLauncher.setWindowIcon(QtGui.QIcon(scriptDir + os.path.sep + 'bot_icon.ico'))
         self.centralwidget = QtWidgets.QWidget(BubbleBoiLauncher)
         self.centralwidget.setObjectName("centralwidget")
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
@@ -337,20 +339,20 @@ class Ui_BubbleBoiLauncher(object):
             self.port5002_radio.setChecked(True)
         self.port_group.addButton(self.port5002_radio)
         self.gridLayout.addWidget(self.port5002_radio, 41, 0, 1, 1)
-        self.search_checkbox = QtWidgets.QCheckBox(self.scrollAreaWidgetContents)
-        self.search_checkbox.setObjectName("search_checkbox")
+        self.avoidance_checkbox = QtWidgets.QCheckBox(self.scrollAreaWidgetContents)
+        self.avoidance_checkbox.setObjectName("avoidance_checkbox")
         if only_user == True:
-            self.search_checkbox.setChecked(True)
-        self.gridLayout.addWidget(self.search_checkbox, 67, 0, 1, 1)
-        self.search_settings_label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+            self.avoidance_checkbox.setChecked(True)
+        self.gridLayout.addWidget(self.avoidance_checkbox, 67, 0, 1, 1)
+        self.avoidance_settings_label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("Gadugi")
         font.setPointSize(14)
         font.setBold(False)
         font.setWeight(50)
-        self.search_settings_label.setFont(font)
-        self.search_settings_label.setObjectName("search_settings_label")
-        self.gridLayout.addWidget(self.search_settings_label, 65, 0, 1, 1)
+        self.avoidance_settings_label.setFont(font)
+        self.avoidance_settings_label.setObjectName("avoidance_settings_label")
+        self.gridLayout.addWidget(self.avoidance_settings_label, 65, 0, 1, 1)
         self.image_path_label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.image_path_label.setObjectName("image_path_label")
         self.gridLayout.addWidget(self.image_path_label, 59, 0, 1, 1)
@@ -512,7 +514,7 @@ class Ui_BubbleBoiLauncher(object):
 
     def retranslateUi(self, BubbleBoiLauncher):
         _translate = QtCore.QCoreApplication.translate
-        BubbleBoiLauncher.setWindowTitle(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.92 - Launcher"))
+        BubbleBoiLauncher.setWindowTitle(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10 - Launcher"))
         self.spam_label.setText(_translate("BubbleBoiLauncher", "Message:"))
         self.randomAvatar_checkbox.setText(_translate("BubbleBoiLauncher", "Random Avatar"))
         self.port5003_radio.setText(_translate("BubbleBoiLauncher", "5003"))
@@ -522,7 +524,7 @@ class Ui_BubbleBoiLauncher(object):
         self.four_start_radio.setText(_translate("BubbleBoiLauncher", "4"))
         self.delay1250_radio.setText(_translate("BubbleBoiLauncher", "1250ms"))
         self.hidden_mode_label.setText(_translate("BubbleBoiLauncher", "Hidden Mode (Hide tasks in Task Manager):"))
-        self.title_label.setText(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.92"))
+        self.title_label.setText(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10"))
         self.two_start_radio.setText(_translate("BubbleBoiLauncher", "2"))
         self.delay1000_radio.setText(_translate("BubbleBoiLauncher", "1000ms"))
         self.colour_themes_label.setText(_translate("BubbleBoiLauncher", "Colour Theme:"))
@@ -544,8 +546,8 @@ class Ui_BubbleBoiLauncher(object):
         self.dark_checkbox.setText(_translate("BubbleBoiLauncher", "Dark Mode"))
         self.port5001_radio.setText(_translate("BubbleBoiLauncher", "5001"))
         self.port5002_radio.setText(_translate("BubbleBoiLauncher", "5002"))
-        self.search_checkbox.setText(_translate("BubbleBoiLauncher", "Search"))
-        self.search_settings_label.setText(_translate("BubbleBoiLauncher", "Search Settings:"))
+        self.avoidance_checkbox.setText(_translate("BubbleBoiLauncher", "Enable Avoidance (The bot will leave if it meets the username specified. If this username is your bot, one instance of the bot will still be left in the lobby)"))
+        self.avoidance_settings_label.setText(_translate("BubbleBoiLauncher", "Avoidance Settings:"))
         self.image_path_label.setText(_translate("BubbleBoiLauncher", "Image path:"))
         self.portAll_radio.setText(_translate("BubbleBoiLauncher", "All"))
         self.port_label.setText(_translate("BubbleBoiLauncher", "Port to attack:"))
@@ -560,7 +562,7 @@ class Ui_BubbleBoiLauncher(object):
         self.draw_settings_label.setText(_translate("BubbleBoiLauncher", "Drawing Settings:"))
         self.spam_settings_label.setText(_translate("BubbleBoiLauncher", "Spam Settings:"))
         self.algorithm_label.setText(_translate("BubbleBoiLauncher", "Drawing algorithm:"))
-        self.username_label.setText(_translate("BubbleBoiLauncher", "Username to find:"))
+        self.username_label.setText(_translate("BubbleBoiLauncher", "Username to avoid:"))
         self.start_button.setText(_translate("BubbleBoiLauncher", "Launch"))
 
 
@@ -675,7 +677,7 @@ class Ui_BubbleBoiLauncher(object):
             drawing_algorithm = 'cluster'
         else:
             drawing_algorithm = 'yliluoma'
-        if self.search_checkbox.isChecked():
+        if self.avoidance_checkbox.isChecked():
             only_user = True
         else:
             only_user = False
