@@ -1,5 +1,5 @@
 @echo off
-title BubbleBoiBot v1.92 - Port 5003
+title BubbleBoiBot v1.10.2 - Port 5003
 for %%I in (.) do set CurrDirName=%%~nxI
 if "%CurrDirName%"=="bin" (
 	cd..

@@ -689,12 +689,18 @@ async def on_lobbyChooseWord(data):
     When the lobby says that someone can choose a word, we check that it is us
     """
     if data['id'] == GAME_DATA["myID"]:
-        GAME_DATA.update({"word": data['words'][2]})   # We always choose the third word, you can change it the way you want it to work
-        if SETTINGS["BrightOrDim"].lower() == "dim":
-            print(f"{color.Style.BRIGHT}I am drawing {data['words'][2]}")
+        if not SETTINGS["ExitOnTurn"]:
+            GAME_DATA.update({"word": data['words'][2]})   # We always choose the third word, you can change it the way you want it to work
+            if SETTINGS["BrightOrDim"].lower() == "dim":
+                print(f"{color.Style.BRIGHT}I am drawing {data['words'][2]}")
+            else:
+                print(f"{color.Style.DIM}I am drawing {data['words'][2]}")
+                await sio.emit("lobbyChooseWord", 2)
         else:
-            print(f"{color.Style.DIM}I am drawing {data['words'][2]}")
-            await sio.emit("lobbyChooseWord", 2)
+            print(f"{color.Back.LIGHTGREEN_EX}{color.Fore.LIGHTWHITE_EX}Avoidance: \"Exit on turn\" is checked. Exiting lobby...")
+            t.sleep(1)
+            await sio.disconnect()
+            os._exit(1)
 
 
 def image_optimize(img, x_size, y_size):

@@ -33,6 +33,7 @@ image_path = 'BubbleBoiBotLogo.jpg'
 drawing_algorithm = 'cluster'
 only_user = False
 only_username = ''
+exit_on_turn = False
 X = 3
 Y = 4
 port_all = False
@@ -58,6 +59,7 @@ def check_and_load_settings():
     global drawing_algorithm
     global only_user
     global only_username
+    global exit_on_turn
     global X
     global Y
     global port_all
@@ -84,13 +86,14 @@ def check_and_load_settings():
             drawing_algorithm = SETTINGS["Algorithm"]
             only_user = SETTINGS["OnlyUser"]
             only_username = SETTINGS["OnlyUserName"]
+            exit_on_turn = SETTINGS["ExitOnTurn"]
             port_all = SETTINGS["portAll"]
             X = SETTINGS["X"]
             Y = SETTINGS["Y"]
 
     else:
         default_settings = {'delay': delay, 'hidden': hidden, 'start_times': start_times, 'ColourTheme': colour_theme, 'BrightOrDim': dark_mode, 'BotName': name, 'Language': language, 'Port': port, 'Join': join, 'RandomAvatar': random_avatar, 'SpamServer': spam_server,
-                            'SpamMessage': spam_message, 'AutomaticFormatting': automatic_formatting, 'Shuffle': shuffle, 'RandomImage': random_image, 'ImageToDraw': image_path, 'Algorithm': drawing_algorithm, 'OnlyUser': only_user, 'OnlyUserName': only_username, 'portAll': port_all, 'X': X, 'Y': Y}
+                            'SpamMessage': spam_message, 'AutomaticFormatting': automatic_formatting, 'Shuffle': shuffle, 'RandomImage': random_image, 'ImageToDraw': image_path, 'Algorithm': drawing_algorithm, 'OnlyUser': only_user, 'OnlyUserName': only_username, 'ExitOnTurn': exit_on_turn, 'portAll': port_all, 'X': X, 'Y': Y}
         settings = json.dumps(default_settings)
         with open('settings.json', 'w') as file:
             file.write(settings)
@@ -444,11 +447,18 @@ class Ui_BubbleBoiLauncher(object):
         self.username_text.setObjectName("username_text")
         self.username_text.setPlainText(only_username)
         self.gridLayout.addWidget(self.username_text, 69, 0, 1, 1)
+        
+        self.exit_on_turn_checkbox = QtWidgets.QCheckBox(self.scrollAreaWidgetContents)
+        self.exit_on_turn_checkbox.setObjectName("exit_on_turn_checkbox")
+        if exit_on_turn == True:
+            self.exit_on_turn_checkbox.setChecked(True)
+        self.gridLayout.addWidget(self.exit_on_turn_checkbox, 70, 0, 1, 1)
+        
         self.line_9 = QtWidgets.QFrame(self.scrollAreaWidgetContents)
         self.line_9.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_9.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_9.setObjectName("line_9")
-        self.gridLayout.addWidget(self.line_9, 70, 0, 1, 1)
+        self.gridLayout.addWidget(self.line_9, 75, 0, 1, 1)
         self.algorithm_label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.algorithm_label.setObjectName("algorithm_label")
         self.gridLayout.addWidget(self.algorithm_label, 61, 0, 1, 1)
@@ -493,7 +503,7 @@ class Ui_BubbleBoiLauncher(object):
         font.setWeight(75)
         self.start_button.setFont(font)
         self.start_button.setObjectName("start_button")
-        self.gridLayout.addWidget(self.start_button, 71, 0, 1, 1)
+        self.gridLayout.addWidget(self.start_button, 76, 0, 1, 1)
         self.line_7 = QtWidgets.QFrame(self.scrollAreaWidgetContents)
         self.line_7.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_7.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -514,7 +524,7 @@ class Ui_BubbleBoiLauncher(object):
 
     def retranslateUi(self, BubbleBoiLauncher):
         _translate = QtCore.QCoreApplication.translate
-        BubbleBoiLauncher.setWindowTitle(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10.1 - Launcher"))
+        BubbleBoiLauncher.setWindowTitle(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10.2 - Launcher"))
         self.spam_label.setText(_translate("BubbleBoiLauncher", "Message:"))
         self.randomAvatar_checkbox.setText(_translate("BubbleBoiLauncher", "Random Avatar"))
         self.port5003_radio.setText(_translate("BubbleBoiLauncher", "5003"))
@@ -524,7 +534,7 @@ class Ui_BubbleBoiLauncher(object):
         self.four_start_radio.setText(_translate("BubbleBoiLauncher", "4"))
         self.delay1250_radio.setText(_translate("BubbleBoiLauncher", "1250ms"))
         self.hidden_mode_label.setText(_translate("BubbleBoiLauncher", "Hidden Mode (Hide tasks in Task Manager):"))
-        self.title_label.setText(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10.1"))
+        self.title_label.setText(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10.2"))
         self.two_start_radio.setText(_translate("BubbleBoiLauncher", "2"))
         self.delay1000_radio.setText(_translate("BubbleBoiLauncher", "1000ms"))
         self.colour_themes_label.setText(_translate("BubbleBoiLauncher", "Colour Theme:"))
@@ -563,6 +573,7 @@ class Ui_BubbleBoiLauncher(object):
         self.spam_settings_label.setText(_translate("BubbleBoiLauncher", "Spam Settings:"))
         self.algorithm_label.setText(_translate("BubbleBoiLauncher", "Drawing algorithm:"))
         self.username_label.setText(_translate("BubbleBoiLauncher", "Username to avoid:"))
+        self.exit_on_turn_checkbox.setText(_translate("BubbleBoiLauncher", "Exit the lobby on your turn (Note: If this option is checked, you will avoid being kicked, but can not draw. Choose based on what your aim is for this bot!)"))
         self.start_button.setText(_translate("BubbleBoiLauncher", "Launch"))
 
 
@@ -586,6 +597,7 @@ class Ui_BubbleBoiLauncher(object):
         global drawing_algorithm
         global only_user
         global only_username
+        global exit_on_turn
         global X
         global Y
         global port_all
@@ -682,11 +694,15 @@ class Ui_BubbleBoiLauncher(object):
         else:
             only_user = False
         only_username = self.username_text.toPlainText()
+        if self.exit_on_turn_checkbox.isChecked():
+            exit_on_turn = True
+        else:
+            exit_on_turn = False
 
         BubbleBoiLauncher.close()
 
         changed_settings = {'delay': delay, 'hidden': hidden, 'start_times': start_times, 'ColourTheme': colour_theme, 'BrightOrDim': dark_mode, 'BotName': name, 'Language': language, 'Port': port, 'Join': join, 'RandomAvatar': random_avatar, 'SpamServer': spam_server,
-                            'SpamMessage': spam_message, 'AutomaticFormatting': automatic_formatting, 'Shuffle': shuffle, 'RandomImage': random_image, 'ImageToDraw': image_path, 'Algorithm': drawing_algorithm, 'OnlyUser': only_user, 'OnlyUserName': only_username, 'portAll': port_all, 'X': X, 'Y': Y}
+                            'SpamMessage': spam_message, 'AutomaticFormatting': automatic_formatting, 'Shuffle': shuffle, 'RandomImage': random_image, 'ImageToDraw': image_path, 'Algorithm': drawing_algorithm, 'OnlyUser': only_user, 'OnlyUserName': only_username, 'ExitOnTurn': exit_on_turn, 'portAll': port_all, 'X': X, 'Y': Y}
         new_settings = json.dumps(changed_settings)
         os.remove('settings.json')
         with open('settings.json', 'w') as file:
