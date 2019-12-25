@@ -514,7 +514,7 @@ class Ui_BubbleBoiLauncher(object):
 
     def retranslateUi(self, BubbleBoiLauncher):
         _translate = QtCore.QCoreApplication.translate
-        BubbleBoiLauncher.setWindowTitle(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10 - Launcher"))
+        BubbleBoiLauncher.setWindowTitle(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10.1 - Launcher"))
         self.spam_label.setText(_translate("BubbleBoiLauncher", "Message:"))
         self.randomAvatar_checkbox.setText(_translate("BubbleBoiLauncher", "Random Avatar"))
         self.port5003_radio.setText(_translate("BubbleBoiLauncher", "5003"))
@@ -524,7 +524,7 @@ class Ui_BubbleBoiLauncher(object):
         self.four_start_radio.setText(_translate("BubbleBoiLauncher", "4"))
         self.delay1250_radio.setText(_translate("BubbleBoiLauncher", "1250ms"))
         self.hidden_mode_label.setText(_translate("BubbleBoiLauncher", "Hidden Mode (Hide tasks in Task Manager):"))
-        self.title_label.setText(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10"))
+        self.title_label.setText(_translate("BubbleBoiLauncher", "BubbleBoiBot v1.10.1"))
         self.two_start_radio.setText(_translate("BubbleBoiLauncher", "2"))
         self.delay1000_radio.setText(_translate("BubbleBoiLauncher", "1000ms"))
         self.colour_themes_label.setText(_translate("BubbleBoiLauncher", "Colour Theme:"))

@@ -361,7 +361,7 @@ async def on_lobbyConnected(data):
 
     if doLeave and SETTINGS['OnlyUser'] and leaver_counter >= 3:
         print(f"{color.Back.RED}{color.Style.DIM}{color.Fore.WHITE}Avoidance: \"{SETTINGS['OnlyUserName']}\" found. Exiting lobby.")
-        t.sleep(0.5)
+        t.sleep(r.randint(3,5))
         await sio.disconnect()
         os._exit(1)
 

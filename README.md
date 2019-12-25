@@ -1,4 +1,4 @@
-# BubbleBoiBot v1.10
+# BubbleBoiBot v1.10.1
 
 
 ***⭐ If this bot performed well for you, perhaps consider leaving a star? It'll let us know if we're on the right path! <3⭐***
@@ -29,7 +29,7 @@ It doesn't exactly look great, but we now have a webpage for the bot: [Click her
 + A simple chat logger to read over the chat in case you missed anything.
 
 
-# How to install the bot (As of v1.10)
+# How to install the bot (As of v1.10.1)
 1. Download Python 3.7.4 32bit or 64bit here: 
 
 32-bit: https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe
@@ -80,4 +80,4 @@ Please report any errors you get to KyleJamesCatterall#0989. If I get the error 
 ***You can find my current up-to-date discord at all times at my GitHub page [here](https://github.com/TheLoveableBananaNoodle).***
 
 
-# [Jump back to top!](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot#bubbleboibot-v110)
+# [Jump back to top!](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot#bubbleboibot-v1101)
