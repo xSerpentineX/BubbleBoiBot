@@ -5,7 +5,7 @@
 
 ![MainImage](https://user-images.githubusercontent.com/54080082/71325739-f898d680-24e8-11ea-8ca5-0cb0a3015d2c.jpg)
 
-BubbleBoiBot is a skribbl.io bot programmed by `KyleJamesCatterall#0989` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
+BubbleBoiBot is a skribbl.io bot programmed by `Nebulous#0989` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
 
 This bot is a complete remake of [alekxeyuk's](https://github.com/alekxeyuk) original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
@@ -64,7 +64,7 @@ This error means a number of different things. Either the servers are full, whic
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)`
 You must use JPG/JPEG images.
 
-Please report any errors you get to KyleJamesCatterall#0989. If I get the error commonly, I will add it to this list.
+Please report any errors you get to Nebulous#0989. If I get the error commonly, I will add it to this list.
 
 
 # Disclaimers
@@ -74,7 +74,7 @@ Please report any errors you get to KyleJamesCatterall#0989. If I get the error 
 
 
 # Contact Me
-**Discord: `KyleJamesCatterall#0989` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
+**Discord: `Nebulous#09899` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
 
 **ProtonMail: `kylejamescatterall@protonmail.com`**
 
