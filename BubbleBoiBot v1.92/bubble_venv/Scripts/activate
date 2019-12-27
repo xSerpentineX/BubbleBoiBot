@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\kylej\Desktop\BubbleBoiBot v1.10.2\bubble_venv"
+VIRTUAL_ENV="C:\Users\kylej\Desktop\BubbleBoiBot v1.92\bubble_venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

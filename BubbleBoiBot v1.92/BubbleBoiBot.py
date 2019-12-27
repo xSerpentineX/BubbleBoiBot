@@ -16,8 +16,7 @@ from PIL import Image, ImageDraw, ImageFont
 color.init(autoreset="true")
 
 clear = True
-leaver_counter = 0
-doLeave = False
+
 
 def errexit(errcode, sleep):
     t.sleep(sleep)
@@ -241,9 +240,6 @@ async def on_connect():
 @sio.on('lobbyConnected')
 async def on_lobbyConnected(data):
     global clear
-    global leaver_counter
-    global doLeave
-    doLeave = False
     """
     When we connected to the lobby we print out the current round, the number of players, the players names and their score, we also also store that info into GAME_DATA dict
     """
@@ -317,6 +313,7 @@ async def on_lobbyConnected(data):
             print(f"Round {data['round']} / {data['roundMax']}")
             print(f"There {len(data['players'])} players: ")
 
+    doLeave = False
     for player in data['players']:
         if SETTINGS["BrightOrDim"].lower() == "bright":
             if SETTINGS["ColourTheme"].lower() == "emerald":
@@ -355,13 +352,12 @@ async def on_lobbyConnected(data):
 
         if player['name'] == SETTINGS["OnlyUserName"] and SETTINGS['OnlyUser']:
             doLeave = True
-            leaver_counter += (leaver_counter + 1)
 
     print()
 
-    if doLeave and SETTINGS['OnlyUser'] and leaver_counter >= 3:
-        print(f"{color.Back.RED}{color.Style.DIM}{color.Fore.WHITE}Avoidance: \"{SETTINGS['OnlyUserName']}\" found. Exiting lobby.")
-        t.sleep(r.randint(3,5))
+    if not doLeave and SETTINGS['OnlyUser']:
+        print(f"{color.Back.WHITE}{color.Style.BRIGHT}{color.Fore.GREEN}Info: Leaving because {SETTINGS['OnlyUserName']} was not found.")
+        t.sleep(3)
         await sio.disconnect()
         os._exit(1)
 
@@ -369,7 +365,7 @@ async def on_lobbyConnected(data):
     GAME_DATA.update({'myID': data['myID']})
     GAME_DATA.update({'round' : data['round']})
 
-    await sio.emit("chat", f"{SETTINGS['SpamMessage']}")
+    await sio.emit('chat', f'{SETTINGS["SpamMessage"]}')
 
 @sio.on('lobbyState')
 def on_lobbyState(data):
@@ -576,7 +572,6 @@ async def on_lobbyPlayerConnected(data):
 
 @sio.on('lobbyPlayerDisconnected')
 async def on_lobbyPlayerDisconnected(data):
-    global doLeave
     """
     When someone leaves the lobby, we want to know this, so this is what this function does
     It also makes the bot leave if OnlyUser is enabled
@@ -615,6 +610,12 @@ async def on_lobbyPlayerDisconnected(data):
             print(f"{color.Fore.WHITE}{color.Style.DIM}{GAME_DATA['players'][data]['name']} left.")
         else:
             print(f"{GAME_DATA['players'][data]['name']} left.")
+
+    if SETTINGS["OnlyUser"] and GAME_DATA['players'][data]['name'] == SETTINGS["OnlyUserName"]:
+        await sio.eio.disconnect(True)
+        t.sleep(2)
+        await start_server()
+
 
 @sio.on('lobbyPlayerGuessedWord')
 def on_lobbyPlayerGuessedWord(data):
@@ -689,18 +690,12 @@ async def on_lobbyChooseWord(data):
     When the lobby says that someone can choose a word, we check that it is us
     """
     if data['id'] == GAME_DATA["myID"]:
-        if not SETTINGS["ExitOnTurn"]:
-            GAME_DATA.update({"word": data['words'][2]})   # We always choose the third word, you can change it the way you want it to work
-            if SETTINGS["BrightOrDim"].lower() == "dim":
-                print(f"{color.Style.BRIGHT}I am drawing {data['words'][2]}")
-            else:
-                print(f"{color.Style.DIM}I am drawing {data['words'][2]}")
-                await sio.emit("lobbyChooseWord", 2)
+        GAME_DATA.update({"word": data['words'][2]})   # We always choose the third word, you can change it the way you want it to work
+        if SETTINGS["BrightOrDim"].lower() == "dim":
+            print(f"{color.Style.BRIGHT}I am drawing {data['words'][2]}")
         else:
-            print(f"{color.Back.LIGHTGREEN_EX}{color.Fore.LIGHTWHITE_EX}Avoidance: \"Exit on turn\" is checked. Exiting lobby...")
-            t.sleep(1)
-            await sio.disconnect()
-            os._exit(1)
+            print(f"{color.Style.DIM}I am drawing {data['words'][2]}")
+            await sio.emit("lobbyChooseWord", 2)
 
 
 def image_optimize(img, x_size, y_size):
@@ -844,5 +839,5 @@ if __name__ == '__main__':
 # Thank you for using our bot.
 
 # [Original] Python programmed by alekxeyuk.
-# [New] Python programmed by Nebulous#0989.
-# [New] Batch / JSON programmed by ! [( TheGamerX )]#7912.
+# [New] Python programmed by KyleJamesCatterall#0989
+# [New] Batch / JSON programmed by ! [( TheGamerX )]#7912
