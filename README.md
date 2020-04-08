@@ -1,4 +1,12 @@
-# BubbleBoiBot v1.9.2 (Final Release)
+# This bot is old and, as far as I'm aware, no longer works.
+# We might have lost the war, but we fought a good battle!
+
+# RIP BUBBLEBOIBOT: 2019 - 2020
+
+
+
+
+ BubbleBoiBot v1.9.2 (Final Release)
 
 
 ***⭐ If this bot performed well for you, perhaps consider leaving a star? It'll let us know if we're on the right path! <3⭐***
