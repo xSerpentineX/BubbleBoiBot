@@ -9,7 +9,7 @@
 ***⭐ If this bot performed well for you, perhaps consider leaving a star? It'll let us know if we're on the right path! <3⭐***
 
 
-BubbleBoiBot is a skribbl.io bot programmed by `Nebulous#0989` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
+BubbleBoiBot is a skribbl.io bot programmed by `Britannia#0989` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
 
 This bot is a complete remake of [alekxeyuk's](https://github.com/alekxeyuk) original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
@@ -77,9 +77,9 @@ Please report any errors you get to Nebulous#0989. If I get the error commonly, 
 
 
 # Contact Me
-**Discord: `Nebulous#09899` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
+**Discord: `Britannia` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
 
-**ProtonMail: `kylejamescatterall@protonmail.com`**
+**ProtonMail: `catterallboi@protonmail.com`**
 
 ***You can find my current up-to-date discord at all times at my GitHub page [here](https://github.com/TheLoveableBananaNoodle).***
 
