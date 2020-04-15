@@ -1,6 +1,6 @@
 # This bot is patched and no longer works! (RIP 2019-2020)
 
-## MESSAGE TO SKRIBBL.IO DISCORD: UNBAN BRITANNIA#0989.
+## MESSAGE TO SKRIBBL.IO DISCORD: PLEASE UNBAN BRITANNIA#0989.
 
 
  BubbleBoiBot v1.9.2 (Final Release)
