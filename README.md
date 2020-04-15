@@ -1,9 +1,3 @@
-# This bot is old and, as far as I'm aware, no longer works.
-# We might have lost the war, but we fought a good battle!
-
-# RIP BUBBLEBOIBOT: 2019 - 2020
-
-
 # MESSAGE TO SKRIBBL.IO DISCORD: UNBAN BRITANNIA#0989
 
 
