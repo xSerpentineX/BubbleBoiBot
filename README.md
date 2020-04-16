@@ -1,4 +1,4 @@
-# PainoGaming#0913, providing that you read this, know that your ignorance is futile and your achievements in life remain unseen to the human eye.
+# PainoGaming#0913, let me back in!
 
 
  BubbleBoiBot v1.9.2 (Final Release)
