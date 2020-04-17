@@ -1,4 +1,4 @@
-# PainoGaming#0913, let me back in!
+# This bot is PATCHED and no longer works. RIP.
 
 
  BubbleBoiBot v1.9.2 (Final Release)
