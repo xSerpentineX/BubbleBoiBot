@@ -1,19 +1,9 @@
-# This bot is PATCHED and no longer works. RIP.
+### This bot is patched: it has been moved to my new main account and will remain archived.
 
 
- BubbleBoiBot v1.9.2 (Final Release)
+BubbleBoiBot is a skribbl.io bot programmed using Python.
 
-
-***⭐ If this bot performed well for you, perhaps consider leaving a star? It'll let us know if we're on the right path! <3⭐***
-
-
-BubbleBoiBot is a skribbl.io bot programmed by `Britannia#0989` and `! [( TheGamerX )]#7912` using a bit of JSON and Batch.
-
-This bot is a complete remake of [alekxeyuk's](https://github.com/alekxeyuk) original Python bot that adds countless new features along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
-
-
-# We now have a website!
-It doesn't exactly look great, but we now have a webpage for the bot: [Click here to visit.](https://bubbleboibot.github.io/)
+This bot is a complete remake of [alekxeyuk's](https://github.com/alekxeyuk) original Python bot that adds countless new features - along with fixing other features to make them more user friendly. You can view any disclaimers at the bottom of this text.
 
 
 # Features
@@ -31,27 +21,26 @@ It doesn't exactly look great, but we now have a webpage for the bot: [Click her
 - A simple chat logger to read over the chat in case you missed anything.
 
 
-# How to install the bot (As of v1.9.2)
-1. Download Python 3.7.4 32bit or 64bit here (Make sure to choose the right one for your device): 
+# How to install the bot
+- Download Python 3.7.4 32bit or 64bit here (Make sure to choose the right one for your device): 
 
-32-bit: https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe
+  - 32-bit: https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe
 
-64-bit: https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe
+  - 64-bit: https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe
 
-2. When installing Python 3.7.4, check the, "Install to PATH", checkbox then click, "Custom installation". Check every box and leave the default save location as default (Do not click browse!) (For those wondering, you must install to all users to get pythonw.exe)
+- When installing Python 3.7.4, check the, "Install to PATH", checkbox then click, "Custom installation". Check every box and leave the default save location as default (Do not click browse!) (For those wondering, you must install to all users to get pythonw.exe)
 
-3. Download the bot at the releases tab: https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases.
+- Download the bot at the releases tab: https://github.com/TheLoveableBananaNoodle/BubbleBoiBot/releases.
 
-6. To run the bot, head to the BubbleBoiBot folder (Not the ZIP!) and click the `launcher.bat` file to run the GUI.
+- To run the bot, go to the BubbleBoiBot folder and click the `launcher.bat` file to run the GUI.
 
-All files in the `images` folder must be images.
-Image names are case and symbol sensitive and you must include the extension (e.g BubbleBoiBotLogo.jpg).
-Images must be JPG/JPEG/BMP.
+  - All files in the `images` folder must be images.
+  - Image names are case and symbol sensitive and you must include the extension (e.g BubbleBoiBotLogo.jpg).
+  - Images must be JPG/JPEG/BMP.
 
 
 # How to use the bot.
-
-You can find out how to use the bot by visiting the wiki page. To visit the wiki page, [click here](https://bubbleboibot.github.io/wiki.html) (you should probably open this in a new tab).
+You can find out how to use the bot by visiting the [wiki page](https://bubbleboibot.github.io/wiki.html).
 
 
 # Common Errors
@@ -65,21 +54,6 @@ This error means a number of different things. Either the servers are full, whic
 `ValueError: operands could not be broadcast together with shapes (150, 200) and (150, 200, 3)`
 You must use JPG/JPEG images.
 
-Please report any errors you get to Nebulous#0989. If I get the error commonly, I will add it to this list.
-
 
 # Disclaimers
-- Disclaimer No.1: VirusTotal states, "57/58 scanners, including Avast, AVG, McAfee, Norton, claim that this is malware free. The only scanner that claims virus is obsecure, and claims it is adware, more than likely due to spamming.
-
-- Disclaimer No.2: There is a differance between a potentially unwanted program (PUP) and malware.
-
-
-# Contact Me
-**Discord: `Britannia` (Notice: This discord may change at any times due to random reasons, keep up to date!)**
-
-**ProtonMail: `catterallboi@protonmail.com`**
-
-***You can find my current up-to-date discord at all times at my GitHub page [here](https://github.com/TheLoveableBananaNoodle).***
-
-
-# [Jump back to top!](https://github.com/TheLoveableBananaNoodle/BubbleBoiBot#bubbleboibot-v192)
+Believe this is malware? Well, you're wrong - it's open source; you can *see* the scripts used and they clearly aren't malware.
