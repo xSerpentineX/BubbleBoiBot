@@ -1,4 +1,4 @@
-### This bot is patched: it has been moved to my new main account and will remain archived.
+### Notice: This bot is patched - it has been moved to my new main account and will remain archived.
 
 
 BubbleBoiBot is a skribbl.io bot programmed using Python.
