@@ -40,7 +40,7 @@ This bot is a complete remake of [alekxeyuk's](https://github.com/alekxeyuk) ori
 
 
 # How to use the bot.
-You can find out how to use the bot by visiting the [wiki page](https://bubbleboibot.github.io/wiki.html).
+Simply run the GUI and enter the desired settings to run the bot. From there, keep the application running. To close the bot, right click the application's icon in the task bar and click "Close all windows" to quickly close all the instances of the bot running.
 
 
 # Common Errors
